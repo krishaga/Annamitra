@@ -1,8 +1,10 @@
-const donations = new mongoose.Schema({
-    Quantity: String,
+const donationSchema = new mongoose.Schema({
+    quantity: String,
     description: String,
-    Address: String,
+    addressFrom: String,
+    addressTo : String,
     date: Date,
-    Time: Time,
-    Uid: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Id' }]
+    Uid: [{ type: mongoose.Schema.Types.ObjectId, ref: '_id' }]
   });
+
+export const Donations = mongoose.model('Donations', donationSchema);
