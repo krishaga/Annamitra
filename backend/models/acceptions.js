@@ -3,4 +3,3 @@ const acceptor = new mongoose.Schema({
     password: String,
     uid: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Id' }]
   });
-  
