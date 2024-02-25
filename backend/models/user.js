@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     emailid : String,
     username: String,
     password: String,
-    address : AddressSchema
+    address : AddressSchema   
   });
 
 export const User = mongoose.model('User', userSchema);

@@ -1,9 +1,9 @@
-// const express= require('express')
-// const cors= require('cors')
+const express= require('express')
+const cors= require('cors')
 // const jwt = require('jsonwebtoken');
-// const app = express();
-// app.use(cors())
-// app.use(express.json());
+const app = express();
+app.use(cors())
+app.use(express.json());
 // const SECRET = 'SECr3t';  // This should be in an environment variable in a real application
 
 
@@ -23,7 +23,26 @@
 //     }
 //   };
  
-  
+
+
+
+app.post('user/login',async(req,res)=>{
+    const {name,mobileNo,emailid,username,password,}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
