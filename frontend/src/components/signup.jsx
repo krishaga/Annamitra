@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/signup.css";
 
 function Signup() {
@@ -12,9 +12,53 @@ function Signup() {
     const [state, setState] = React.useState("");
     const [postalcode, setPostalcode] = React.useState("");
     const [country, setCountry] = React.useState("");
+    const [error, setError] = useState("");
+
+    const handleSignup = () => {
+
+        fetch("http://localhost:3000/api/auth/signup", {
+            method: "POST",
+            body: JSON.stringify({
+                username,
+                password,
+                name,
+                email,
+                mobileno,
+                address: {
+                    street,
+                    city,
+                    state,
+                    postalcode,
+                    country
+                }
+            }),
+            headers: {
+                "Content-type": "application/json",
+            },
+        })
+        .then((res) => {
+            if (!res.ok) {
+                if(res.status==403){
+                    window.alert("Username Already Exists");
+                    return;
+                }
+            }
+            return res.json();
+        })
+        .then((data) => {
+            if (data.errors) {
+                alert(data.errors.map(error => error.msg).join("\n"))
+                setError(data.errors.map(error => error.msg).join(", "));
+            } else {
+                // Handle successful signup
+                localStorage.setItem("token", data.token);
+                // Redirect or update UI as needed
+            }
+        })
+    };
 
     return (
-        <div >
+        <div>
             <div>
                 Welcome To Annamitra. Sign Up Below
             </div>
@@ -22,8 +66,8 @@ function Signup() {
                 display: "flex",
                 justifyContent: "space-around",
                 alignItems: "center",
-                width:"100%",
-                height:"100%"
+                width: "100%",
+                height: "100%"
             }}>
                 <div className="side-image">
                     <img src="https://miro.medium.com/v2/da:true/resize:fit:700/1*BJHpzKGCqf7TrVQb96656Q.gif" alt="hello" />
@@ -45,105 +89,64 @@ function Signup() {
                         placeholder="Password"
                     />
                     <input
-                        onChange={(e)=>{
+                        onChange={(e) => {
                             setName(e.target.value);
-                        }} 
+                        }}
                         label="Name"
                         placeholder="Name"
                     />
                     <input
-                        onChange={(e)=>{
+                        onChange={(e) => {
                             setEmail(e.target.value);
-                        }} 
+                        }}
                         label="Email"
                         type="email"
                         placeholder="Email"
-                         />
+                    />
                     <input
-                        onChange={(e)=>{
+                        onChange={(e) => {
                             setMobileno(e.target.value);
-                        }}  
-                        label="Mobile No"
-                        placeholder="Mobile No" 
-                     />
-                    <input 
-                        onChange={(e)=>{
-                            setStreet(e.target.value);
-                        }} 
-                        label="Street" 
-                        placeholder="Street"
-                     />
-                    <input style={{marginRight:"10px"}}
-                        onChange={(e)=>{
-                            setCity(e.target.value);
-                        }} 
-                        label="City" 
-                        placeholder="City"
-                     />
-                    <input
-                        onChange={(e)=>{
-                            setState(e.target.value);
-                        }} 
-                        label="State" 
-                        placeholder="State"
-                     />
-                    <input style={{marginRight:"10px"}}
-                        onChange={(e)=>{
-                            setPostalcode(e.target.value);
-                        }} 
-                        label="Postal Code" 
-                        placeholder="Postal Code"
-                     />
-                    <input
-                        onChange={(e)=>{
-                            setCountry(e.target.value);
-                        }} 
-                        label="Country" 
-                        placeholder="Country"
-                     />
-                    <button
-                        onClick={() => {
-                            fetch("http://localhost:3000/api/auth/signup", {
-                                method: "POST",
-                                body: JSON.stringify({
-                                    username: username,
-                                    password: password,
-                                    name: name,
-                                    email: email,
-                                    mobileno: mobileno,
-                                    address: {
-                                        street: street,
-                                        city: city,
-                                        state: state,
-                                        postalcode: postalcode,
-                                        country: country
-                                    }
-                                }),
-                                headers: {
-                                    "Content-type": "application/json",
-                                },
-                            })
-                            .then((res) => {
-                                if (!res.ok) {
-                                    // throw new Error("Network response was not ok");
-                                    console.log("network")
-                                }
-                                return res.json();
-                            })
-                            .then((data) => {
-                                if(data.token === undefined)
-                                {console.log(data.token.krish);}
-                                localStorage.setItem("token", data.token);
-                                // Handle successful signup, e.g., redirect or update UI
-                            })
-                            .catch((error) => {
-
-                               alert("catch")
-                                ;                                console.error("Error during fetch:", error);
-                                setError("An error occurred. Please try again later.");
-                            });
                         }}
-                    >
+                        label="Mobile No"
+                        placeholder="Mobile No"
+                    />
+                    <input
+                        onChange={(e) => {
+                            setStreet(e.target.value);
+                        }}
+                        label="Street"
+                        placeholder="Street"
+                    />
+                    <input style={{ marginRight: "10px" }}
+                        onChange={(e) => {
+                            setCity(e.target.value);
+                        }}
+                        label="City"
+                        placeholder="City"
+                    />
+                    <input
+                        onChange={(e) => {
+                            setState(e.target.value);
+                        }}
+                        label="State"
+                        placeholder="State"
+                    />
+                    <input style={{ marginRight: "10px" }}
+                        onChange={(e) => {
+                            setPostalcode(e.target.value);
+                        }}
+                        label="Postal Code"
+                        placeholder="Postal Code"
+                    />
+                    <input
+                        onChange={(e) => {
+                            setCountry(e.target.value);
+                        }}
+                        label="Country"
+                        placeholder="Country"
+                    />
+                    <button
+                        onClick={handleSignup}>
                         Sign Up
                     </button>
                 </div>
@@ -153,4 +156,3 @@ function Signup() {
 }
 
 export default Signup;
-

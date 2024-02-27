@@ -13,27 +13,32 @@ function Navbar() {
                 height: 40,
             }}
         >
-            <div>Annamitra</div>
+            <div
+                onClick={()=>{
+                    window.location="/Annamitra";                    
+                }}>
+                Annamitra
+            </div>
             <div style={{ display: "flex" }}>
                 <div style={{ marginRight: 10 }}>
-                    <div
+                    <button
                         variant={"contained"}
                         onClick={() => {
                             window.location = "/SignUp";
                         }}
                     >
                         SignUp
-                    </div>
+                    </button>
                 </div>
                 <div>
-                    <div
+                    <button
                         variant={"contained"}
                         onClick={() => {
                             window.location = "/Login";
                         }}
                     >
                         LogIn
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
