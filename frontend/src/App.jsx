@@ -10,15 +10,7 @@ function App() {
     return (
         <div>
             <Navbar></Navbar>
-            <DonationsList></DonationsList>
-            <div
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundColor: "#eeeeee",
-                    paddingBottom: "200px",
-                }}
-            >
+            <div>
                 <BrowserRouter>
                     <Routes>
                         {/* <Route path='/' element={<Home/>}/> */}

@@ -15,7 +15,6 @@ const createUser = async (req, res) => {
     // Destructure user input from request body
     const { name, mobileno, email, username, password } = req.body;
     const {street, city, state, postalcode, country} = req.body.address
-    console.log(name,mobileno,email,username,password,street,city,state,postalcode,country)
     try {
         // Check if the user with the given username already exists
         const userExists = await User.findOne({ username });

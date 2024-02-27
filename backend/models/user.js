@@ -9,6 +9,11 @@ const AddressSchema = new mongoose.Schema({
 });
 
 const userSchema = new mongoose.Schema({
+  // Use Buffer type for storing binary data (e.g., images)
+  // image: {
+  //   data: Buffer,
+  //   contentType: String,
+  // },
   name: String,
   mobileno: String,
   email: String,

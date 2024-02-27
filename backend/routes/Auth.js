@@ -18,9 +18,8 @@ router.post('/signup',
     ],
     (req, res) => {
         const errors = validationResult(req);
-        console.log('Validation Errors:', errors.array());
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            return res.status(500).json({ errors: errors.array() });
         }
 
         // If no validation errors, proceed to createUser function

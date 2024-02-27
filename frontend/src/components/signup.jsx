@@ -1,103 +1,151 @@
 import React from "react";
+import "../styles/signup.css";
+
 function Signup() {
-    const [email, setEmail] = React.useState("");
+    const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [name, setName] = React.useState("");
+    const [mobileno, setMobileno] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [street, setStreet] = React.useState("");
+    const [city, setCity] = React.useState("");
+    const [state, setState] = React.useState("");
+    const [postalcode, setPostalcode] = React.useState("");
+    const [country, setCountry] = React.useState("");
+
     return (
-        <div>
-            Krish
-            <div style={{ display: "flex", justifyContent: "center" }}>
-                <div
-                    style={{
-                        paddingTop: 200,
-                        paddingBottom: 10,
-                    }}
-                >
-                    Welcome To Coursera. Sign Up Below
-                </div>
+        <div >
+            <div>
+                Welcome To Annamitra. Sign Up Below
             </div>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-                <div
-                    variant="outlined"
-                    style={{
-                        width: 400,
-                        padding: 20,
-                        // paddingBottom: 200,
-                    }}
-                >
+            <div style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                width:"100%",
+                height:"100%"
+            }}>
+                <div className="side-image">
+                    <img src="https://miro.medium.com/v2/da:true/resize:fit:700/1*BJHpzKGCqf7TrVQb96656Q.gif" alt="hello" />
+                </div>
+                <div className="signup-form">
                     <input
                         onChange={(e) => {
-                            setEmail(e.target.value);
+                            setUsername(e.target.value);
                         }}
-                        fullWidth={true}
                         label="Username"
-                        variant="outlined"
+                        placeholder="Username"
                     />
-                    <br />
-                    <br />
                     <input
                         onChange={(e) => {
                             setPassword(e.target.value);
                         }}
-                        fullWidth={true}
-                        // id="password"
                         label="Password"
-                        variant="outlined"
                         type="password"
+                        placeholder="Password"
                     />
-
-                    <br />
-                    <br />
-                    {/* <TextField 
-                        fullWidth={true}
-                        id="outlined-basic" 
-                        label="FirstName" 
-                        variant="outlined" />
-                    <br />
-                    <br />
-                    <TextField 
-                        fullWidth={true}
-                        id="outlined-basic" 
-                        label="LastName" 
-                        variant="outlined" />
-                    <br />
-                    <br />
-                    <TextField 
-                        fullWidth={true}
-                        id="outlined-basic" 
-                        label="Email-id" 
-                        variant="outlined" />
-                    <br />
-                    <br />
-                    <TextField 
-                        fullWidth={true}
-                        id="outlined-basic" 
-                        label="Mobile No" 
-                        variant="outlined" />
-                    <br />
-                    <br /> */}
-                    <div
-                        size={"Larger"}
-                        variant="contained"
+                    <input
+                        onChange={(e)=>{
+                            setName(e.target.value);
+                        }} 
+                        label="Name"
+                        placeholder="Name"
+                    />
+                    <input
+                        onChange={(e)=>{
+                            setEmail(e.target.value);
+                        }} 
+                        label="Email"
+                        type="email"
+                        placeholder="Email"
+                         />
+                    <input
+                        onChange={(e)=>{
+                            setMobileno(e.target.value);
+                        }}  
+                        label="Mobile No"
+                        placeholder="Mobile No" 
+                     />
+                    <input 
+                        onChange={(e)=>{
+                            setStreet(e.target.value);
+                        }} 
+                        label="Street" 
+                        placeholder="Street"
+                     />
+                    <input style={{marginRight:"10px"}}
+                        onChange={(e)=>{
+                            setCity(e.target.value);
+                        }} 
+                        label="City" 
+                        placeholder="City"
+                     />
+                    <input
+                        onChange={(e)=>{
+                            setState(e.target.value);
+                        }} 
+                        label="State" 
+                        placeholder="State"
+                     />
+                    <input style={{marginRight:"10px"}}
+                        onChange={(e)=>{
+                            setPostalcode(e.target.value);
+                        }} 
+                        label="Postal Code" 
+                        placeholder="Postal Code"
+                     />
+                    <input
+                        onChange={(e)=>{
+                            setCountry(e.target.value);
+                        }} 
+                        label="Country" 
+                        placeholder="Country"
+                     />
+                    <button
                         onClick={() => {
-                            fetch("http://localhost:3000/admin/signup", {
+                            fetch("http://localhost:3000/api/auth/signup", {
                                 method: "POST",
                                 body: JSON.stringify({
-                                    username: email,
+                                    username: username,
                                     password: password,
+                                    name: name,
+                                    email: email,
+                                    mobileno: mobileno,
+                                    address: {
+                                        street: street,
+                                        city: city,
+                                        state: state,
+                                        postalcode: postalcode,
+                                        country: country
+                                    }
                                 }),
                                 headers: {
                                     "Content-type": "application/json",
                                 },
                             })
-                                .then((res) => res.json())
-                                .then((data) => {
-                                    localStorage.setItem("token", data.token);
-                                    // console.log(data);
-                                });
+                            .then((res) => {
+                                if (!res.ok) {
+                                    // throw new Error("Network response was not ok");
+                                    console.log("network")
+                                }
+                                return res.json();
+                            })
+                            .then((data) => {
+                                if(data.token === undefined)
+                                {console.log(data.token.krish);}
+                                localStorage.setItem("token", data.token);
+                                // Handle successful signup, e.g., redirect or update UI
+                            })
+                            .catch((error) => {
+
+                               alert("catch")
+                                ;                                console.error("Error during fetch:", error);
+                                setError("An error occurred. Please try again later.");
+                            });
                         }}
                     >
                         Sign Up
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -106,81 +154,3 @@ function Signup() {
 
 export default Signup;
 
-// import axios from "axios";
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-// function Signup() {
-//     const [email, setEmail] = useState("");
-//     const [password, setPassword] = useState("");
-//     const navigate = useNavigate();
-//     const [user, setUser] = useState(userState);
-
-//     const newSignup = () => {
-//         axios
-//             .post(`${BASE_URL}/admin/signup`, {
-//                 username: email,
-//                 password: password,
-//             })
-//             .then((response) => {
-//                 localStorage.setItem("token", response.data.token);
-//                 setUser({
-//                     userEmail: email,
-//                     isLoading: false,
-//                 });
-//                 navigate("/courses");
-//             });
-//     };
-
-//     if (user.userEmail) {
-//         return (
-//             <Typography variant="h4" align="center" style={{ marginTop: 160 }}>
-//                 You've already registered.
-//             </Typography>
-//         );
-//     } else {
-//         return (
-//             <div style={{ paddingTop: "20vh" }}>
-//                 <center>
-//                     <Typography variant="h5">
-//                         Welcome to COURZERO! Sign up here.
-//                     </Typography>
-//                     <br />
-//                     <Card
-//                         variant="outlined"
-//                         style={{ width: 400, padding: "2%" }}
-//                     >
-//                         <TextField
-//                             fullWidth
-//                             label="Email"
-//                             variant="outlined"
-//                             type={"text"}
-//                             onChange={(e) => setEmail(e.target.value)}
-//                         />
-//                         <br />
-//                         <br />
-//                         <TextField
-//                             fullWidth
-//                             label="Password"
-//                             variant="outlined"
-//                             type={"text"}
-//                             onChange={(e) => setPassword(e.target.value)}
-//                         />
-//                         <br />
-//                         <br />
-//                         <Button variant="contained" onClick={Signup}>
-//                             Signup
-//                         </Button>
-//                         <br />
-//                         <br />
-//                         <Typography fontSize={"caption"} variant="h6">
-//                             Already a user? <a href="/login">Login</a>
-//                         </Typography>
-//                     </Card>
-//                 </center>
-//             </div>
-//         );
-//     }
-// }
-
-// export default Signup;

@@ -13,7 +13,7 @@ function Navbar() {
                 height: 40,
             }}
         >
-            <div>Coursera</div>
+            <div>Annamitra</div>
             <div style={{ display: "flex" }}>
                 <div style={{ marginRight: 10 }}>
                     <div
