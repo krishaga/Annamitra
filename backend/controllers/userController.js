@@ -6,11 +6,11 @@ const SECRET = "Foodsew";  // add to env
 const createUser = async (req, res) => {
     // Destructure user input from request body
     const { name, mobileno, email, username, password } = req.body;
-    const {street, city, state, postalcode, country} = req.body.address
+    const { street, city, state, postalcode, country } = req.body.address
     try {
         // Check if the user with the given username already exists
         const userExists = await User.findOne({ username });
-        
+
         if (userExists) {
             return res.status(403).json({ message: 'User already exists' });
         }
@@ -44,15 +44,17 @@ const createUser = async (req, res) => {
     }
 };
 
-const loginUser = async(req, res) => {
+const loginUser = async (req, res) => {
     const { username, password } = req.headers;
+    console.log(username, password)
     const user = await User.findOne({ username, password });
+    console.log(user)
     if (user) {
-      const token = jwt.sign({ username }, SECRET, { expiresIn: '30d' });
-      res.json({ message: 'Logged in successfully', token });
+        const token = jwt.sign({ username }, SECRET, { expiresIn: '30d' });
+        res.json({ message: 'Logged in successfully', token });
     } else {
-      res.status(403).json({ message: 'Invalid username or password' });
+        res.status(403).json({ message: 'Invalid username or password' });
     }
-  
+
 }
-module.exports = { createUser };
+module.exports = { createUser, loginUser };
