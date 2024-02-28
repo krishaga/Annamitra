@@ -35,7 +35,7 @@ const createUser = async (req, res) => {
         await newUser.save();
 
         // Create and return a JWT token for user authentication
-        const token = jwt.sign({ username, role: 'user' }, SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ username, role: 'user' }, SECRET, { expiresIn: '30d' });
 
         res.status(200).json({ message: 'User created successfully', token });
     } catch (error) {
@@ -44,4 +44,15 @@ const createUser = async (req, res) => {
     }
 };
 
+const loginUser = async(req, res) => {
+    const { username, password } = req.headers;
+    const user = await User.findOne({ username, password });
+    if (user) {
+      const token = jwt.sign({ username }, SECRET, { expiresIn: '30d' });
+      res.json({ message: 'Logged in successfully', token });
+    } else {
+      res.status(403).json({ message: 'Invalid username or password' });
+    }
+  
+}
 module.exports = { createUser };

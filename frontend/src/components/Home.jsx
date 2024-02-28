@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import '../styles/Home.css';
 
 function Annamitra() {
+    const navigate = useNavigate();
     // Typing effect function
     function typeWriter(text, i, fnCallback) {
         const typingTextElement = document.getElementById("typingText");
@@ -28,10 +30,12 @@ function Annamitra() {
 
     return (
         <div>
-            <div className="navbar">
-                <img src="/assets/images/logo.png" alt="Logo" />
-                <hr className="divider" />
-            </div>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+            />
 
             <div className="content">
                 <div className="left-section">
@@ -45,7 +49,7 @@ function Annamitra() {
                     <h1
                         id="typingText"
                         className="h1-line-height"
-                        style={{ fontSize: "45px" }}
+                        style={{ fontSize: "50px" }}
                     >
                         {/* <!-- Live typing effect--> */}
                     </h1>
@@ -53,22 +57,24 @@ function Annamitra() {
                     <p>
                         Join us in fighting hunger and food insecurity by bridging the gap
                         between surplus food and those in need. Together, we can make a
-                        difference one meal at a time<br />
+                        difference one meal at a time<br /><br />
                         Your contribution matters; let's create a world where no one goes to
                         bed hungry.
                     </p>
+                    <br/>
+                    <br/>
+                    <div class="bottom-buttons">
+                    <button className="btn-3" onClick={() => { navigate('/Signup') }}>
+                        <span>Sign Up</span>
+                    </button>
+                    &nbsp;&nbsp;
+                    <button className="btn-3" onClick={() => { navigate('/Login') }}>
+                        <span>Login</span>
+                    </button>
+                    </div>
+                    </div>
                 </div>
             </div>
-            <div className="bottom-buttons">
-                <button className="btn-3" onClick={() => { window.location.href = '/Signup' }}>
-                    <span>Sign Up</span>
-                </button>
-                &nbsp;&nbsp;
-                <button className="btn-3" onClick={() => { window.location.href = '/Login' }}>
-                    <span>Login</span>
-                </button>
-            </div>
-        </div>
     );
 }
 
