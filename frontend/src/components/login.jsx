@@ -1,36 +1,35 @@
-import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login(){
+function Login() {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const navigate = useNavigate();
 
     const handleLogin = () => {
         fetch("http://localhost:3000/api/auth/login", {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'username': username,
-                'password': password,
+                "Content-Type": "application/json",
+                username: username,
+                password: password,
             },
             body: JSON.stringify({}),
         })
-        .then(response => response.json())
-        .then(data => {
-            localStorage.setItem("token", data.token);
-            // navigate("/courses");
-            console.log("Nav")
-        })
-        .catch(error => {
-            // Handle errors here
-            console.error('Error during login:', error);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.errorMessage) {
+                    alert(data.errorMessage);
+                } else {
+                    localStorage.setItem("token", data.token);
+                    navigate("/Annamitra");
+                }
+            });
     };
-    
 
-    return <div>
-            <div>
-                    Welcome Back. Log In Below
-            </div>
+    return (
+        <div>
+            <div>Welcome Back. Log In Below</div>
             <div>
                 <input
                     onChange={(e) => {
@@ -39,7 +38,8 @@ function Login(){
                     label="Username"
                     placeholder="Username"
                 />
-                <br /><br />
+                <br />
+                <br />
                 <input
                     onChange={(e) => {
                         setPassword(e.target.value);
@@ -49,11 +49,9 @@ function Login(){
                     placeholder="Password"
                 />
             </div>
-            <button
-                onClick={handleLogin}>
-                Log In
-            </button>
-    </div>
+            <button onClick={handleLogin}>Log In</button>
+        </div>
+    );
 }
 
-export default Login
+export default Login;

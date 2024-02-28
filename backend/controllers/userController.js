@@ -46,14 +46,12 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     const { username, password } = req.headers;
-    console.log(username, password)
     const user = await User.findOne({ username, password });
-    console.log(user)
     if (user) {
         const token = jwt.sign({ username }, SECRET, { expiresIn: '30d' });
         res.json({ message: 'Logged in successfully', token });
     } else {
-        res.status(403).json({ message: 'Invalid username or password' });
+        res.status(403).json({ errorMessage: 'Invalid username or password' });
     }
 
 }
