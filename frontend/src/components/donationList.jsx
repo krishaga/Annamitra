@@ -1,34 +1,74 @@
 export default function DonationsList() {
     return (
-        <>
-            Hello
-            <div style={{ display: "grid" }}>
+        <div>
+            <div>Nearby Oppurtunities</div>
+            <div
+                style={{
+                    display: "grid",
+                    placeItems: "center",
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                }}
+            >
                 {list.map((element) => {
-                    return <Donation el={element}></Donation>;
+                    return <Donation element={element}></Donation>;
                 })}
             </div>
-        </>
+            <button>Donate +</button>
+        </div>
     );
 }
 
-function Donation({ el }) {
-    return <>{el.image}</>;
+function Donation({ element }) {
+    return (
+        <div style={{ width: 150, border: "2px solid black" }}>
+            <img src={element.image} style={{ width: 100 }} alt="" />
+            <br />
+            {element.description}
+            <br />
+            To Serve: {element.toServe}
+            <br />
+            Date: {element.date}
+            <br />
+            {element.addressTo}
+        </div>
+    );
 }
 
 let list = [
     {
         _id: 111,
-        toServe: 2,
-        image: "imgLink",
+        toServe: 5,
+        description: "Food for orphans",
+        image: "https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png",
+        addressTo: "Sonari, Jamshedpur",
+        // date: ,
+        status: "Delivered",
     },
     {
         _id: 112,
         toServe: 2,
-        image: "imgLink",
+        description: "Food for orphans",
+        image: "https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png",
+        addressTo: "Mango, Jamshedpur",
+        // date: ,
+        status: "Not Delivered",
     },
     {
         _id: 113,
-        toServe: 2,
-        image: "imgLink",
+        toServe: 3,
+        description: "Food for orphans",
+        image: "https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png",
+        addressTo: "Sonari, Jamshedpur",
+        // date: ,
+        status: "Not Delivered",
     },
+    // {
+    //     toServe: Number,
+    //     description: String,
+    //     addressFrom: String,
+    //     addressTo: String,
+    //     date: Date,
+    //     status: String,
+    //     user_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    // },
 ];
