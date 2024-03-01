@@ -5,8 +5,8 @@ const acceptor = new mongoose.Schema({
   addressTo: String,
   date: Date,
   status: String,
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  donator_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  acceptor_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 export default acceptor = mongoose.model('Acceptor', acceptor);
-  
