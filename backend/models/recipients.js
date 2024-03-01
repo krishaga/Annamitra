@@ -1,6 +1,5 @@
-const donationSchema = new mongoose.Schema({
-  serves: Number,
-  category: String,
+const recipientSchema = new mongoose.Schema({
+  toServe: Number,
   description: String,
   addressFrom: String,
   addressTo: String,
@@ -10,4 +9,4 @@ const donationSchema = new mongoose.Schema({
   recipient_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
-export default Donations = mongoose.model('Donations', donationSchema);
+export default Recipients = mongoose.model('Acceptor', recipientSchema);

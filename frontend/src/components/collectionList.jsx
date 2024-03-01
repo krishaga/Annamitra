@@ -13,7 +13,7 @@ export default function AcceptorsList() {
                     return <Acceptor element={element}></Acceptor>;
                 })}
             </div>
-            <button>Accept +</button>
+            <button>Request+</button>
         </div>
     );
 }
@@ -30,6 +30,8 @@ function Acceptor({ element }) {
             Date: {element.date}
             <br />
             {element.addressTo}
+            <br />
+            <button>Accept</button>
         </div>
     );
 }

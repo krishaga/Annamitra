@@ -13,7 +13,7 @@ export default function DonationsList() {
                     return <Donation element={element}></Donation>;
                 })}
             </div>
-            <button>Donate +</button>
+            <button>Custom Donation</button>
         </div>
     );
 }
@@ -30,6 +30,8 @@ function Donation({ element }) {
             Date: {element.date}
             <br />
             {element.addressTo}
+            <br />
+            <button>Donate</button>
         </div>
     );
 }
@@ -42,7 +44,7 @@ let list = [
         image: "https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png",
         addressTo: "Sonari, Jamshedpur",
         // date: ,
-        status: "Delivered",
+        status: "Completed",
     },
     {
         _id: 112,
@@ -51,7 +53,7 @@ let list = [
         image: "https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png",
         addressTo: "Mango, Jamshedpur",
         // date: ,
-        status: "Not Delivered",
+        status: "Not Completed",
     },
     {
         _id: 113,
@@ -60,7 +62,7 @@ let list = [
         image: "https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png",
         addressTo: "Sonari, Jamshedpur",
         // date: ,
-        status: "Not Delivered",
+        status: "Not Completed",
     },
     // {
     //     toServe: Number,
