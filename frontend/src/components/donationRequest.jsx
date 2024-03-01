@@ -1,57 +1,33 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Signup() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [mobileno, setMobileno] = useState("");
-    const [email, setEmail] = useState("");
-    const [street, setStreet] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [postalcode, setPostalcode] = useState("");
-    const [country, setCountry] = useState("");
+function DonateList() {
+    const [category, setCategory] = useState("");
+    const [description, setDescription] = useState("");
+    const [serves, setServes] = useState("");
+    const [addressFrom, setAddress] = useState("");
 
     const navigate = useNavigate();
 
-    const handleSignup = () => {
-        fetch("http://localhost:3000/api/auth/signup", {
+    const handleDonate = () => {
+        fetch("http://localhost:3000/api/forms/new-donation", {
             method: "POST",
             body: JSON.stringify({
-                username,
-                password,
-                name,
-                email,
-                mobileno,
-                address: {
-                    street,
-                    city,
-                    state,
-                    postalcode,
-                    country,
-                },
+                category,
+                description,
+                serves,
+                addressFrom,
             }),
             headers: {
                 "Content-type": "application/json",
+                "authorization" : "Bearer "+localStorage.getItem("token")
             },
         })
             .then((res) => {
-                if (!res.ok) {
-                    if (res.status === 403) {
-                        window.alert("Username Already Exists");
-                        return;
-                    }
-                }
                 return res.json();
             })
             .then((data) => {
-                if (data.errors) {
-                    alert(data.errors.map((error) => error.msg).join("\n"));
-                } else {
-                    // Handle successful signup
-                    localStorage.setItem("token", data.token);
-                    // Redirect or update UI as needed
+                if(data){
                     navigate("/Annamitra");
                 }
             });
@@ -73,148 +49,64 @@ function Signup() {
                             className="h1-line-height"
                             style={{ fontSize: "45px" }}
                         >
-                            Sign Up
+                            Donate
                         </h1>
                         <p></p>
                         <div className="form">
                             <div className="form-group">
-                                <label htmlFor="inputUserName">Username</label>
-                                <input
-                                    onChange={(e) => {
-                                        setUsername(e.target.value);
-                                    }}
-                                    label="inputUserName"
-                                    placeholder="Username"
-                                    className="form-control"
-                                    id="inputUserName"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="inputPassword">Password</label>
-                                <input
-                                    onChange={(e) => {
-                                        setPassword(e.target.value);
-                                    }}
-                                    label="Password"
-                                    type="password"
-                                    placeholder="Password"
-                                    className="form-control"
-                                    id="inputPassword"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="inputName">Name</label>
-                                <input
-                                    onChange={(e) => {
-                                        setName(e.target.value);
-                                    }}
-                                    label="Name"
-                                    placeholder="Name"
-                                    className="form-control"
-                                    id="inputName"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="inputEmail">Email</label>
-                                <input
-                                    onChange={(e) => {
-                                        setEmail(e.target.value);
-                                    }}
-                                    label="Email"
-                                    type="email"
-                                    placeholder="Email"
-                                    className="form-control"
-                                    id="inputEmail"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="inputPhoneNumber">
-                                    Mobile No
-                                </label>
-                                <input
-                                    onChange={(e) => {
-                                        setMobileno(e.target.value);
-                                    }}
-                                    label="Mobile No"
-                                    placeholder="Mobile No"
-                                    className="form-control"
-                                    id="inputPhoneNumber"
-                                />
-                                <div className="form-group">
-                                    <label htmlFor="inputAddress">
-                                        Address
-                                    </label>
-                                    <input
-                                        onChange={(e) => {
-                                            setStreet(e.target.value);
-                                        }}
-                                        placeholder="Address"
-                                        className="form-control"
-                                        id="inputAddress"
-                                    />
-                                </div>
+                                <label htmlFor="inputCategory">Category Of Food</label>
+                                <br />
                                 <div className="form-row">
-                                    <div className="form-group col-md-4">
-                                        <label htmlFor="inputCity">City</label>
-                                        <input
-                                            onChange={(e) => {
-                                                setCity(e.target.value);
-                                            }}
-                                            label="City"
-                                            placeholder="City"
-                                            className="form-control"
-                                            id="inputCity"
-                                        />
-                                    </div>
-                                    <div className="form-group col-md-4">
-                                        <label htmlFor="inputState">
-                                            State
-                                        </label>
-                                        <input
-                                            onChange={(e) => {
-                                                setState(e.target.value);
-                                            }}
-                                            label="State"
-                                            placeholder="State"
-                                            className="form-control"
-                                            id="inputState"
-                                        />
-                                    </div>
-                                    <div className="form-group col-md-4">
-                                        <label htmlFor="inputZip">
-                                            Zip Code
-                                        </label>
-                                        <input
-                                            onChange={(e) => {
-                                                setPostalcode(e.target.value);
-                                            }}
-                                            label="Postal Code"
-                                            placeholder="Zip Code"
-                                            className="form-control"
-                                            id="inputZip"
-                                        />
-                                    </div>
+                                    <span className="form-group col-md-4">
+                                        <img style={{width: 100}} src="/assets/images/cookedfood.png" alt="Cooked Food" onClick={()=>{setCategory("Cooked Food")}}/>
+                                    </span>
+                                    <span className="form-group col-md-4">
+                                        <img style={{width: 100}} src="/assets/images/rawfood.jpg" alt="Cooked Food" onClick={()=>{setCategory("UnCooked Food")}}/>
+                                    </span>
+                                    <span className="form-group col-md-4">
+                                        <img style={{width: 100}} src="/assets/images/packedfood.png" alt="Cooked Food" onClick={()=>{setCategory("Raw Food")}}/>
+                                    </span>
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="inputCountry">
-                                        Country
-                                    </label>
-                                    <input
-                                        onChange={(e) => {
-                                            setCountry(e.target.value);
-                                        }}
-                                        label="Country"
-                                        placeholder="Country"
-                                        className="form-control"
-                                        id="inputCountry"
-                                    />
-                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="inputDescription">Description Of The Food</label>
+                                <input
+                                    onChange={(e) => {
+                                        setDescription(e.target.value);
+                                    }}
+                                    placeholder="Description"
+                                    className="form-control"
+                                    id="inputDescription"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="inputServes">No. Of People Food Can Serve</label>
+                                <input
+                                    onChange={(e) => {
+                                        setServes(e.target.value);
+                                    }}
+                                    placeholder="No. of People"
+                                    className="form-control"
+                                    id="inputServes"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="inputAddressFrom">Address</label>
+                                <input
+                                    onChange={(e) => {
+                                        setAddress(e.target.value);
+                                    }}
+                                    placeholder="Address"
+                                    className="form-control"
+                                    id="inputAddress"
+                                />
+                            </div>
                                 <div className="bottom-buttons">
                                     <button
                                         className="btn-3"
-                                        onClick={handleSignup}
+                                        onClick={handleDonate}
                                     >
-                                        Sign Up
+                                        Donate
                                     </button>
                                 </div>
                             </div>
@@ -222,8 +114,7 @@ function Signup() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
-export default Signup;
+export default DonateList;

@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const recipientSchema = new mongoose.Schema({
   toServe: Number,
   description: String,
@@ -9,4 +11,6 @@ const recipientSchema = new mongoose.Schema({
   recipient_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
-export default Recipients = mongoose.model('Acceptor', recipientSchema);
+const Recipients = mongoose.model('Acceptor', recipientSchema);
+
+module.exports = { Recipients }

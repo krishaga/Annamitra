@@ -1,7 +1,7 @@
 const express = require('express');
 const { Donations } = require('../models/donations');
 const { Recipients } = require('../models/recipients');
-const { authenticateJwt } = require('../middlewares/authentication')
+const authenticateJwt = require('../middlewares/authentication')
 const router = express.Router();
 
 router.get('/donations-list', authenticateJwt, async (req, res) => {

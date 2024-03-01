@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/Auth');
+const listRoutes = require('./routes/lists');
+const formRoutes = require('./routes/forms');
 const { dbConnect } = require('./database');
 require('dotenv').config();
 const cors = require('cors');
@@ -16,6 +18,8 @@ app.use(bodyParser.json());
 
 // Use the auth routes
 app.use('/api/auth', authRoutes);
+app.use('/api/lists', listRoutes);
+app.use('/api/forms', formRoutes);
 
 // Your other middleware and routes go here...
 

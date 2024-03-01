@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const donationSchema = new mongoose.Schema({
   serves: Number,
   category: String,
@@ -10,4 +12,6 @@ const donationSchema = new mongoose.Schema({
   recipient_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
-export default Donations = mongoose.model('Donations', donationSchema);
+const Donations = mongoose.model('Donations', donationSchema);
+
+module.exports = {Donations}

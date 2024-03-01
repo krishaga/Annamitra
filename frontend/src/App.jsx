@@ -6,6 +6,9 @@ import Annamitra from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
 import DonationsList from "./components/donationList.jsx";
 import AcceptorsList from "./components/collectionList.jsx";
+import RequestList from "./components/recipientRequest.jsx";
+import DonateList from "./components/donationRequest.jsx";
+
 
 function App() {
     return (
@@ -18,6 +21,8 @@ function App() {
                     <Route path="/LogIn" element={<Login />} />
                     <Route path="/donation-list" element={<DonationsList />} />
                     <Route path="/acceptor-list" element={<AcceptorsList />} />
+                    <Route path="/donationRequest" element={<DonateList />} />
+                    <Route path="/recipientRequest" element={<RequestList />} />
                 </Routes>
             </BrowserRouter>
         </div>
