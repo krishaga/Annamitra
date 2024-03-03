@@ -36,7 +36,7 @@ function RequestList() {
             <div className="container">
                     <div className="left-section">
                         <img
-                            src="/assets/images/signup_image.png"
+                            src="/assets/images/form_image.png"
                             alt="Food Donation Image"
                             style={{ maxWidth: "94%" }}
                         />
@@ -70,17 +70,6 @@ function RequestList() {
                                     placeholder="No. of People"
                                     className="form-control"
                                     id="inputToServe"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="inputAddressTo">Address</label>
-                                <input
-                                    onChange={(e) => {
-                                        setAddress(e.target.value);
-                                    }}
-                                    placeholder="Address"
-                                    className="form-control"
-                                    id="inputAddressTo"
                                 />
                             </div>
                                 <div className="bottom-buttons">

@@ -36,7 +36,7 @@ function DonateList() {
             <div className="container">
                     <div className="left-section">
                         <img
-                            src="/assets/images/signup_image.png"
+                            src="/assets/images/donateform.png"
                             alt="Food Donation Image"
                             style={{ maxWidth: "94%" }}
                         />
