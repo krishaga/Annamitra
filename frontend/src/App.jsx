@@ -4,11 +4,10 @@ import Signup from "./components/signup.jsx";
 import Login from "./components/login";
 import Annamitra from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
-import DonationsList from "./components/donationList.jsx";
-import AcceptorsList from "./components/collectionList.jsx";
-import RequestList from "./components/recipientRequest.jsx";
-import DonateList from "./components/donationRequest.jsx";
-
+import DonationsList from "./components/donationsList.jsx";
+import RecipientsList from "./components/recipientsList.jsx";
+import RecipientRequest from "./components/recipientRequest.jsx";
+import DonationRequest from "./components/donationRequest.jsx";
 
 function App() {
     return (
@@ -19,10 +18,19 @@ function App() {
                     <Route path="/Annamitra" element={<Annamitra />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/LogIn" element={<Login />} />
-                    <Route path="/donation-list" element={<DonationsList />} />
-                    <Route path="/acceptor-list" element={<AcceptorsList />} />
-                    <Route path="/donationRequest" element={<DonateList />} />
-                    <Route path="/recipientRequest" element={<RequestList />} />
+                    <Route path="/donations-list" element={<DonationsList />} />
+                    <Route
+                        path="/recipients-list"
+                        element={<RecipientsList />}
+                    />
+                    <Route
+                        path="/donationRequest"
+                        element={<DonationRequest />}
+                    />
+                    <Route
+                        path="/recipientRequest"
+                        element={<RecipientRequest />}
+                    />
                 </Routes>
             </BrowserRouter>
         </div>

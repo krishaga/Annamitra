@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/Auth');
 const listRoutes = require('./routes/lists');
@@ -20,8 +19,6 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/lists', listRoutes);
 app.use('/api/forms', formRoutes);
-
-// Your other middleware and routes go here...
 
 const PORT = process.env.PORT || 3000;
 
