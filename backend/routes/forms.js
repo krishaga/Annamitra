@@ -7,8 +7,15 @@ const router = express.Router();
 
 router.post('/new-donation', authenticateJwt, async (req, res) => {
     // logic to create a course
-    const addressFrom = await User.findOne
-    const newRequest = new Donations(req.body);
+    let newDonation = req.body;
+    const currentUser = await User.findOne({ username: req.user.username });
+    newDonation = {
+        addressFrom: currentUser.address,
+        donor_id: currentUser._id,
+        completed: false,
+        ...newDonation
+    }
+    const newRequest = new Donations(newDonation);
     await newRequest.save();
     res.json({ message: 'Created successfully' });
 });
