@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const AddressSchema = new mongoose.Schema({
+const AddressSchema = {
   street: String,
   city: String,
   state: String,
   postalcode: String,
   country: String,
-});
+};
 
 const userSchema = new mongoose.Schema({
   // Use Buffer type for storing binary data (e.g., images)

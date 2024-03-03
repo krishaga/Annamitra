@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const AddressSchema = new mongoose.Schema({
+const AddressSchema = {
   street: String,
   city: String,
   state: String,
   postalcode: String,
   country: String,
-});
+};
 
 const donationSchema = new mongoose.Schema({
   serves: Number,
