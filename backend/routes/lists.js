@@ -6,14 +6,24 @@ const router = express.Router();
 
 router.get('/donations-list', authenticateJwt, async (req, res) => {
     // logic to list all donations
-    const recipientRequests = await Recipients.find({ status: "Not Completed" });
-    res.json({ recipientRequests });
+    try {
+        const recipientRequests = await Recipients.find({ completed: false });
+        res.json({ recipientRequests });
+    }
+    catch {
+        res.status(404)
+    }
 });
 
 router.get('/recipients-list', authenticateJwt, async (req, res) => {
     // logic to list all donations
-    const donationRequests = await Donations.find({ status: "Not Completed" });
-    res.json({ donationRequests });
+    try {
+        const donationRequests = await Donations.find({ completed: false });
+        res.json({ donationRequests });
+    }
+    catch {
+        res.status(404)
+    }
 });
 
 module.exports = router;
