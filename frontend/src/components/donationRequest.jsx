@@ -5,7 +5,6 @@ function DonateList() {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [serves, setServes] = useState("");
-    const [addressFrom, setAddress] = useState("");
 
     const navigate = useNavigate();
 
@@ -16,18 +15,17 @@ function DonateList() {
                 category,
                 description,
                 serves,
-                addressFrom,
             }),
             headers: {
                 "Content-type": "application/json",
-                "authorization" : "Bearer " + localStorage.getItem("token")
+                authorization: "Bearer " + localStorage.getItem("token"),
             },
         })
             .then((res) => {
                 return res.json();
             })
             .then((data) => {
-                if(data){
+                if (data) {
                     navigate("/Annamitra");
                 }
             });
@@ -54,22 +52,47 @@ function DonateList() {
                         <p></p>
                         <div className="form">
                             <div className="form-group">
-                                <label htmlFor="inputCategory">Category Of Food</label>
+                                <label htmlFor="inputCategory">
+                                    Category Of Food
+                                </label>
                                 <br />
                                 <div className="form-row">
                                     <span className="form-group col-md-4">
-                                        <img style={{width: 100}} src="/assets/images/cookedfood.png" alt="Cooked Food" onClick={()=>{setCategory("Cooked Food")}}/>
+                                        <img
+                                            style={{ width: 100 }}
+                                            src="/assets/images/cookedfood.png"
+                                            alt="Cooked Food"
+                                            onClick={() => {
+                                                setCategory("Cooked Food");
+                                            }}
+                                        />
                                     </span>
                                     <span className="form-group col-md-4">
-                                        <img style={{width: 100}} src="/assets/images/rawfood.jpg" alt="Cooked Food" onClick={()=>{setCategory("UnCooked Food")}}/>
+                                        <img
+                                            style={{ width: 100 }}
+                                            src="/assets/images/rawfood.jpg"
+                                            alt="Cooked Food"
+                                            onClick={() => {
+                                                setCategory("UnCooked Food");
+                                            }}
+                                        />
                                     </span>
                                     <span className="form-group col-md-4">
-                                        <img style={{width: 100}} src="/assets/images/packedfood.png" alt="Cooked Food" onClick={()=>{setCategory("Raw Food")}}/>
+                                        <img
+                                            style={{ width: 100 }}
+                                            src="/assets/images/packedfood.png"
+                                            alt="Cooked Food"
+                                            onClick={() => {
+                                                setCategory("Raw Food");
+                                            }}
+                                        />
                                     </span>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="inputDescription">Description Of The Food</label>
+                                <label htmlFor="inputDescription">
+                                    Description Of The Food
+                                </label>
                                 <input
                                     onChange={(e) => {
                                         setDescription(e.target.value);
@@ -80,7 +103,9 @@ function DonateList() {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="inputServes">No. Of People Food Can Serve</label>
+                                <label htmlFor="inputServes">
+                                    No. Of People Food Can Serve
+                                </label>
                                 <input
                                     onChange={(e) => {
                                         setServes(e.target.value);
@@ -90,30 +115,16 @@ function DonateList() {
                                     id="inputServes"
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="inputAddressFrom">Address</label>
-                                <input
-                                    onChange={(e) => {
-                                        setAddress(e.target.value);
-                                    }}
-                                    placeholder="Address"
-                                    className="form-control"
-                                    id="inputAddress"
-                                />
-                            </div>
-                                <div className="bottom-buttons">
-                                    <button
-                                        className="btn-3"
-                                        onClick={handleDonate}
-                                    >
-                                        Donate
-                                    </button>
-                                </div>
-                            </div>
+                        </div>
+                        <div className="bottom-buttons">
+                            <button className="btn-3" onClick={handleDonate}>
+                                Donate
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     );
 }
 
