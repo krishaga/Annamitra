@@ -6,7 +6,7 @@ const { User } = require('../models/user');
 const router = express.Router();
 
 router.post('/new-donation', authenticateJwt, async (req, res) => {
-    // logic to create a course
+    // logic to create a donation
     let newDonation = req.body;
     const currentUser = await User.findOne({ username: req.user.username });
     newDonation = {
@@ -21,7 +21,15 @@ router.post('/new-donation', authenticateJwt, async (req, res) => {
 });
 
 router.post('/new-request', authenticateJwt, async (req, res) => {
-    // logic to create a course
+    // logic to create a request
+    let newRecipient = req.body;
+    const currentUser = await User.findOne({ username: req.user.username })
+    newRequest = {
+        addressFrom: currentUser.address,
+        recipient_id: currentUser._id,
+        completed: false,
+        ...newRecipient
+    }
     const newRequest = new Recipients(req.body);
     await newRequest.save();
     res.json({ message: 'Created successfully' });
