@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function DonationsList() {
     const [recipients, setRecipients] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchRecipients = async () => {
@@ -47,24 +49,29 @@ export default function DonationsList() {
                     <Donation key={index} element={element} />
                 ))}
             </div>
-            <button>Custom Donation</button>
+            <button
+                onClick={() => {
+                    navigate("/donationRequest");
+                }}
+            >
+                Custom Donation
+            </button>
         </div>
     );
 }
 
 function Donation({ element }) {
     const handleClick = async () => {
-        try {
-            const response = await fetch(
-                "http://localhost:3000/api/list/Donations"
-            );
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            // Handle success if needed
-        } catch (error) {
-            console.error("Error in donation:", error);
-        }
+        // try {
+        //         "http://localhost:3000/api/list/Donations"
+        //     );
+        //     if (!response.ok) {
+        //         throw new Error("Network response was not ok");
+        //     }
+        //     // Handle success if needed
+        // } catch (error) {
+        //     console.error("Error in donation:", error);
+        // }
     };
 
     return (

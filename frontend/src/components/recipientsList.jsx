@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function RecipientsList() {
     const [donations, setDonations] = useState([]);
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchDonations = async () => {
             try {
@@ -46,7 +49,13 @@ export default function RecipientsList() {
                     <Recipient key={index} element={element} />
                 ))}
             </div>
-            <button>Custom Recipient</button>
+            <button
+                onClick={() => {
+                    navigate("/recipientRequest");
+                }}
+            >
+                Custom Recipient
+            </button>
         </div>
     );
 }
