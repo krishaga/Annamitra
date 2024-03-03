@@ -3,15 +3,15 @@
     text-align: center;
     margin-top: 0px;
     margin-bottom: 20px;
-  }
-  .navbar img {
+}
+.navbar img {
     max-width: 380px;
     height: auto;
     margin: 0 auto; /* Center the image */
-  }
-  .divider {
+}
+.divider {
     width: 90%;
     margin: 20px auto;
     border: none;
     border-top: 1px solid #ccc;
-  }
+}
