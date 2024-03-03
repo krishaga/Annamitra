@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/signup.css";
 
 function Signup() {
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const [name, setName] = React.useState("");
-    const [mobileno, setMobileno] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [street, setStreet] = React.useState("");
-    const [city, setCity] = React.useState("");
-    const [state, setState] = React.useState("");
-    const [postalcode, setPostalcode] = React.useState("");
-    const [country, setCountry] = React.useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [mobileno, setMobileno] = useState("");
+    const [email, setEmail] = useState("");
+    const [street, setStreet] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [postalcode, setPostalcode] = useState("");
+    const [country, setCountry] = useState("");
 
     const navigate = useNavigate();
 
