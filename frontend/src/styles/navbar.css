@@ -1,11 +1,11 @@
 .navbar {
     width: 100%;
     text-align: center;
-    margin-top: 0px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 .navbar img {
-    max-width: 380px;
+    max-width: 320px;
     height: auto;
     margin: 0 auto; /* Center the image */
 }
@@ -13,5 +13,5 @@
     width: 90%;
     margin: 20px auto;
     border: none;
-    border-top: 1px solid #ccc;
+    border-top: 2px solid #ccc;
 }

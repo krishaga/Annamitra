@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState("");
     const navigate = useNavigate();
 
     const handleLogin = () => {
@@ -28,29 +30,64 @@ function Login() {
     };
 
     return (
-        <div>
-            <div>Welcome Back. Log In Below</div>
-            <div>
-                <input
-                    onChange={(e) => {
-                        setUsername(e.target.value);
-                    }}
-                    label="Username"
-                    placeholder="Username"
-                />
-                <br />
-                <br />
-                <input
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
-                    label="Password"
-                    type="password"
-                    placeholder="Password"
-                />
-            </div>
-            <button onClick={handleLogin}>Log In</button>
+        <div className="container">
+        <div className="left-section">
+            <img
+                src="/assets/images/form_image.png"
+                alt="Food Donation Image"
+            />
         </div>
+        <div className="right-section custom-r-section">
+            <h1 className="h1-line-height" style={{ fontSize: "45px" }}>
+                Welcome Back. Log In Below
+            </h1>
+            <form>
+                <div className="form-group">
+                    <label htmlFor="inputUserName">Username</label>
+                    <input
+                        onChange={(e) => {
+                            setUsername(e.target.value);
+                        }}
+                        label="inputUserName"
+                        placeholder="Username"
+                        className="form-control"
+                        id="inputUserName"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="inputPassword">Password</label>
+                    <input
+                        onChange={(e) => {
+                            setPassword(e.target.value);
+                        }}
+                        label="Password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        className="form-control"
+                        id="inputPassword"
+                    />
+                    <br />
+                    <br />
+                    <input
+                            type="checkbox"
+                            id="showPassword"
+                            checked={showPassword}
+                            onChange={() =>{ setShowPassword(!showPassword)}}
+                        />
+                        <label htmlFor="showPassword">Show Password</label>
+                </div> 
+                <div className="bottom-buttons">
+                    <button
+                        className="btn-3"
+                        onClick={handleLogin}
+                        type="button" 
+                    >
+                        Log In
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>    
     );
 }
 

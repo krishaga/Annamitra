@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,7 +20,7 @@
 .left-section {
     flex: 1;
     animation: zoomInOut 4s;
-    margin-top: 135px;
+    margin-top: 65px;
 }
 
 @keyframes zoomInOut {
@@ -45,8 +45,8 @@
     line-height: 35px;
     font-size: 25px;
     color: #354e41;
-    margin-top: 30px;
-    margin-right: 70px;
+    margin-top: 250px;
+    margin-right: 160px;
 }
 
 .bottom-buttons {
@@ -112,7 +112,7 @@
 }
 
 /* Add this media query to handle smaller screens */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .content {
         flex-direction: column;
         align-items: center;
@@ -120,5 +120,4 @@
 
     .right-section {
         margin-top: 20px; /* Adjust as needed */
-    }
-}
+    /* } */ 

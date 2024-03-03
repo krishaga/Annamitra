@@ -34,7 +34,6 @@ function RequestList() {
     return (
         <div>
             <div className="container">
-                <div className="content">
                     <div className="left-section">
                         <img
                             src="/assets/images/signup_image.png"
@@ -95,7 +94,6 @@ function RequestList() {
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
     );
 }
