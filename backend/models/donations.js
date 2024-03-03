@@ -1,17 +1,25 @@
 const mongoose = require('mongoose');
 
+const AddressSchema = new mongoose.Schema({
+  street: String,
+  city: String,
+  state: String,
+  postalcode: String,
+  country: String,
+});
+
 const donationSchema = new mongoose.Schema({
   serves: Number,
   category: String,
   description: String,
-  addressFrom: String,
-  addressTo: String,
+  addressFrom: AddressSchema,
+  addressTo: AddressSchema,
   date: Date,
   completed: Boolean,
-  donator_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  donor_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   recipient_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 const Donations = mongoose.model('Donations', donationSchema);
 
-module.exports = {Donations}
+module.exports = { Donations }
