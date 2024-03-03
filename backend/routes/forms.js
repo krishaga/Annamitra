@@ -5,6 +5,7 @@ const authenticateJwt = require('../middlewares/authentication')
 const { User } = require('../models/user');
 const router = express.Router();
 
+
 router.post('/new-donation', authenticateJwt, async (req, res) => {
     // logic to create a donation
     let newDonation = req.body;
@@ -13,6 +14,7 @@ router.post('/new-donation', authenticateJwt, async (req, res) => {
         addressFrom: currentUser.address,
         donor_id: currentUser._id,
         completed: false,
+        date: new Date(),
         ...newDonation
     }
     const newRequest = new Donations(newDonation);
@@ -28,6 +30,7 @@ router.post('/new-request', authenticateJwt, async (req, res) => {
         addressFrom: currentUser.address,
         recipient_id: currentUser._id,
         completed: false,
+        date: new Date(),
         ...newRecipient
     }
     const newRequest = new Recipients(req.body);

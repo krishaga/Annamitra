@@ -67,9 +67,9 @@ function Recipient({ element }) {
             <br />
             {element.description}
             <br />
-            Serves: {element.toServe}
+            Serves: {element.serves}
             <br />
-            Date: {element.date}
+            Date: {new Date(element.date).toLocaleDateString('en-GB')}
             <br />
             {element.addressTo}
             <br />
