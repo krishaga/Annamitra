@@ -74,9 +74,19 @@ const updateUser = async (req, res) => {
     }
 };
 
+const getUserDetails = async (req, res) => {
+    try {
+        const user = await User.find({ username: req.user.username });
+        res.json({ userDetails: user });
+    }
+    catch {
+        res.status(404)
+    }
+}
+
 const logoutUser = async (req, res) => {
     localStorage.removeItem('token');
     return res.status(200).json({ message: "Logout successful" });
 };
 
-module.exports = { createUser, loginUser, logoutUser, updateUser };
+module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails };
