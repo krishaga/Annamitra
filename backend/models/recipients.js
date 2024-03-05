@@ -19,6 +19,6 @@ const recipientSchema = new mongoose.Schema({
   recipient_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
-const Recipients = mongoose.model('Acceptor', recipientSchema);
+const Recipients = mongoose.model('Recipients', recipientSchema);
 
 module.exports = { Recipients }

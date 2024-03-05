@@ -26,14 +26,14 @@ router.post('/new-request', authenticateJwt, async (req, res) => {
     // logic to create a request
     let newRecipient = req.body;
     const currentUser = await User.findOne({ username: req.user.username })
-    newRequest = {
-        addressFrom: currentUser.address,
+    newRecipient = {
+        addressTo: currentUser.address,
         recipient_id: currentUser._id,
         completed: false,
         date: new Date(),
         ...newRecipient
     }
-    const newRequest = new Recipients(req.body);
+    const newRequest = new Recipients(newRecipient);
     await newRequest.save();
     res.json({ message: 'Created successfully' });
 });
