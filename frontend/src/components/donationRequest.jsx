@@ -26,7 +26,8 @@ function DonateList() {
             })
             .then((data) => {
                 if (data) {
-                    navigate("/Annamitra");
+                    window.alert("Donation Request Made Succesfully")
+                    navigate("/donations-list");
                 }
             });
     };

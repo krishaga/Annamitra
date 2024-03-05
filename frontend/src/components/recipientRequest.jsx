@@ -24,7 +24,8 @@ function RequestList() {
             })
             .then((data) => {
                 if (data) {
-                    navigate("/Annamitra");
+                    window.alert("Rquest for food was succesfully made")
+                    navigate("/recipients-list");
                 }
             });
     };

@@ -38,7 +38,7 @@ function Navbar_2() {
                     <img
                         src="/assets/images/logo.png"
                         onClick={() => {
-                            window.location = "/Annamitra";
+                            window.location = "/dashboard";
                         }}
                         alt="Logo"
                     />
