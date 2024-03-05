@@ -94,28 +94,27 @@ const logoutUser = async (req, res) => {
 
 const getuserdata = async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.user._id });
+        let user = await User.findOne({ username: req.user.username });
         console.log(user)
 
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        const donations = await Donations.find({ donorId: req.user._id });
-        const request = await Recipients.find({ recipient_id: req.user._id });
-        const details = {
-            donations: donations,
-            receive: request,
+        const donationsCount = await Donations.countDocuments({ donorId: user._id });
+        const requestsCount = await Recipients.countDocuments({ recipient_id: user._id });
+        user = {
+            donationsCount,
+            requestsCount,
+            ...user
         }
-        console.log(user, details);
-        res.json({ details });
+        console.log(user);
+        res.json({ user });
 
     } catch (error) {
         console.error('Error fetching user and donation data:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
-
-
 
 module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails, getuserdata };

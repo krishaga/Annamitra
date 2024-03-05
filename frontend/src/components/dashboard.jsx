@@ -25,8 +25,8 @@ function DashboardDetails() {
                 }
                 const data = await response.json();
                 // console.log(data);
-                setDonationnum(data.details.donations);
-                setRequestnum(data.details.receive);
+                setDonationnum(data.user.donationsCount);
+                setRequestnum(data.user.requestsCount);
             } catch (error) {
                 console.error("Error in fetching: ", error);
             }
