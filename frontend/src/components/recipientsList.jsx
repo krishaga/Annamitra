@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/list.css";
 
 export default function RecipientsList() {
     const [donations, setDonations] = useState([]);
@@ -38,18 +39,13 @@ export default function RecipientsList() {
     return (
         <div>
             <div>Nearby Donations</div>
-            <div
-                style={{
-                    display: "grid",
-                    placeItems: "center",
-                    gridTemplateColumns: "repeat(3, 1fr)",
-                }}
-            >
+            <div className="mainContainer">
                 {donations.map((element, index) => (
                     <Recipient key={index} element={element} />
                 ))}
-            </div>
-            <button
+            </div>  
+            <div className="bottoms-buttons"></div>
+            <button className="btns-3"
                 onClick={() => {
                     navigate("/recipientRequest");
                 }}
@@ -62,20 +58,28 @@ export default function RecipientsList() {
 
 function Recipient({ element }) {
     return (
-        <div style={{ width: 150, border: "2px solid black" }}>
-            <img src={element.image} style={{ width: 100 }} alt="" />
-            <br />
-            {element.description}
-            <br />
+        <div className="product-container">
+            <div className="product-image-container">
+            <img className="product-image" src="/assets/images/mapapi.png" style={{ width: "100%" }} alt="hello" />
+            </div>
+            <div className="description">
+            Description: {element.description}
+            </div>
+            <div className="serves">
             Serves: {element.serves}
-            <br />
+            </div>
+            <div className="date">
             Date: {new Date(element.date).toLocaleDateString("en-GB")}
-            <br />
-            {element.addressFrom.street}
-            <br />
-            {element.addressFrom.city}
-            <br />
-            <button>Accept</button>
+            </div>
+            <div className="addresspro">
+            Address: {element.addressFrom.street}
+            </div>
+            <div className="citypro">
+            City: {element.addressFrom.city}
+            </div>
+            <div className="container-button">
+            <button className="button">Accept</button>
+            </div>
         </div>
     );
 }
