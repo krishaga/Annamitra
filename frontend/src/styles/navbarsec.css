@@ -1,0 +1,58 @@
+.navbar2 {
+    display: flex;
+    justify-content: space-between;
+    width: 96vw;
+    margin: 1.5rem;
+    max-height: 4rem;
+}
+
+.logo {
+    display: flex;
+    flex: 8;
+    align-items: center;
+}
+
+.navbar2 img {
+    max-width: 16rem;
+    height: 5rem;
+}
+
+.details {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.name {
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-left: 6.7rem;
+    font-style: italic;
+    color: rgb(7, 86, 16);
+    font-weight: bold;
+}
+
+.address {
+    margin-top: 0.5rem;
+    margin-bottom: 0.6rem;
+    margin-left: 9.7rem;
+    font-size: 0.75rem;
+}
+
+.profile img {
+    flex: 1;
+    border-radius: 50px;
+    width: 4rem;
+    height: 4rem;
+}
+
+.divider {
+    width: 90%;
+    margin: 20px auto;
+    border: none;
+    border-top: 2px solid #ccc;
+}
