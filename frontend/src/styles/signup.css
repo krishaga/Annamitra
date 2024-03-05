@@ -17,11 +17,10 @@
     padding-left: 8rem;
 }
 
-.left-section img{
+.left-section img {
     width: 80%;
     margin: auto;
 }
-
 
 /* Right Section Styles */
 .right-section {
@@ -67,16 +66,12 @@
     box-shadow: 0 0 5px rgba(32, 138, 208, 0.6); /* Set the shadow color for the glowing effect */
 }
 
-
 .form-row {
     /* width: 90%; */
     display: flex;
     gap: 2.4rem;
     justify-content: space-between;
 }
-
-
-
 
 .form label {
     text-wrap: nowrap;
@@ -133,6 +128,3 @@
         margin-top: 20px;
     }
 }
-
-
-

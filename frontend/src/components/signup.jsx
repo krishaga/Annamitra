@@ -59,167 +59,151 @@ function Signup() {
     };
 
     return (
-            <div className="container">
-                <div className="left-section">
-                    <img
-                        src="/assets/images/form_image.png"
-                        alt="Food Donation Image"
-                        style={{ maxWidth: "94%" }}
-                    />
-                </div>
-                <div className="right-section">
-                    <h1
-                        className="heading"
-                        style={{ fontSize: "45px" }}
-                    >
-                        Sign Up
-                    </h1>
-                    <div className="form">
+        <div className="container">
+            <div className="left-section">
+                <img
+                    src="/assets/images/form_image.png"
+                    alt="Food Donation Image"
+                    style={{ maxWidth: "94%" }}
+                />
+            </div>
+            <div className="right-section">
+                <h1 className="heading" style={{ fontSize: "45px" }}>
+                    Sign Up
+                </h1>
+                <div className="form">
+                    <div className="form-group">
+                        <label htmlFor="inputUserName">Username</label>
+                        <input
+                            onChange={(e) => {
+                                setUsername(e.target.value);
+                            }}
+                            label="inputUserName"
+                            placeholder="Username"
+                            className="form-control"
+                            id="inputUserName"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="inputPassword">Password</label>
+                        <input
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                            }}
+                            label="Password"
+                            type="password"
+                            placeholder="Password"
+                            className="form-control"
+                            id="inputPassword"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="inputName">Name</label>
+                        <input
+                            onChange={(e) => {
+                                setName(e.target.value);
+                            }}
+                            label="Name"
+                            placeholder="Name"
+                            className="form-control"
+                            id="inputName"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="inputEmail">Email</label>
+                        <input
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                            }}
+                            label="Email"
+                            type="email"
+                            placeholder="Email"
+                            className="form-control"
+                            id="inputEmail"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="inputPhoneNumber">Mobile No</label>
+                        <input
+                            onChange={(e) => {
+                                setMobileno(e.target.value);
+                            }}
+                            label="Mobile No"
+                            placeholder="Mobile No"
+                            className="form-control"
+                            id="inputPhoneNumber"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="inputAddress">Address</label>
+                        <input
+                            onChange={(e) => {
+                                setStreet(e.target.value);
+                            }}
+                            placeholder="Address"
+                            className="form-control"
+                            id="inputAddress"
+                        />
+                    </div>
+                    <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="inputUserName">Username</label>
+                            <label htmlFor="inputCity">City</label>
                             <input
                                 onChange={(e) => {
-                                    setUsername(e.target.value);
+                                    setCity(e.target.value);
                                 }}
-                                label="inputUserName"
-                                placeholder="Username"
+                                label="City"
+                                placeholder="City"
                                 className="form-control"
-                                id="inputUserName"
+                                id="inputCity"
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputPassword">Password</label>
+                            <label htmlFor="inputState">State</label>
                             <input
                                 onChange={(e) => {
-                                    setPassword(e.target.value);
+                                    setState(e.target.value);
                                 }}
-                                label="Password"
-                                type="password"
-                                placeholder="Password"
+                                label="State"
+                                placeholder="State"
                                 className="form-control"
-                                id="inputPassword"
+                                id="inputState"
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputName">Name</label>
+                            <label htmlFor="inputZip">Zip Code</label>
                             <input
                                 onChange={(e) => {
-                                    setName(e.target.value);
+                                    setPostalcode(e.target.value);
                                 }}
-                                label="Name"
-                                placeholder="Name"
+                                label="Postal Code"
+                                placeholder="Zip Code"
                                 className="form-control"
-                                id="inputName"
+                                id="inputZip"
                             />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputEmail">Email</label>
-                            <input
-                                onChange={(e) => {
-                                    setEmail(e.target.value);
-                                }}
-                                label="Email"
-                                type="email"
-                                placeholder="Email"
-                                className="form-control"
-                                id="inputEmail"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputPhoneNumber">
-                                Mobile No
-                            </label>
-                            <input
-                                onChange={(e) => {
-                                    setMobileno(e.target.value);
-                                }}
-                                label="Mobile No"
-                                placeholder="Mobile No"
-                                className="form-control"
-                                id="inputPhoneNumber"
-                            />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="inputAddress">
-                                    Address
-                                </label>
-                                <input
-                                    onChange={(e) => {
-                                        setStreet(e.target.value);
-                                    }}
-                                    placeholder="Address"
-                                    className="form-control"
-                                    id="inputAddress"
-                                />
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="inputCity">City</label>
-                                    <input
-                                        onChange={(e) => {
-                                            setCity(e.target.value);
-                                        }}
-                                        label="City"
-                                        placeholder="City"
-                                        className="form-control"
-                                        id="inputCity"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="inputState">
-                                        State
-                                    </label>
-                                    <input
-                                        onChange={(e) => {
-                                            setState(e.target.value);
-                                        }}
-                                        label="State"
-                                        placeholder="State"
-                                        className="form-control"
-                                        id="inputState"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="inputZip">
-                                        Zip Code
-                                    </label>
-                                    <input
-                                        onChange={(e) => {
-                                            setPostalcode(e.target.value);
-                                        }}
-                                        label="Postal Code"
-                                        placeholder="Zip Code"
-                                        className="form-control"
-                                        id="inputZip"
-                                    />
-                                </div>
-                            </div>
-                            {/* <br /> */}
-                            <div className="form-group">
-                                <label htmlFor="inputCountry">
-                                    Country
-                                </label>
-                                <input
-                                    onChange={(e) => {
-                                        setCountry(e.target.value);
-                                    }}
-                                    label="Country"
-                                    placeholder="Country"
-                                    className="form-control"
-                                    id="inputCountry"
-                                />
-                            </div>
-                            <div className="bottom-buttons">
-                                <button
-                                    className="btn-3"
-                                    onClick={handleSignup}
-                                >
-                                    Sign Up
-                                </button>
-                            </div>
                         </div>
                     </div>
+                    {/* <br /> */}
+                    <div className="form-group">
+                        <label htmlFor="inputCountry">Country</label>
+                        <input
+                            onChange={(e) => {
+                                setCountry(e.target.value);
+                            }}
+                            label="Country"
+                            placeholder="Country"
+                            className="form-control"
+                            id="inputCountry"
+                        />
+                    </div>
+                    <div className="bottom-buttons">
+                        <button className="btn-3" onClick={handleSignup}>
+                            Sign Up
+                        </button>
+                    </div>
                 </div>
+            </div>
+        </div>
     );
 }
 

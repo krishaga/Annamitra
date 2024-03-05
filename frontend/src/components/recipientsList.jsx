@@ -69,9 +69,11 @@ function Recipient({ element }) {
             <br />
             Serves: {element.serves}
             <br />
-            Date: {new Date(element.date).toLocaleDateString('en-GB')}
+            Date: {new Date(element.date).toLocaleDateString("en-GB")}
             <br />
-            {element.addressTo}
+            {element.addressFrom.street}
+            <br />
+            {element.addressFrom.city}
             <br />
             <button>Accept</button>
         </div>

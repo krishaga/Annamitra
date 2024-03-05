@@ -45,8 +45,8 @@ export default function DonationsList() {
                     gridTemplateColumns: "repeat(3, 1fr)",
                 }}
             >
-                {recipients.map((element, index) => (
-                    <Donation key={index} element={element} />
+                {recipients.map((element) => (
+                    <Donation element={element} />
                 ))}
             </div>
             <button
@@ -82,9 +82,11 @@ function Donation({ element }) {
             <br />
             To Serve: {element.toServe}
             <br />
-            Date: {element.date}
+            Date: {new Date(element.date).toLocaleDateString("en-GB")}
             <br />
-            {element.addressTo}
+            {element.addressTo.street}
+            <br />
+            {element.addressTo.city}
             <br />
             <button onClick={handleClick}>Donate</button>
         </div>

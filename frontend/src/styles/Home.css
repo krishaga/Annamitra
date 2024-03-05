@@ -17,11 +17,10 @@
     padding-left: 8rem;
 }
 
-.left-section img{
+.left-section img {
     width: 80%;
     margin: auto;
 }
-
 
 /* Right Section Styles */
 .right-section {
@@ -52,8 +51,6 @@
         transform: scale(1);
     }
 }
-
-
 
 .bottom-buttons {
     width: 100%;
@@ -116,14 +113,3 @@
 .h1-line-height {
     line-height: 50px;
 }
-
-/* Add this media query to handle smaller screens */
-/* @media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .right-section {
-        margin-top: 20px; /* Adjust as needed */
-    /* } */ 
