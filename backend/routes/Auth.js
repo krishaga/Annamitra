@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const { createUser, logoutUser } = require('../controllers/userController.js');
-const { loginUser } = require('../controllers/userController.js');
+const { loginUser, updateUser, getUserDetails, createUser, logoutUser, getuserdata } = require('../controllers/userController.js');
 const authenticateJwt = require('../middlewares/authentication.js');
 
 router.post('/signup',
@@ -53,8 +52,18 @@ router.post('/update-profile',
     }
 );
 
+router.get('/user-details', authenticateJwt, async (req, res) => {
+    getUserDetails(req, res);
+});
+
 router.post('/logout', authenticateJwt, async (req, res) => {
     logoutUser(req, res);
 });
+
+
+router.get('/dashboard', authenticateJwt, async (req, res) => {
+    getuserdata(req, res);
+});
+
 
 module.exports = router;

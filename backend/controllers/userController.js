@@ -1,4 +1,6 @@
 const { User } = require('../models/user');
+const { Donations } = require('../models/donations');
+const { Recipients } = require('../models/recipients');
 const jwt = require('jsonwebtoken');
 
 const SECRET = "Foodsew";  // add to env
@@ -76,8 +78,8 @@ const updateUser = async (req, res) => {
 
 const getUserDetails = async (req, res) => {
     try {
-        const user = await User.find({ username: req.user.username });
-        res.json({ userDetails: user });
+        const user = await User.findOne({ username: req.user.username });
+        res.json({ user });
     }
     catch {
         res.status(404)
@@ -89,4 +91,31 @@ const logoutUser = async (req, res) => {
     return res.status(200).json({ message: "Logout successful" });
 };
 
-module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails };
+
+const getuserdata = async (req, res) => {
+    try {
+        const user = await User.findOne({ _id: req.user._id });
+        console.log(user)
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const donations = await Donations.find({ donorId: req.user._id });
+        const request = await Recipients.find({ recipient_id: req.user._id });
+        const details = {
+            donations: donations,
+            receive: request,
+        }
+        console.log(user, details);
+        res.json({ details });
+
+    } catch (error) {
+        console.error('Error fetching user and donation data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+
+
+module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails, getuserdata };
