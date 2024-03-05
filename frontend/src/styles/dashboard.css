@@ -1,12 +1,82 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    /* justify-content:space-between; */
+    background-color: #D1E58F; /* Olive Green */
+    padding: 20px;
+    border-radius: 25px;
+    width: 50rem;
+    height: 20rem;
+}
+
+.upper-section{
+    display: flex;
+    justify-content: space-around;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem;
+}
+
+.intro{
+    color: #7B9C29;
+    font-family: Poppins;
+    line-height: 4rem;
+    font-size: 2rem;
+}
+
+.card {
+    background-color: #fff; /* White */
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    height: 9rem;
+    margin-top: 0.3rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.5rem;
+    color: #344E41;
+    margin-top: 0.4rem;
+}
+
+.text {
+    color: #344E41;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.circle {
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    background-color: #EEF6C9; /* Dark Olive Green */
+    border-radius: 50%;
+    margin-bottom: 10px 0; /* Adjusted margin-bottom */
+}
+
 .bottom-buttons {
     width: 100%;
     text-align: center;
     margin-top: 15px;
+    margin-bottom: 6rem;
 }
 
 .btn-3 {
     transition: color 0.4s, background-color 0.4s;
-    padding: 10px 20px;
+    padding: 10px 15px; /* Adjusted padding */
     margin-top: 1.6rem;
     border: none;
     border-radius: 18px;
