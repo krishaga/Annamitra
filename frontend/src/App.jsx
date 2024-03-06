@@ -1,16 +1,16 @@
 // App.jsx
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Signup from "./components/signup.jsx";
-import Login from "./components/login";
+import Signup from "./components/Signup.jsx";
+import Login from "./components/Login";
 import Annamitra from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
 import Navbar_2 from "./components/Navbar_2";
-import DonationsList from "./components/donationsList.jsx";
-import RecipientsList from "./components/recipientsList.jsx";
-import RecipientRequest from "./components/recipientRequest.jsx";
-import DonationRequest from "./components/donationRequest.jsx";
-import Dashboardetails from "./components/dashboard.jsx";
+import DonationsList from "./components/DonationsList.jsx";
+import RecipientsList from "./components/RecipientsList.jsx";
+import RecipientRequest from "./components/RecipientRequest.jsx";
+import DonationRequest from "./components/DonationRequest.jsx";
+import Dashboard from "./components/Dashboard.jsx";
 
 function App() {
     const isHomeOrAuthPage =
@@ -39,7 +39,7 @@ function App() {
                         path="/recipientRequest"
                         element={<RecipientRequest />}
                     />
-                    <Route path="/dashboard" element={<Dashboardetails />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                 </Routes>
             </div>
         </BrowserRouter>

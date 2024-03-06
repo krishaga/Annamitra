@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
 
 function DashboardDetails() {
-    const [donationnum, setDonationnum] = useState([]);
-    const [requestnum, setRequestnum] = useState([]);
+    const [donationCount, setDonationCount] = useState([]);
+    const [requestCount, setRequestCount] = useState([]);
     const navigate = useNavigate(); // Add this line to get the navigate function
 
     useEffect(() => {
@@ -25,8 +25,8 @@ function DashboardDetails() {
                 }
                 const data = await response.json();
                 // console.log(data);
-                setDonationnum(data.user.donationsCount);
-                setRequestnum(data.user.requestsCount);
+                setDonationCount(data.user.donationsCount);
+                setRequestCount(data.user.requestsCount);
             } catch (error) {
                 console.error("Error in fetching: ", error);
             }
@@ -38,50 +38,75 @@ function DashboardDetails() {
     return (
         <div>
             <div className="first">
-            <div className="main">
+                <div className="main">
                     <div className="intro">Your DashBoard</div>
-                <div className="dashboard">
-                    <div className="upper-section">
-                        <div className="card">
-                            <div className="circle">
-                                <div className="count">{donationnum}</div>
+                    <div className="dashboard">
+                        <div className="upper-section">
+                            <div className="card">
+                                <div className="circle">
+                                    <div className="count">{donationCount}</div>
+                                </div>
+                                <div className="text">
+                                    Donations
+                                    <br />
+                                    Till Now
+                                </div>
                             </div>
-                            <div className="text">Donations<br />Till Now</div>
-                        </div>
-                        <div className="card">
-                            <div className="circle">
-                                <div className="count">{requestnum}</div>
+                            <div className="card">
+                                <div className="circle">
+                                    <div className="count">{requestCount}</div>
+                                </div>
+                                <div className="text">
+                                    Requests
+                                    <br />
+                                    Till Now
+                                </div>
                             </div>
-                            <div className="text">Requests<br />Till Now</div>
                         </div>
-                    </div>
-                    <div className="lower-section">
-                        Click To View Your Past Donations History
-                        <button className="btn-3" onClick={()=>{navigate('/donations-history');}}> Click Here</button><br />    
-                        Click To View Your Past Requests History
-                        <button className="btn-3" onClick={()=>{navigate('/request-history');}}> Click Here</button>
+                        <div className="lower-section">
+                            Click To View Your Past Donations History
+                            <button
+                                className="btn-3"
+                                onClick={() => {
+                                    navigate("/donations-history");
+                                }}
+                            >
+                                {" "}
+                                Click Here
+                            </button>
+                            <br />
+                            Click To View Your Past Requests History
+                            <button
+                                className="btn-3"
+                                onClick={() => {
+                                    navigate("/request-history");
+                                }}
+                            >
+                                {" "}
+                                Click Here
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="bottom-buttons">
-                <button
-                    className="btn-3"
-                    onClick={(e) => {
-                        navigate("/donations-list");
-                    }}
-                >
-                    Donate
-                </button>
-                &nbsp;&nbsp;
-                <button
-                    className="btn-3"
-                    onClick={(e) => {
-                        navigate("/recipients-list");
-                    }}
-                >
-                    Request
-                </button>
-            </div>
+                <div className="bottom-buttons">
+                    <button
+                        className="btn-3"
+                        onClick={(e) => {
+                            navigate("/donations-list");
+                        }}
+                    >
+                        Donate
+                    </button>
+                    &nbsp;&nbsp;
+                    <button
+                        className="btn-3"
+                        onClick={(e) => {
+                            navigate("/recipients-list");
+                        }}
+                    >
+                        Request
+                    </button>
+                </div>
             </div>
             <hr />
             <div className="secondd"></div>
