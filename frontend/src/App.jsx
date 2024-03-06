@@ -5,7 +5,6 @@ import Signup from "./components/Signup.jsx";
 import Login from "./components/Login";
 import Annamitra from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
-import Navbar_2 from "./components/Navbar_2";
 import DonationsList from "./components/DonationsList.jsx";
 import RecipientsList from "./components/RecipientsList.jsx";
 import RecipientRequest from "./components/RecipientRequest.jsx";
@@ -13,15 +12,10 @@ import DonationRequest from "./components/DonationRequest.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 
 function App() {
-    const isHomeOrAuthPage =
-        location.pathname === "/Annamitra" ||
-        location.pathname === "/Signup" ||
-        location.pathname === "/Login";
     return (
         <BrowserRouter>
+            <Navbar />
             <div>
-                {/* Your conditionally rendered Navbar here */}
-                {isHomeOrAuthPage ? <Navbar /> : <Navbar_2 />}
                 <Routes>
                     <Route path="/Annamitra" element={<Annamitra />} />
                     <Route path="/signup" element={<Signup />} />

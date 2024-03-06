@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
 
-function DashboardDetails() {
+function Dashboard() {
     const [donationCount, setDonationCount] = useState([]);
     const [requestCount, setRequestCount] = useState([]);
-    const navigate = useNavigate(); // Add this line to get the navigate function
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -32,7 +32,7 @@ function DashboardDetails() {
             }
         };
 
-        fetchDetails(); // Corrected function name
+        fetchDetails();
     }, []);
 
     return (
@@ -114,4 +114,4 @@ function DashboardDetails() {
     );
 }
 
-export default DashboardDetails;
+export default Dashboard;
