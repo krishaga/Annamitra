@@ -62,7 +62,7 @@
 
   .description{
     background-color: #EEF6C9;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 6px;
     height: auto;
     /* overflow-wrap: break-word ; */
@@ -78,7 +78,7 @@
 
   .serves{
     background-color: #EEF6C9;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 6px;
     height: auto;
     /* overflow-wrap: break-word ; */
@@ -93,7 +93,7 @@
 
     .date{
     background-color: #EEF6C9;
-    border: 1px solid black;
+    /* border: 1px solid black;  */
     border-radius: 6px;
     height: auto;
     /* overflow-wrap: break-word ; */
@@ -109,7 +109,7 @@
 
     .addresspro{
     background-color: #EEF6C9;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 6px;
     height: auto;
     /* overflow-wrap: break-word ; */
@@ -124,8 +124,8 @@
     }
 
     .citypro{
-        background-color: #EEF6C9;
-    border: 1px solid black;
+    background-color: #EEF6C9;
+    /* border: 1px solid black; */
     border-radius: 6px;
     height: auto;
     /* overflow-wrap: break-word ; */

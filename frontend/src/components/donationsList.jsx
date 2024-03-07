@@ -58,18 +58,11 @@ export default function DonationsList() {
 }
 
 function Donation({ element }) {
-    const handleClick = async () => {
-        // try {
-        //         "http://localhost:3000/api/list/Donations"
-        //     );
-        //     if (!response.ok) {
-        //         throw new Error("Network response was not ok");
-        //     }
-        //     // Handle success if needed
-        // } catch (error) {
-        //     console.error("Error in donation:", error);
-        // }
-    };
+    const navigate = useNavigate();
+
+    function handleClick(){
+        console.log();
+    }    
 
     return (
         <div className="product-container" >
@@ -93,10 +86,9 @@ function Donation({ element }) {
                     City: {element.addressTo.city}
                 </div>
                 <div className="container-button">
-                    <button className="button">Donate</button>
+                    <button onClick={handleClick} className="button">Donate</button>
                 </div>
             </div>
-
         </div>
     );
 }
