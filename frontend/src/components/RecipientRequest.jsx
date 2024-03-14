@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/forms.css";
 
 function RequestList() {
     const [description, setDescription] = useState("");
@@ -24,7 +25,7 @@ function RequestList() {
             })
             .then((data) => {
                 if (data) {
-                    window.alert("Rquest for food was succesfully made")
+                    window.alert("Rquest for food was succesfully made");
                     navigate("/recipients-list");
                 }
             });
@@ -73,7 +74,10 @@ function RequestList() {
                             />
                         </div>
                         <div className="bottom-buttons">
-                            <button className="btn-3" onClick={handleRequest}>
+                            <button
+                                className="button-main"
+                                onClick={handleRequest}
+                            >
                                 Request
                             </button>
                         </div>

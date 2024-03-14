@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/signup.css";
+import "../styles/forms.css";
 
 function Signup() {
     const [username, setUsername] = useState("");
@@ -197,7 +197,7 @@ function Signup() {
                         />
                     </div>
                     <div className="bottom-buttons">
-                        <button className="btn-3" onClick={handleSignup}>
+                        <button className="button-main" onClick={handleSignup}>
                             Sign Up
                         </button>
                     </div>

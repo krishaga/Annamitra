@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Home.css";
+import "../styles/forms.css";
 
 function Annamitra() {
     const navigate = useNavigate();
@@ -54,7 +54,7 @@ function Annamitra() {
                 <br />
                 <div className="bottom-buttons">
                     <button
-                        className="btn-3"
+                        className="button-main"
                         onClick={() => {
                             navigate("/Signup");
                         }}
@@ -63,7 +63,7 @@ function Annamitra() {
                     </button>
                     &nbsp;&nbsp;
                     <button
-                        className="btn-3"
+                        className="button-main"
                         onClick={() => {
                             navigate("/Login");
                         }}

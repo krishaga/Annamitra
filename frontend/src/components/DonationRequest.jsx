@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/forms.css";
 
 function DonateList() {
     const [category, setCategory] = useState("");
@@ -26,7 +27,7 @@ function DonateList() {
             })
             .then((data) => {
                 if (data) {
-                    window.alert("Donation Request Made Succesfully")
+                    window.alert("Donation Request Made Succesfully");
                     navigate("/donations-list");
                 }
             });
@@ -114,7 +115,7 @@ function DonateList() {
                         </div>
                     </div>
                     <div className="bottom-buttons">
-                        <button className="btn-3" onClick={handleDonate}>
+                        <button className="button-main" onClick={handleDonate}>
                             Donate
                         </button>
                     </div>

@@ -24,7 +24,6 @@ function Dashboard() {
                     throw new Error("Network Response was not ok");
                 }
                 const data = await response.json();
-                // console.log(data);
                 setDonationCount(data.user.donationsCount);
                 setRequestCount(data.user.requestsCount);
             } catch (error) {
@@ -66,7 +65,7 @@ function Dashboard() {
                         <div className="lower-section">
                             Click To View Your Past Donations History
                             <button
-                                className="btn-3"
+                                className="button-main"
                                 onClick={() => {
                                     navigate("/donations-history");
                                 }}
@@ -77,7 +76,7 @@ function Dashboard() {
                             <br />
                             Click To View Your Past Requests History
                             <button
-                                className="btn-3"
+                                className="button-main"
                                 onClick={() => {
                                     navigate("/request-history");
                                 }}
@@ -90,7 +89,7 @@ function Dashboard() {
                 </div>
                 <div className="bottom-buttons">
                     <button
-                        className="btn-3"
+                        className="button-main"
                         onClick={(e) => {
                             navigate("/donations-list");
                         }}
@@ -99,7 +98,7 @@ function Dashboard() {
                     </button>
                     &nbsp;&nbsp;
                     <button
-                        className="btn-3"
+                        className="button-main"
                         onClick={(e) => {
                             navigate("/recipients-list");
                         }}

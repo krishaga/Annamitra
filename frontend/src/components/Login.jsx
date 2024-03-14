@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/login.css";
+import "../styles/forms.css";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -80,7 +80,7 @@ function Login() {
                     </div>
                     <div className="bottom-buttons">
                         <button
-                            className="btn-3"
+                            className="button-main"
                             onClick={handleLogin}
                             type="button"
                         >
