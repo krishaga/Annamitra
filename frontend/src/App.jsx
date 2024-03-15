@@ -10,6 +10,7 @@ import RecipientsList from "./components/RecipientsList.jsx";
 import RecipientRequest from "./components/RecipientRequest.jsx";
 import DonationRequest from "./components/DonationRequest.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import AboutUs from "./components/AboutUs.jsx";
 
 function App() {
     return (
@@ -34,6 +35,8 @@ function App() {
                         element={<RecipientRequest />}
                     />
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/aboutus" element={<AboutUs />} />
+                    
                 </Routes>
             </div>
         </BrowserRouter>
