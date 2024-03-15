@@ -116,18 +116,16 @@ const getuserdata = async (req, res) => {
     }
 }
 
-const getUsername = async (req,res) => {
+const getActiveUser = async (req, res) => {
     try {
-        if (req.headers.userType == "Recipient") {
-            console.log(req.headers.userId)
-            const username = await User.findOne({ _id: req.headers.userId})
-            console.log(username)
+        if (req.headers.user_type == "Recipient") {
+            const user = await User.findOne({ _id: req.headers.user_id })
+            res.json({ user })
         }
-        res.json({ username: user.username })
     } catch (error) {
         console.error('Error fetching user and donation data:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
 
-module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails, getuserdata, getUsername };
+module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails, getuserdata, getActiveUser };

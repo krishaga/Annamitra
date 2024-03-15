@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/confirmation.css";
 
 export default function Confirmation({ element, onClose }) {
-    const [username, setUsername] = useState("");
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         const fetchRecipients = async () => {
@@ -14,8 +14,8 @@ export default function Confirmation({ element, onClose }) {
                         headers: {
                             authorization:
                                 "Bearer " + localStorage.getItem("token"),
-                            userType: "Recipient",
-                            userId: element.recipient_id
+                            user_type: "Recipient",
+                            user_id: element.recipient_id,
                         },
                     }
                 );
@@ -23,7 +23,7 @@ export default function Confirmation({ element, onClose }) {
                     throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
-                setUsername(data.username);
+                setUser(data.user);
             } catch (error) {
                 console.error("Error in fetching:", error);
             }
@@ -36,6 +36,10 @@ export default function Confirmation({ element, onClose }) {
         return () => clearInterval(interval);
     }, []);
 
+    function handleDonate() {
+        console.log("handle d");
+    }
+
     return (
         <div className="popup">
             <div className="product-container">
@@ -47,36 +51,48 @@ export default function Confirmation({ element, onClose }) {
                         alt=""
                     />
                 </div>
-                    <div className="description">
-                        Description: {element.description}
-                    </div>
-                    <div className="serves">To Serve: {element.toServe}</div>
-                    <div className="date">
-                        Date: {new Date(element.date).toLocaleDateString("en-GB")}
-                    </div>
-                    <div className="addresspro">
-                        Address: {element.addressTo.city}, {element.addressTo.postalcode}
-                    </div>
+                <div className="description">
+                    Description: {element.description}
+                </div>
+                <div className="serves">To Serve: {element.toServe}</div>
+                <div className="date">
+                    Date: {new Date(element.date).toLocaleDateString("en-GB")}
+                </div>
+                <div className="addresspro">
+                    Address: {element.addressTo.city},
+                    {element.addressTo.postalcode}
+                </div>
             </div>
             <div className="confirmation">
                 <div className="user-info">
-                    <h2>To: {username}</h2>
-                    <p>{element.addressTo.street}, {element.addressTo.city}, {element.addressTo.state}, {element.addressTo.postalcode}, {element.addressTo.country}</p>
+                    <h2>To: {user.username}</h2>
+                    <p>
+                        {element.addressTo.street}, {element.addressTo.city},{" "}
+                        {element.addressTo.state},{" "}
+                        {element.addressTo.postalcode},{" "}
+                        {element.addressTo.country}
+                    </p>
                 </div>
                 <div className="proceed">
                     <h3>Would You Like To Donate to this person or not?</h3>
                     <div className="button-container">
-                    {/* <button className="btn-3" onClick={handleDonate}>
-                        Donate
-                    </button>
-                    <button className="btn-3" onClick={handleNo}>
-                        No
-                    </button> */}
+                        <button className="button-main" onClick={handleDonate}>
+                            Donate
+                        </button>
+                        <button
+                            className="button-main"
+                            onClick={() => {
+                                navigate("/donations-list");
+                            }}
+                        >
+                            No
+                        </button>
                     </div>
                 </div>
-                <div className="contact-info">
-                    Mobile No:- 
-                    Email Id :-
+                <div className="contact-info hidden">
+                    For more information, contact here :- <br />
+                    Mobile No:{user.mobileno} <br />
+                    Email Id : {user.email}
                 </div>
             </div>
         </div>
