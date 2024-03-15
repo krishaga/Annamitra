@@ -95,16 +95,17 @@ const logoutUser = async (req, res) => {
 const getuserdata = async (req, res) => {
     try {
         let user = await User.findOne({ username: req.user.username });
-        
+
 
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        const donationsCount = await Donations.countDocuments({ donor_id: user._id });
+        const donations = await Donations.find({ donor_id: user._id });
+        console.log(donations)
         const requestsCount = await Recipients.countDocuments({ recipient_id: user._id });
         user = {
-            donationsCount,
+            donations,
             requestsCount,
             ...user
         }

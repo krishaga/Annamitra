@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import DoughnutChart from "./Chart";
 import "../styles/dashboard.css";
 
 function Dashboard() {
     const [donationCount, setDonationCount] = useState([]);
+    const [donations, setDonations] = useState([]);
     const [requestCount, setRequestCount] = useState([]);
     const navigate = useNavigate();
+
+    const data = [30, 50, 20];
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -24,11 +28,16 @@ function Dashboard() {
                     throw new Error("Network Response was not ok");
                 }
                 const data = await response.json();
-                setDonationCount(data.user.donationsCount);
+                setDonations(data.user.donations);
                 setRequestCount(data.user.requestsCount);
             } catch (error) {
                 console.error("Error in fetching: ", error);
             }
+            console.log(donations);
+            donations.forEach((donation) => {
+                console.log(donation);
+                // Process other fields as needed
+            });
         };
 
         fetchDetails();
@@ -63,27 +72,9 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="lower-section">
-                            Click To View Your Past Donations History
-                            <button
-                                className="button-main"
-                                onClick={() => {
-                                    navigate("/donations-history");
-                                }}
-                            >
-                                {" "}
-                                Click Here
-                            </button>
-                            <br />
-                            Click To View Your Past Requests History
-                            <button
-                                className="button-main"
-                                onClick={() => {
-                                    navigate("/request-history");
-                                }}
-                            >
-                                {" "}
-                                Click Here
-                            </button>
+                            <div className="second-section">
+                                <DoughnutChart data={data} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,7 +99,6 @@ function Dashboard() {
                 </div>
             </div>
             <hr />
-            <div className="secondd"></div>
         </div>
     );
 }

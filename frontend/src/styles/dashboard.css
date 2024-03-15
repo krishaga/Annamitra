@@ -1,17 +1,20 @@
 .dashboard {
     display: flex;
     flex-direction: column;
-    /* justify-content:space-between; */
+    /* justify-content: center; */
+    align-items: center;
     background-color: #d1e58f; /* Olive Green */
     padding: 20px;
     border-radius: 25px;
-    width: 50rem;
-    height: 20rem;
+    width: 60rem;
+    height: 50rem;
 }
 
 .upper-section {
     display: flex;
     justify-content: space-around;
+    width: 100%;
+    margin: 4rem;
 }
 
 .main {
@@ -37,6 +40,7 @@
     transition: transform 0.2s ease-in-out;
     height: 9rem;
     margin-top: 0.3rem;
+    width: 8rem;
 }
 
 .card:hover {
@@ -96,4 +100,10 @@
 .button-main span {
     position: relative;
     z-index: 1;
+}
+
+.second-section {
+    margin-top: 3rem;
+    width: 26rem;
+    height: 26rem;
 }
