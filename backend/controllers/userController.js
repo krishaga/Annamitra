@@ -102,7 +102,6 @@ const getuserdata = async (req, res) => {
         }
 
         const donations = await Donations.find({ donor_id: user._id });
-        console.log(donations)
         const requestsCount = await Recipients.countDocuments({ recipient_id: user._id });
         user = {
             donations,
@@ -117,4 +116,18 @@ const getuserdata = async (req, res) => {
     }
 }
 
-module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails, getuserdata };
+const getUsername = async (req,res) => {
+    try {
+        if (req.headers.userType == "Recipient") {
+            console.log(req.headers.userId)
+            const username = await User.findOne({ _id: req.headers.userId})
+            console.log(username)
+        }
+        res.json({ username: user.username })
+    } catch (error) {
+        console.error('Error fetching user and donation data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails, getuserdata, getUsername };

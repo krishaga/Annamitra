@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Confirmation from "./DonationPopup";
 import "../styles/list.css";
-import Confirmation from "./Confirmation";
 
 export default function DonationsList() {
     const [recipients, setRecipients] = useState([]);
@@ -39,13 +39,13 @@ export default function DonationsList() {
 
     return (
         <div>
-            <h1>Nearby Requests</h1>
+            <div className="heading">Nearby Requests</div>
             <div className="mainContainer">
                 {recipients.map((element) => (
                     <Donation element={element} />
                 ))}
             </div>
-            <div className="bottoms-buttons">
+            <div className="bottom-btns">
                 <button
                     className="btns-3"
                     onClick={() => {
@@ -66,6 +66,14 @@ function Donation({ element }) {
         setPopupOpen(true);
     }
 
+    if (isPopupOpen) {
+        return (
+            <Confirmation
+                element={element}
+                onClose={() => setPopupOpen(false)}
+            />
+    )}
+
     return (
         <div className="product-container">
             <div className="product-image-container">
@@ -76,7 +84,6 @@ function Donation({ element }) {
                     alt=""
                 />
             </div>
-            <div className="product-description-container">
                 <div className="description">
                     Description: {element.description}
                 </div>
@@ -85,21 +92,13 @@ function Donation({ element }) {
                     Date: {new Date(element.date).toLocaleDateString("en-GB")}
                 </div>
                 <div className="addresspro">
-                    Address: {element.addressTo.street}
+                    Address: {element.addressTo.city}, {element.addressTo.postalcode}
                 </div>
-                <div className="citypro">City: {element.addressTo.city}</div>
                 <div className="container-button">
-                    <button onClick={handleClick} className="button">
+                    <button onClick={handleClick} className="btn">
                         Donate
                     </button>
                 </div>
-                {isPopupOpen && (
-                    <Confirmation
-                        element={element}
-                        onClose={() => setPopupOpen(false)}
-                    />
-                )}
-            </div>
         </div>
     );
 }
