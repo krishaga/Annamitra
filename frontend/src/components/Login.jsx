@@ -24,25 +24,26 @@ function Login() {
                     alert(data.errorMessage);
                 } else {
                     localStorage.setItem("token", data.token);
-                    navigate("/Annamitra");
+                    navigate("/dashboard");
                 }
             });
     };
 
     return (
-        <div className="container">
-            <div className="left-section">
+        <div className="storage-section">
+            <div className="leftsection">
                 <img
                     src="/assets/images/form_image.png"
                     alt="Food Donation Image"
                 />
             </div>
-            <div className="right-section custom-r-section">
+            <div className="rightsection">
                 <h1 className="h1-line-height" style={{ fontSize: "45px" }}>
                     Welcome Back. Log In Below
                 </h1>
-                <form>
-                    <div className="form-group">
+                <br />
+                <div className="input-form">
+                    <div className="formsgroup">
                         <label htmlFor="inputUserName">Username</label>
                         <input
                             onChange={(e) => {
@@ -50,11 +51,11 @@ function Login() {
                             }}
                             label="inputUserName"
                             placeholder="Username"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputUserName"
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="formsgroup">
                         <label htmlFor="inputPassword">Password</label>
                         <input
                             onChange={(e) => {
@@ -63,7 +64,7 @@ function Login() {
                             label="Password"
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputPassword"
                         />
                         <br />
@@ -82,12 +83,11 @@ function Login() {
                         <button
                             className="button-main"
                             onClick={handleLogin}
-                            type="button"
                         >
                             Log In
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     );

@@ -4,12 +4,13 @@ import DoughnutChart from "./Chart";
 import "../styles/dashboard.css";
 
 function Dashboard() {
-    const [donationCount, setDonationCount] = useState([]);
+    const [cookedCount, setCookedCount] = useState(0);
+    const [uncookedCount, setUncookedCount] = useState(0);
+    const [packedCount, setPackedCount] = useState(0);
+    const [donationCount, setDonationCount] = useState(0);
+    const [requestCount, setRequestCount] = useState(0);
     const [donations, setDonations] = useState([]);
-    const [requestCount, setRequestCount] = useState([]);
     const navigate = useNavigate();
-
-    const data = [30, 50, 20];
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -33,15 +34,27 @@ function Dashboard() {
             } catch (error) {
                 console.error("Error in fetching: ", error);
             }
-            console.log(donations);
+            console.log(data, donations);
             donations.forEach((donation) => {
-                console.log(donation);
+                console.log(donation)
+                setDonationCount(donationCount + 1)
+                if (donation.category == "Cooked Food") {
+                    setCookedCount(cookedCount + 1)
+                } else if (donation.category == "UnCooked Food") {
+                    setUncookedCount(uncookedCount + 1)
+                } else if (donation.category == "Raw Food") {
+                    setPackedCount(packedCount + 1)
+                }  else {
+                    console.log("glti")
+                }
                 // Process other fields as needed
             });
         };
-
+        fetchDetails();
         fetchDetails();
     }, []);
+
+    const data = [cookedCount, uncookedCount, packedCount];
 
     return (
         <div>
@@ -78,9 +91,9 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div className="bottom-buttons">
+                <div className="bottom-btns">
                     <button
-                        className="button-main"
+                        className="btns-main"
                         onClick={(e) => {
                             navigate("/donations-list");
                         }}
@@ -89,7 +102,7 @@ function Dashboard() {
                     </button>
                     &nbsp;&nbsp;
                     <button
-                        className="button-main"
+                        className="btns-main"
                         onClick={(e) => {
                             navigate("/recipients-list");
                         }}

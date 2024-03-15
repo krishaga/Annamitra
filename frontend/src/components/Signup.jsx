@@ -59,20 +59,20 @@ function Signup() {
     };
 
     return (
-        <div className="container">
-            <div className="left-section">
+        <div className="storage-section">
+            <div className="leftsection">
                 <img
                     src="/assets/images/form_image.png"
                     alt="Food Donation Image"
                     style={{ maxWidth: "94%" }}
                 />
             </div>
-            <div className="right-section">
+            <div className="rightsection">
                 <h1 className="heading" style={{ fontSize: "45px" }}>
                     Sign Up
                 </h1>
-                <div className="form">
-                    <div className="form-group">
+                <div className="input-form">
+                    <div className="formsgroup">
                         <label htmlFor="inputUserName">Username</label>
                         <input
                             onChange={(e) => {
@@ -80,11 +80,11 @@ function Signup() {
                             }}
                             label="inputUserName"
                             placeholder="Username"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputUserName"
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="formsgroup">
                         <label htmlFor="inputPassword">Password</label>
                         <input
                             onChange={(e) => {
@@ -93,11 +93,11 @@ function Signup() {
                             label="Password"
                             type="password"
                             placeholder="Password"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputPassword"
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="formsgroup">
                         <label htmlFor="inputName">Name</label>
                         <input
                             onChange={(e) => {
@@ -105,11 +105,11 @@ function Signup() {
                             }}
                             label="Name"
                             placeholder="Name"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputName"
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="formsgroup">
                         <label htmlFor="inputEmail">Email</label>
                         <input
                             onChange={(e) => {
@@ -118,11 +118,11 @@ function Signup() {
                             label="Email"
                             type="email"
                             placeholder="Email"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputEmail"
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="formsgroup">
                         <label htmlFor="inputPhoneNumber">Mobile No</label>
                         <input
                             onChange={(e) => {
@@ -130,23 +130,23 @@ function Signup() {
                             }}
                             label="Mobile No"
                             placeholder="Mobile No"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputPhoneNumber"
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="formsgroup">
                         <label htmlFor="inputAddress">Address</label>
                         <input
                             onChange={(e) => {
                                 setStreet(e.target.value);
                             }}
                             placeholder="Address"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputAddress"
                         />
                     </div>
-                    <div className="form-row">
-                        <div className="form-group">
+                    <div className="formsrow">
+                        <div className="formsgroup">
                             <label htmlFor="inputCity">City</label>
                             <input
                                 onChange={(e) => {
@@ -154,11 +154,11 @@ function Signup() {
                                 }}
                                 label="City"
                                 placeholder="City"
-                                className="form-control"
+                                className="formscontrol"
                                 id="inputCity"
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="formsgroup">
                             <label htmlFor="inputState">State</label>
                             <input
                                 onChange={(e) => {
@@ -166,11 +166,11 @@ function Signup() {
                                 }}
                                 label="State"
                                 placeholder="State"
-                                className="form-control"
+                                className="formscontrol"
                                 id="inputState"
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="formsgroup">
                             <label htmlFor="inputZip">Zip Code</label>
                             <input
                                 onChange={(e) => {
@@ -178,13 +178,13 @@ function Signup() {
                                 }}
                                 label="Postal Code"
                                 placeholder="Zip Code"
-                                className="form-control"
+                                className="formscontrol"
                                 id="inputZip"
                             />
                         </div>
                     </div>
                     {/* <br /> */}
-                    <div className="form-group">
+                    <div className="formsgroup">
                         <label htmlFor="inputCountry">Country</label>
                         <input
                             onChange={(e) => {
@@ -192,7 +192,7 @@ function Signup() {
                             }}
                             label="Country"
                             placeholder="Country"
-                            className="form-control"
+                            className="formscontrol"
                             id="inputCountry"
                         />
                     </div>

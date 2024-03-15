@@ -1,15 +1,15 @@
-.navbar {
+.navbar1 {
     width: 100%;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 15px;
 }
-.navbar img {
+.navbar1 img {
     max-width: 320px;
     height: auto;
     margin: 0 auto;
 }
-.divider {
+.linebreak {
     width: 90%;
     margin: 20px auto;
     border: none;

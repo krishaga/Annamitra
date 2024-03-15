@@ -26,21 +26,21 @@ function Annamitra() {
     }, []);
 
     return (
-        <div className="container">
-            <div className="left-section">
+        <div className="storage-section">
+            <div className="leftsection">
                 <img
                     src="/assets/images/side_image.png"
                     alt="Food Donation Image"
                     //   style={{ maxWidth: "95%" }}
                 />
             </div>
-            <div className="right-section">
+            <div className="rightsection">
                 <h1
                     id="typingText"
                     className="h1-line-height"
                     style={{ fontSize: "50px" }}
                 ></h1>
-
+                <br />
                 <p>
                     Join us in fighting hunger and food insecurity by bridging
                     the gap between surplus food and those in need. Together, we

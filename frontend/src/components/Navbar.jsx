@@ -39,7 +39,7 @@ function Navbar() {
     ) {
         return (
             <div>
-                <div className="navbar">
+                <div className="navbar1">
                     <img
                         src="/assets/images/logo.png"
                         onClick={() => {
@@ -47,7 +47,7 @@ function Navbar() {
                         }}
                         alt="Logo"
                     />
-                    <hr className="divider" />
+                    <hr className="linebreak" />
                 </div>
             </div>
         );
@@ -79,7 +79,7 @@ function Navbar() {
                         />
                     </div>
                 </div>
-                <hr className="divider" />
+                <hr className="linebreak" />
             </div>
         );
     }

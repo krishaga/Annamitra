@@ -18,28 +18,23 @@
 }
 
 .details {
-    flex: 3;
+    flex: 2;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    align-items: center;
     margin-bottom: 0.4rem;
 }
 
 .name {
-    margin-top: 0.8rem;
-    margin-bottom: 1rem;
+    /* margin-left: 2rem; */
+    margin: 0.4rem 0;
     font-size: 1rem;
-    margin-left: 6.7rem;
     font-style: italic;
     color: rgb(7, 86, 16);
     font-weight: bold;
 }
 
 .address {
-    margin-top: 0.5rem;
-    margin-bottom: 0.6rem;
-    margin-left: 9.7rem;
     font-size: 0.75rem;
 }
 
@@ -50,7 +45,7 @@
     height: 4rem;
 }
 
-.divider {
+.linebreak {
     width: 90%;
     margin: 20px auto;
     border: none;

@@ -33,21 +33,21 @@ function RequestList() {
 
     return (
         <div>
-            <div className="container">
-                <div className="left-section">
+            <div className="storage-section">
+                <div className="leftsection">
                     <img
                         src="/assets/images/form_image.png"
                         alt="Food Donation Image"
                         style={{ maxWidth: "94%" }}
                     />
                 </div>
-                <div className="right-section">
-                    <h1 className="h1-line-height" style={{ fontSize: "45px" }}>
+                <div className="rightsection">
+                    <h1 className="heading" style={{ fontSize: "45px" }}>
                         Request
                     </h1>
-                    <p></p>
-                    <div className="form">
-                        <div className="form-group">
+                    <br />
+                    <div className="input-form">
+                        <div className="formsgroup">
                             <label htmlFor="inputDescription">
                                 Describe Your Requirements
                             </label>
@@ -56,11 +56,11 @@ function RequestList() {
                                     setDescription(e.target.value);
                                 }}
                                 placeholder="Description"
-                                className="form-control"
+                                className="formscontrol"
                                 id="inputDescription"
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="formsgroup">
                             <label htmlFor="inputToServe">
                                 No. Of People to be served
                             </label>
@@ -69,7 +69,7 @@ function RequestList() {
                                     setToServe(e.target.value);
                                 }}
                                 placeholder="No. of People"
-                                className="form-control"
+                                className="formscontrol"
                                 id="inputToServe"
                             />
                         </div>

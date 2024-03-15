@@ -35,27 +35,26 @@ function DonateList() {
 
     return (
         <div>
-            <div className="container">
-                <div className="left-section">
+            <div className="storage-section">
+                <div className="leftsection">
                     <img
                         src="/assets/images/donateform.png"
                         alt="Food Donation Image"
                         style={{ maxWidth: "94%" }}
                     />
                 </div>
-                <div className="right-section">
-                    <h1 className="h1-line-height" style={{ fontSize: "45px" }}>
+                <div className="rightsection">
+                    <h1 className="heading" style={{ fontSize: "45px" }}>
                         Donate
                     </h1>
-                    <p></p>
-                    <div className="form">
-                        <div className="form-group">
+                    <div className="input-form">
+                        <div className="formsgroup">
                             <label htmlFor="inputCategory">
                                 Category Of Food
                             </label>
-                            <br />
-                            <div className="form-row">
-                                <span className="form-group col-md-4">
+                            <br /><br />
+                            <div className="formsrow">
+                                <span className="formsgroup col-md-4">
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/cookedfood.png"
@@ -63,31 +62,38 @@ function DonateList() {
                                         onClick={() => {
                                             setCategory("Cooked Food");
                                         }}
+                                        
                                     />
+                                    <br />
+                                    <span>Cooked Food</span>
                                 </span>
-                                <span className="form-group col-md-4">
+                                <span className="formsgroup col-md-4">
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/rawfood.jpg"
-                                        alt="Cooked Food"
+                                        alt="Un-Cooked Food"
                                         onClick={() => {
                                             setCategory("UnCooked Food");
                                         }}
                                     />
+                                    <br />
+                                    <span>Uncooked Food</span>
                                 </span>
-                                <span className="form-group col-md-4">
+                                <span className="formsgroup col-md-4">
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/packedfood.png"
-                                        alt="Cooked Food"
+                                        alt="Packed Food"
                                         onClick={() => {
-                                            setCategory("Raw Food");
+                                            setCategory("Packed Food");
                                         }}
                                     />
+                                    <br />
+                                    <span>Packed Food</span>
                                 </span>
                             </div>
                         </div>
-                        <div className="form-group">
+                        <div className="formsgroup">
                             <label htmlFor="inputDescription">
                                 Description Of The Food
                             </label>
@@ -96,11 +102,11 @@ function DonateList() {
                                     setDescription(e.target.value);
                                 }}
                                 placeholder="Description"
-                                className="form-control"
+                                className="formscontrol"
                                 id="inputDescription"
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="formsgroup">
                             <label htmlFor="inputServes">
                                 No. Of People Food Can Serve
                             </label>
@@ -109,7 +115,7 @@ function DonateList() {
                                     setServes(e.target.value);
                                 }}
                                 placeholder="No. of People"
-                                className="form-control"
+                                className="formscontrol"
                                 id="inputServes"
                             />
                         </div>

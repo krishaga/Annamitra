@@ -71,14 +71,14 @@
     margin-bottom: 10px 0; /* Adjusted margin-bottom */
 }
 
-.bottom-buttons {
+.bottom-btns {
     width: 100%;
     text-align: center;
     margin-top: 15px;
     margin-bottom: 6rem;
 }
 
-.button-main {
+.btns-main {
     transition: color 0.4s, background-color 0.4s;
     padding: 10px 15px; /* Adjusted padding */
     margin-top: 1.6rem;
@@ -93,11 +93,11 @@
     display: inline-block;
 }
 
-.button-main:hover {
+.btns-main:hover {
     background-color: #7b9c2a;
 }
 
-.button-main span {
+.btns-main span {
     position: relative;
     z-index: 1;
 }
