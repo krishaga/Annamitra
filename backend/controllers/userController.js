@@ -118,10 +118,8 @@ const getuserdata = async (req, res) => {
 
 const getActiveUser = async (req, res) => {
     try {
-        if (req.headers.user_type == "Recipient") {
-            const user = await User.findOne({ _id: req.headers.user_id })
-            res.json({ user })
-        }
+        const user = await User.findOne({ _id: req.headers.user_id })
+        res.json({ user })
     } catch (error) {
         console.error('Error fetching user and donation data:', error);
         res.status(500).json({ error: 'Internal Server Error' });

@@ -6,7 +6,7 @@ export default function Confirmation({ element, onClose }) {
     const [showContactInfo, setShowContactInfo] = useState(false);
 
     useEffect(() => {
-        const fetchRecipients = async () => {
+        const fetchUser = async () => {
             try {
                 const response = await fetch(
                     "http://localhost:3000/api/auth/get-user",
@@ -15,7 +15,6 @@ export default function Confirmation({ element, onClose }) {
                         headers: {
                             authorization:
                                 "Bearer " + localStorage.getItem("token"),
-                            user_type: "Recipient",
                             user_id: element.recipient_id,
                         },
                     }
@@ -30,9 +29,9 @@ export default function Confirmation({ element, onClose }) {
             }
         };
 
-        fetchRecipients();
+        fetchUser();
 
-        const interval = setInterval(fetchRecipients, 1000);
+        const interval = setInterval(fetchUser, 1000);
 
         return () => clearInterval(interval);
     }, []);
