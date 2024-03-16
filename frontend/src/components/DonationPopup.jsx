@@ -3,12 +3,13 @@ import "../styles/confirmation.css";
 
 export default function Confirmation({ element, onClose }) {
     const [user, setUser] = useState({});
+    const [showContactInfo, setShowContactInfo] = useState(false);
 
     useEffect(() => {
         const fetchRecipients = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/auth/get-username",
+                    "http://localhost:3000/api/auth/get-user",
                     {
                         method: "GET",
                         headers: {
@@ -36,8 +37,33 @@ export default function Confirmation({ element, onClose }) {
         return () => clearInterval(interval);
     }, []);
 
-    function handleDonate() {
-        console.log("handle d");
+    async function handleDonate() {
+        setShowContactInfo(true);
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/match/match-donation",
+                {
+                    method: "PUT",
+                    headers: {
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                        request_id: element._id,
+                        updated_request: {
+                            addressFrom: user.addressFrom,
+                            donor_id: user._id,
+                            completed: true,
+                            ...element,
+                        },
+                    },
+                }
+            );
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            console.log(await response.json());
+        } catch (error) {
+            console.error("Error in fetching:", error);
+        }
     }
 
     return (
@@ -74,22 +100,30 @@ export default function Confirmation({ element, onClose }) {
                     </p>
                 </div>
                 <div className="proceed">
-                    <h3>Would You Like To Donate to this person or not?</h3>
+                    <h3>
+                        {showContactInfo
+                            ? "Thank you for your Donatiton!"
+                            : "Are you sure you would like to proceed?"}
+                    </h3>
                     <div className="button-container">
-                        <button className="button-main" onClick={handleDonate}>
+                        <button
+                            className={`button-main ${
+                                showContactInfo ? "hidden" : ""
+                            }`}
+                            onClick={handleDonate}
+                        >
                             Donate
                         </button>
-                        <button
-                            className="button-main"
-                            onClick={() => {
-                                navigate("/donations-list");
-                            }}
-                        >
-                            No
+                        <button className="button-main" onClick={onClose}>
+                            Go Back
                         </button>
                     </div>
                 </div>
-                <div className="contact-info hidden">
+                <div
+                    className={`contact-info ${
+                        showContactInfo ? "" : "hidden"
+                    }`}
+                >
                     For more information, contact here :- <br />
                     Mobile No:{user.mobileno} <br />
                     Email Id : {user.email}

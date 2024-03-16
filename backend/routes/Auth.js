@@ -64,7 +64,7 @@ router.get('/dashboard', authenticateJwt, async (req, res) => {
     getuserdata(req, res);
 });
 
-router.get('/get-username', authenticateJwt, async (req, res) => {
+router.get('/get-user', authenticateJwt, async (req, res) => {
     getActiveUser(req, res);
 });
 

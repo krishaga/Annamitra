@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/Auth');
 const listRoutes = require('./routes/lists');
 const formRoutes = require('./routes/forms');
+const matchRoutes = require('./routes/match');
 const { dbConnect } = require('./database');
 require('dotenv').config();
 const cors = require('cors');
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/lists', listRoutes);
 app.use('/api/forms', formRoutes);
+app.use('/api/match', matchRoutes);
 
 const PORT = process.env.PORT || 3000;
 
