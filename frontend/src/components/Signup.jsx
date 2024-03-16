@@ -53,7 +53,7 @@ function Signup() {
                     // Handle successful signup
                     localStorage.setItem("token", data.token);
                     // Redirect or update UI as needed
-                    navigate("/Annamitra");
+                    navigate("/Dashboard");
                 }
             });
     };

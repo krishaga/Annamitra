@@ -30,7 +30,7 @@ function Dashboard() {
                 }
                 const data = await response.json();
                 // setDonations(data.user.donations);
-                setDonationCount(data.user.donationCount);
+                setDonationCount(data.user.donationsCount);
                 setRequestCount(data.user.requestsCount);
             } catch (error) {
                 console.error("Error in fetching: ", error);

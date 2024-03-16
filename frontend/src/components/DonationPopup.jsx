@@ -101,7 +101,7 @@ export default function Confirmation({ element, onClose }) {
                 <div className="proceed">
                     <h3>
                         {showContactInfo
-                            ? "Thank you for your Donatiton!"
+                            ? "Thank you for your Donation!"
                             : "Are you sure you would like to proceed?"}
                     </h3>
                     <div className="button-container">
