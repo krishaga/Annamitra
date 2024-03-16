@@ -4,12 +4,12 @@ import DoughnutChart from "./Chart";
 import "../styles/dashboard.css";
 
 function Dashboard() {
-    const [cookedCount, setCookedCount] = useState(0);
-    const [uncookedCount, setUncookedCount] = useState(0);
-    const [packedCount, setPackedCount] = useState(0);
+    // const [cookedCount, setCookedCount] = useState(0);
+    // const [uncookedCount, setUncookedCount] = useState(0);
+    // const [packedCount, setPackedCount] = useState(0);
     const [donationCount, setDonationCount] = useState(0);
     const [requestCount, setRequestCount] = useState(0);
-    const [donations, setDonations] = useState([]);
+    // const [donations, setDonations] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,32 +29,27 @@ function Dashboard() {
                     throw new Error("Network Response was not ok");
                 }
                 const data = await response.json();
-                setDonations(data.user.donations);
+                // setDonations(data.user.donations);
+                setDonationCount(data.user.donationCount);
                 setRequestCount(data.user.requestsCount);
             } catch (error) {
                 console.error("Error in fetching: ", error);
             }
-            console.log(data, donations);
-            donations.forEach((donation) => {
-                console.log(donation)
-                setDonationCount(donationCount + 1)
-                if (donation.category == "Cooked Food") {
-                    setCookedCount(cookedCount + 1)
-                } else if (donation.category == "UnCooked Food") {
-                    setUncookedCount(uncookedCount + 1)
-                } else if (donation.category == "Raw Food") {
-                    setPackedCount(packedCount + 1)
-                }  else {
-                    console.log("glti")
-                }
-                // Process other fields as needed
-            });
+            // donations.forEach((donation) => {
+            //     if (donation.category == "Cooked Food") {
+            //         setCookedCount(cookedCount + 1);
+            //     } else if (donation.category == "UnCooked Food") {
+            //         setUncookedCount(uncookedCount + 1);
+            //     } else if (donation.category == "Raw Food") {
+            //         setPackedCount(packedCount + 1);
+            //     }
+            // });
         };
         fetchDetails();
         fetchDetails();
     }, []);
 
-    const data = [cookedCount, uncookedCount, packedCount];
+    const data = [3, 1, 2];
 
     return (
         <div>

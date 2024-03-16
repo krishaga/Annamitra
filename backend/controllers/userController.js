@@ -102,9 +102,11 @@ const getuserdata = async (req, res) => {
         }
 
         const donations = await Donations.find({ donor_id: user._id });
+        const donationsCount = await Donations.countDocuments({ donor_id: user._id });
         const requestsCount = await Recipients.countDocuments({ recipient_id: user._id });
         user = {
             donations,
+            donationsCount,
             requestsCount,
             ...user
         }
