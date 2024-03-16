@@ -2,6 +2,68 @@ import React from "react";
 import "../styles/confirmation.css";
 
 export default function Confirmation({ element, onClose }) {
+    const [user, setUser] = useState({});
+    const [showContactInfo, setShowContactInfo] = useState(false);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await fetch(
+                    "http://localhost:3000/api/auth/get-user",
+                    {
+                        method: "GET",
+                        headers: {
+                            authorization:
+                                "Bearer " + localStorage.getItem("token"),
+                            user_id: element.donor_id,
+                        },
+                    }
+                );
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const data = await response.json();
+                setUser(data.user);
+            } catch (error) {
+                console.error("Error in fetching:", error);
+            }
+        };
+
+        fetchUser();
+
+        const interval = setInterval(fetchUser, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    async function handleRecieve() {
+        setShowContactInfo(true);
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/match/match-recipient",
+                {
+                    method: "PUT",
+                    headers: {
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                        request_id: element._id,
+                        updated_request: {
+                            addressTo: user.addressTo,
+                            recipient_id: user._id,
+                            completed: true,
+                            ...element,
+                        },
+                    },
+                }
+            );
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            console.log(await response.json());
+        } catch (error) {
+            console.error("Error in fetching:", error);
+        }
+    }
 
     return (
         <div className="popup">
@@ -14,18 +76,56 @@ export default function Confirmation({ element, onClose }) {
                         alt=""
                     />
                 </div>
-                <div className="product-description-container">
-                    <div className="description">
-                        Description: {element.description}
+                <div className="description">
+                    Description: {element.description}
+                </div>
+                <div className="serves">Serves: {element.serves}</div>
+                <div className="date">
+                    Date: {new Date(element.date).toLocaleDateString("en-GB")}
+                </div>
+                <div className="addresspro">
+                    Address: {element.addressFrom.city},
+                    {element.addressFrom.postalcode}
+                </div>
+            </div>
+            <div className="confirmation">
+                <div className="user-info">
+                    <h2>To: {user.username}</h2>
+                    <p>
+                        {element.addressFrom.street}, {element.addressFrom.city}
+                        , {element.addressFrom.state},{" "}
+                        {element.addressFrom.postalcode},{" "}
+                        {element.addressFrom.country}
+                    </p>
+                </div>
+                <div className="proceed">
+                    <h3>
+                        {showContactInfo
+                            ? "Conguratulations! Food will be delivered soon."
+                            : "Are you sure you would like to proceed?"}
+                    </h3>
+                    <div className="button-container">
+                        <button
+                            className={`button-main ${
+                                showContactInfo ? "hidden" : ""
+                            }`}
+                            onClick={handleRecieve}
+                        >
+                            Recieve
+                        </button>
+                        <button className="button-main" onClick={onClose}>
+                            Go Back
+                        </button>
                     </div>
-                    <div className="serves">Serves: {element.serves}</div>
-                    <div className="date">
-                        Date: {new Date(element.date).toLocaleDateString("en-GB")}
-                    </div>
-                    <div className="addresspro">
-                        Address: {element.addressFrom.street}
-                    </div>
-                    <div className="citypro">City: {element.addressFrom.city}</div>
+                </div>
+                <div
+                    className={`contact-info ${
+                        showContactInfo ? "" : "hidden"
+                    }`}
+                >
+                    For more information, contact here :- <br />
+                    Mobile No:{user.mobileno} <br />
+                    Email Id : {user.email}
                 </div>
             </div>
         </div>
