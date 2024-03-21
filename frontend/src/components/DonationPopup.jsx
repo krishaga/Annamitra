@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../styles/confirmation.css";
 
 export default function Confirmation({ element, onClose }) {
-    const [user, setUser] = useState({});
+    const [recipient, setRecipient] = useState({});
+    const [user,setUser] = useState({});
     const [showContactInfo, setShowContactInfo] = useState(false);
 
     useEffect(() => {
-        const fetchUser = async () => {
+        const fetchRecipient = async () => {
             try {
                 const response = await fetch(
                     "http://localhost:3000/api/auth/get-user",
@@ -23,17 +24,40 @@ export default function Confirmation({ element, onClose }) {
                     throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
+                setRecipient(data.user);
+            } catch (error) {
+                console.error("Error in fetching:", error);
+            }
+        };
+
+        fetchRecipient();
+
+
+
+        const fetchUser = async () => {
+            try {
+                const response = await fetch(
+                    "http://localhost:3000/api/auth/user-details",
+                    {
+                        method: "GET",
+                        headers: {
+                            authorization:
+                                "Bearer " + localStorage.getItem("token"),
+                        },
+                    }
+                );
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const data = await response.json();
                 setUser(data.user);
             } catch (error) {
                 console.error("Error in fetching:", error);
             }
         };
 
-        fetchUser();
-
-        const interval = setInterval(fetchUser, 1000);
-
-        return () => clearInterval(interval);
+        fetchUser()
+        
     }, []);
 
     async function handleDonate() {
@@ -44,25 +68,26 @@ export default function Confirmation({ element, onClose }) {
                 {
                     method: "PUT",
                     headers: {
+                        "Content-Type": "application/json", 
                         authorization:
                             "Bearer " + localStorage.getItem("token"),
                         request_id: element._id,
-                        updated_request: {
-                            addressFrom: user.addressFrom,
-                            donor_id: user._id,
-                            completed: true,
-                            ...element,
-                        },
                     },
+                    body: JSON.stringify({
+                        ...element,
+                        addressFrom: user.address,
+                        donor_id: user._id,
+                        completed: true,
+                    }),
                 }
-            );
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
+                );
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                console.log(await response.json());
+            } catch (error) {
+                console.error("Error in fetching:", error);
             }
-            console.log(await response.json());
-        } catch (error) {
-            console.error("Error in fetching:", error);
-        }
     }
 
     return (
@@ -90,7 +115,7 @@ export default function Confirmation({ element, onClose }) {
             </div>
             <div className="confirmation">
                 <div className="user-info">
-                    <h2>To: {user.username}</h2>
+                    <h2>To: {recipient.username}</h2>
                     <p>
                         {element.addressTo.street}, {element.addressTo.city},{" "}
                         {element.addressTo.state},{" "}
@@ -124,8 +149,8 @@ export default function Confirmation({ element, onClose }) {
                     }`}
                 >
                     For more information, contact here :- <br />
-                    Mobile No:{user.mobileno} <br />
-                    Email Id : {user.email}
+                    Mobile No:{recipient.mobileno} <br />
+                    Email Id : {recipient.email}
                 </div>
             </div>
         </div>

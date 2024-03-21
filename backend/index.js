@@ -9,6 +9,9 @@ require('dotenv').config();
 const cors = require('cors');
 const app = express();
 app.use(cors());
+app.use(bodyParser.json()); // Parse JSON-encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
+
 
 // Connect to MongoDB
 dbConnect();

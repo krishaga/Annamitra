@@ -76,7 +76,7 @@ const updateUser = async (req, res) => {
     }
 };
 
-const getUserDetails = async (req, res) => {
+const getUserByName = async (req, res) => {
     try {
         const user = await User.findOne({ username: req.user.username });
         res.json({ user });
@@ -118,7 +118,7 @@ const getuserdata = async (req, res) => {
     }
 }
 
-const getActiveUser = async (req, res) => {
+const getUserById = async (req, res) => {
     try {
         const user = await User.findOne({ _id: req.headers.user_id })
         res.json({ user })
@@ -128,4 +128,4 @@ const getActiveUser = async (req, res) => {
     }
 }
 
-module.exports = { createUser, loginUser, logoutUser, updateUser, getUserDetails, getuserdata, getActiveUser };
+module.exports = { createUser, loginUser, logoutUser, updateUser, getUserByName, getuserdata, getUserById };

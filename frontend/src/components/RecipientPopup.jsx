@@ -48,13 +48,13 @@ export default function Confirmation({ element, onClose }) {
                         authorization:
                             "Bearer " + localStorage.getItem("token"),
                         request_id: element._id,
-                        updated_request: {
-                            addressTo: user.addressTo,
-                            recipient_id: user._id,
-                            completed: true,
-                            ...element,
-                        },
                     },
+                    body: JSON.stringify({
+                        ...element,
+                        addressTo: user.addressTo,
+                        recipient_id: user._id,
+                        completed: true,
+                    }),
                 }
             );
             if (!response.ok) {
