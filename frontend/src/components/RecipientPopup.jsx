@@ -14,8 +14,7 @@ export default function Confirmation({ element, onClose }) {
                     {
                         method: "GET",
                         headers: {
-                            authorization:
-                                "Bearer " + localStorage.getItem("token"),
+                            authorization: "Bearer " + localStorage.getItem("token"),
                             user_id: element.donor_id,
                         },
                     }
@@ -45,8 +44,7 @@ export default function Confirmation({ element, onClose }) {
                 {
                     method: "PUT",
                     headers: {
-                        authorization:
-                            "Bearer " + localStorage.getItem("token"),
+                        authorization:"Bearer " + localStorage.getItem("token"),
                         request_id: element._id,
                     },
                     body: JSON.stringify({
@@ -91,7 +89,7 @@ export default function Confirmation({ element, onClose }) {
             </div>
             <div className="confirmation">
                 <div className="user-info">
-                    <h2>To: {user.username}</h2>
+                    <h2>From: {user.username}</h2>
                     <p>
                         {element.addressFrom.street}, {element.addressFrom.city}
                         , {element.addressFrom.state},{" "}

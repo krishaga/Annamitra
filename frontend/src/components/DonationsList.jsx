@@ -5,6 +5,7 @@ import "../styles/list.css";
 
 export default function DonationsList() {
     const [recipients, setRecipients] = useState([]);
+    const [isPopupOpen, setPopupOpen] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,19 +31,19 @@ export default function DonationsList() {
             }
         };
 
-        fetchRecipients();
-
-        const interval = setInterval(fetchRecipients, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
+        if (!isPopupOpen) {
+            fetchRecipients();
+            const interval = setInterval(fetchRecipients, 1000);
+            return () => clearInterval(interval);
+        }
+    }, [isPopupOpen]);
 
     return (
         <div>
             <div className="heading">Nearby Requests</div>
             <div className="mainContainer">
                 {recipients.map((element) => (
-                    <Donation element={element} />
+                    <Donation element={element} isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen} />
                 ))}
             </div>
             <div className="bottom-btns">
@@ -59,9 +60,7 @@ export default function DonationsList() {
     );
 }
 
-function Donation({ element }) {
-    const [isPopupOpen, setPopupOpen] = useState(false);
-
+function Donation({ element, isPopupOpen, setPopupOpen }) {
     function handleClick() {
         setPopupOpen(true);
     }

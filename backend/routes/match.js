@@ -22,7 +22,6 @@ router.put('/match-donation', authenticateJwt, async (req, res) => {
 
 router.put('/match-recipient', authenticateJwt, async (req, res) => {
     try {
-        console.log(req.headers.request_id, req.body)
         const request = await Donations.findByIdAndUpdate(req.headers.request_id, req.body, { new: true });
         if (request) {
             res.json({ message: 'Matched Successfully!' });
