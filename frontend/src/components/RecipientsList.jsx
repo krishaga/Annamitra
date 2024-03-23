@@ -5,7 +5,7 @@ import "../styles/list.css";
 
 export default function RecipientsList() {
     const [donations, setDonations] = useState([]);
-    const [username, setUsername] = useState("");
+    const [isPopupOpen, setPopupOpen] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,25 +26,24 @@ export default function RecipientsList() {
                 }
                 const data = await response.json();
                 setDonations(data.donationRequests);
-                setUsername(data.username);
             } catch (error) {
                 console.error("Error in fetching:", error);
             }
         };
 
-        fetchDonations();
-
-        const interval = setInterval(fetchDonations, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
+        if (!isPopupOpen) {
+            fetchDonations();
+            const interval = setInterval(fetchDonations, 1000);
+            return () => clearInterval(interval);
+        }
+    }, [isPopupOpen]);
 
     return (
         <div>
             <div className="heading">Nearby Donations</div>
             <div className="mainContainer">
-                {donations.map((element, index) => (
-                    <Recipient key={index} element={element} username={username} />
+                {donations.map((element) => (
+                    <Recipient element={element} isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen} />
                 ))}
             </div>  
             <div className="bottom-btns">
@@ -60,17 +59,18 @@ export default function RecipientsList() {
     );
 }
 
-function Recipient({ element }) {
-    const [isPopupOpen, setPopupOpen] = useState(false);
+function Recipient({ element, isPopupOpen, setPopupOpen }) {
+    const [currentElement, setCurrentElement] = useState(element);
 
-    function handleClick() {
+    function handleClick(element) {
+        setCurrentElement(element);
         setPopupOpen(true);
     }
 
     if (isPopupOpen) {
         return (
             <Confirmation
-                element={element}
+                element={currentElement}
                 onClose={() => setPopupOpen(false)}
             />
     )}
@@ -90,13 +90,10 @@ function Recipient({ element }) {
             Date: {new Date(element.date).toLocaleDateString("en-GB")}
             </div>
             <div className="addresspro">
-            Address: {element.addressFrom.street}
-            </div>
-            <div className="citypro">
-            City: {element.addressFrom.city}
+            Address: {element.addressFrom.city} , {element.addressFrom.postalcode}
             </div>
             <div className="container-button">
-                <button onClick={handleClick} className="btn">
+                <button onClick={() => handleClick(element)} className="btn">
                     Accept
                 </button>
             </div>

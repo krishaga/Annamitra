@@ -76,6 +76,9 @@ function Navbar() {
                         <img
                             src="../assets/images/navbarprofilepic.jpeg"
                             alt="hi"
+                            onClick={()=>{
+                                window.location="/Annamitra"
+                            }}
                         />
                     </div>
                 </div>

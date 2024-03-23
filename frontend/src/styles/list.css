@@ -68,7 +68,7 @@
     height: auto;
     /* overflow-wrap: break-word ; */
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding-left:4px ;
     margin:0.4rem 0 ;
@@ -84,7 +84,7 @@
     height: auto;
     /* overflow-wrap: break-word ; */
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 0.4rem;
     padding-left:4px ;
@@ -99,7 +99,7 @@
     height: auto;
     /* overflow-wrap: break-word ; */
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 0.4rem;
     padding-left:4px ;
@@ -115,7 +115,7 @@
     height: auto;
     /* overflow-wrap: break-word ; */
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 0.4rem;
     padding-left:4px ;
@@ -131,7 +131,7 @@
     height: auto;
     /* overflow-wrap: break-word ; */
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 0.4rem;
     padding-left:4px ;

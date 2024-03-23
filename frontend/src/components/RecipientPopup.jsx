@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/confirmation.css";
 
 export default function Confirmation({ element, onClose }) {
+    const [donor, setDonor] = useState({});
     const [user, setUser] = useState({});
     const [showContactInfo, setShowContactInfo] = useState(false);
 
     useEffect(() => {
-        const fetchUser = async () => {
+        const fetchDonor = async () => {
             try {
                 const response = await fetch(
                     "http://localhost:3000/api/auth/get-user",
@@ -23,18 +23,37 @@ export default function Confirmation({ element, onClose }) {
                     throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
-                setUser(data.user);
+                setDonor(data.user);
             } catch (error) {
                 console.error("Error in fetching:", error);
             }
         };
 
-        fetchUser();
+        fetchDonor();
 
-        const interval = setInterval(fetchUser, 1000);
+        const fetchUser= async() => {
+            try{
+                const response = await fetch(
+                    "http://localhost:3000/api/auth/user-details",
+                    {
+                        method: "GET",
+                        headers: {
+                            authorization: "Bearer " + localStorage.getItem("token"),
+                        },
+                    }
+                );
+                if (!response.ok){
+                    throw new Error("Network response was not ok");
+                }
+                const data= await response.json();
+                setUser(data.user);
+            } catch(error){
+                console.error("Error in fetching:", error);
+            }
+        };
 
-        return () => clearInterval(interval);
-    }, []);
+        fetchUser()
+    },[]);
 
     async function handleRecieve() {
         setShowContactInfo(true);
@@ -44,12 +63,13 @@ export default function Confirmation({ element, onClose }) {
                 {
                     method: "PUT",
                     headers: {
+                        "Content-Type" : "application/json",
                         authorization:"Bearer " + localStorage.getItem("token"),
                         request_id: element._id,
                     },
                     body: JSON.stringify({
                         ...element,
-                        addressTo: user.addressTo,
+                        addressTo: user.address,
                         recipient_id: user._id,
                         completed: true,
                     }),
@@ -89,7 +109,7 @@ export default function Confirmation({ element, onClose }) {
             </div>
             <div className="confirmation">
                 <div className="user-info">
-                    <h2>From: {user.username}</h2>
+                    <h2>From: {donor.username}</h2>
                     <p>
                         {element.addressFrom.street}, {element.addressFrom.city}
                         , {element.addressFrom.state},{" "}
@@ -123,8 +143,8 @@ export default function Confirmation({ element, onClose }) {
                     }`}
                 >
                     For more information, contact here :- <br />
-                    Mobile No:{user.mobileno} <br />
-                    Email Id : {user.email}
+                    Mobile No:{donor.mobileno} <br />
+                    Email Id : {donor.email}
                 </div>
             </div>
         </div>
