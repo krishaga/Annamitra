@@ -98,20 +98,16 @@ const getUserByName = async (req, res) => {
 const getuserdata = async (req, res) => {
     try {
         let user = await User.findOne({ username: req.user.username });
-        if (!user) {
-            return res.status(404).json({ error: 'User not found' });
-        }
 
         const donations = await Donations.find({ donor_id: user._id });
         const donationsCount = await Donations.countDocuments({ donor_id: user._id }) + await Recipients.countDocuments({ donor_id: user._id });
         const requestsCount = await Recipients.countDocuments({ recipient_id: user._id }) + await Donations.countDocuments({ recipient_id: user._id });
-        user = {
+        const details = {
             donations,
             donationsCount,
             requestsCount,
-            ...user
         }
-        res.json({ user });
+        res.json({ details });
 
     } catch (error) {
         console.error('Error fetching user and donation data:', error);

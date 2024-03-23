@@ -114,20 +114,27 @@ function Navbar() {
                             <img 
                                 src="../assets/images/aboutus.png"
                                 alt=""
-                                onClick={()=>{
-                                    window.location='/AboutUs'
-                                }}
                             />
                             <div>About Us</div>
                         </div>
-                        <div className="sidebar-link">
+                        <div 
+                            className="sidebar-link"
+                            onClick={()=>{
+                                window.location='/community'
+                            }}
+                        >
                             <img 
                                 src="../assets/images/community.png" 
                                 alt=""
                             />
                             <div>Community</div>
                         </div>
-                        <div className="sidebar-link">
+                        <div 
+                            className="sidebar-link"
+                            onClick={()=>{
+                                window.location='/edit-profile'
+                            }}
+                        >
                             <img 
                                 src="../assets/images/profile.png" 
                                 alt=""

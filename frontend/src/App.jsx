@@ -11,6 +11,8 @@ import RecipientRequest from "./components/RecipientRequest.jsx";
 import DonationRequest from "./components/DonationRequest.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import AboutUs from "./components/AboutUs.jsx";
+import Community from "./components/Community.jsx";
+import Profile from "./components/Profile.jsx";
 
 function App() {
     return (
@@ -36,7 +38,8 @@ function App() {
                     />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/aboutus" element={<AboutUs />} />
-                    
+                    <Route path="/community" element={<Community />} />
+                    <Route path="/edit-profile" element={<Profile/>}/>
                 </Routes>
             </div>
         </BrowserRouter>

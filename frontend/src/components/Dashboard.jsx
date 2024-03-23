@@ -9,7 +9,7 @@ function Dashboard() {
     const [packedCount, setPackedCount] = useState(0);
     const [donationCount, setDonationCount] = useState(0);
     const [requestCount, setRequestCount] = useState(0);
-    const [donations, setDonations] = useState([]);
+    let donations = []
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,15 +29,15 @@ function Dashboard() {
                     throw new Error("Network Response was not ok");
                 }
                 const data = await response.json();
-                setDonations(data.user.donations); // Update donations directly
-                setDonationCount(data.user.donationsCount);
-                setRequestCount(data.user.requestsCount);
+                donations = data.details.donations; // Update donations directly
+                setDonationCount(data.details.donationsCount);
+                setRequestCount(data.details.requestsCount);
 
                 // Calculate counts based on donation categories
                 let cooked = 0;
                 let uncooked = 0;
                 let packed = 0;
-                data.user.donations.forEach(donation => {
+                donations.forEach(donation => {
                     if (donation.category === "Cooked Food") {
                         cooked++;
                     } else if (donation.category === "UnCooked Food") {
