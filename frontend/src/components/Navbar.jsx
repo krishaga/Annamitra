@@ -5,6 +5,12 @@ import "../styles/navbar_2.css";
 function Navbar() {
     const [name, setName] = useState([]);
     const [address, setAddress] = useState([]);
+    const [elementVisible, setelementVisible] = useState(false);
+
+    const toggledisplay = () =>{
+        setelementVisible(!elementVisible)
+    }
+
 
     useEffect(() => {
         const fetchdata = async () => {
@@ -76,10 +82,58 @@ function Navbar() {
                         <img
                             src="../assets/images/navbarprofilepic.jpeg"
                             alt="hi"
-                            onClick={()=>{
-                                window.location="/Annamitra"
-                            }}
+                            onClick={toggledisplay}
                         />
+                    </div>
+                    <div className="sidebar" style={{display: elementVisible? 'block' : 'none' }}>
+                        <div className="top-sidebar-link">
+                            <img className="profile-img"
+                                src="../assets/images/navbarprofilepic.jpeg"
+                                alt="hi"
+                                onClick={toggledisplay}
+                            />
+                        </div>
+                        <div 
+                            className="sidebar-link"
+                            onClick={()=>{
+                                window.location="/Dashboard"
+                            }}
+                        >
+                            <img 
+                                src="../assets/images/home.png" 
+                                alt=""
+                            />
+                            <div>Home</div>
+                        </div>
+                        <div 
+                            className="sidebar-link" 
+                            onClick={()=>{
+                                window.location='/AboutUs'
+                            }}
+                        >
+                            <img 
+                                src="../assets/images/aboutus.png"
+                                alt=""
+                                onClick={()=>{
+                                    window.location='/AboutUs'
+                                }}
+                            />
+                            <div>About Us</div>
+                        </div>
+                        <div className="sidebar-link">
+                            <img 
+                                src="../assets/images/community.png" 
+                                alt=""
+                            />
+                            <div>Community</div>
+                        </div>
+                        <div className="sidebar-link">
+                            <img 
+                                src="../assets/images/profile.png" 
+                                alt=""
+                            />
+                            <div>Profile</div>
+                        </div>
                     </div>
                 </div>
                 <hr className="linebreak" />
