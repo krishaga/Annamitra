@@ -39,7 +39,7 @@ function App() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/aboutus" element={<AboutUs />} />
                     <Route path="/community" element={<Community />} />
-                    <Route path="/edit-profile" element={<Profile/>}/>
+                    <Route path="/edit-profile" element={<Profile />} />
                 </Routes>
             </div>
         </BrowserRouter>

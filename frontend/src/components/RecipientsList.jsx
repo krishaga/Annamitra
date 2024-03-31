@@ -5,6 +5,7 @@ import "../styles/list.css";
 
 export default function RecipientsList() {
     const [donations, setDonations] = useState([]);
+    const [currentElement, setCurrentElement] = useState([]);
     const [isPopupOpen, setPopupOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -38,62 +39,63 @@ export default function RecipientsList() {
         }
     }, [isPopupOpen]);
 
-    return (
-        <div>
-            <div className="heading">Nearby Donations</div>
-            <div className="mainContainer">
-                {donations.map((element) => (
-                    <Recipient element={element} isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen} />
-                ))}
-            </div>  
-            <div className="bottom-btns">
-            <button className="btns-3"
-                onClick={() => {
-                    navigate("/recipientRequest");
-                }}
-            >
-                Custom Recipient
-            </button>
-            </div>
-        </div>
-    );
-}
-
-function Recipient({ element, isPopupOpen, setPopupOpen }) {
-    const [currentElement, setCurrentElement] = useState(element);
-
     function handleClick(element) {
         setCurrentElement(element);
         setPopupOpen(true);
     }
 
-    if (isPopupOpen) {
-        return (
-            <Confirmation
-                element={currentElement}
-                onClose={() => setPopupOpen(false)}
-            />
-    )}
+    return (
+        <div>
+            <div className="heading">Nearby Donations</div>
+            <div className="mainContainer">
+                {donations.map((element) => (
+                    <Recipient element={element} onRequestClick={handleClick} />
+                ))}
+            </div>
+            <div className="bottom-btns">
+                <button
+                    className="btns-3"
+                    onClick={() => {
+                        navigate("/recipientRequest");
+                    }}
+                >
+                    Custom Recipient
+                </button>
+            </div>
+            {isPopupOpen && (
+                <Confirmation
+                    element={currentElement}
+                    onClose={() => setPopupOpen(false)}
+                />
+            )}
+        </div>
+    );
+}
 
+function Recipient({ element, onRequestClick }) {
     return (
         <div className="product-container">
             <div className="product-image-container">
-            <img className="product-image" src="/assets/images/mapapi.png" style={{ width: "100%" }} alt="hello" />
+                <img
+                    className="product-image"
+                    src="/assets/images/mapapi.png"
+                    style={{ width: "100%" }}
+                    alt="hello"
+                />
             </div>
             <div className="description">
-            Description: {element.description}
+                Description: {element.description}
             </div>
-            <div className="serves">
-            Serves: {element.serves}
-            </div>
+            <div className="serves">Serves: {element.serves}</div>
             <div className="date">
-            Date: {new Date(element.date).toLocaleDateString("en-GB")}
+                Date: {new Date(element.date).toLocaleDateString("en-GB")}
             </div>
             <div className="addresspro">
-            Address: {element.addressFrom.city} , {element.addressFrom.postalcode}
+                Address: {element.addressFrom.city} ,{" "}
+                {element.addressFrom.postalcode}
             </div>
             <div className="container-button">
-                <button onClick={() => handleClick(element)} className="btn">
+                <button onClick={() => onRequestClick(element)} className="btn">
                     Accept
                 </button>
             </div>

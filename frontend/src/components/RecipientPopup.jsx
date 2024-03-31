@@ -14,7 +14,8 @@ export default function Confirmation({ element, onClose }) {
                     {
                         method: "GET",
                         headers: {
-                            authorization: "Bearer " + localStorage.getItem("token"),
+                            authorization:
+                                "Bearer " + localStorage.getItem("token"),
                             user_id: element.donor_id,
                         },
                     }
@@ -31,29 +32,30 @@ export default function Confirmation({ element, onClose }) {
 
         fetchDonor();
 
-        const fetchUser= async() => {
-            try{
+        const fetchUser = async () => {
+            try {
                 const response = await fetch(
                     "http://localhost:3000/api/auth/user-details",
                     {
                         method: "GET",
                         headers: {
-                            authorization: "Bearer " + localStorage.getItem("token"),
+                            authorization:
+                                "Bearer " + localStorage.getItem("token"),
                         },
                     }
                 );
-                if (!response.ok){
+                if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
-                const data= await response.json();
+                const data = await response.json();
                 setUser(data.user);
-            } catch(error){
+            } catch (error) {
                 console.error("Error in fetching:", error);
             }
         };
 
-        fetchUser()
-    },[]);
+        fetchUser();
+    }, []);
 
     async function handleRecieve() {
         setShowContactInfo(true);
@@ -63,8 +65,9 @@ export default function Confirmation({ element, onClose }) {
                 {
                     method: "PUT",
                     headers: {
-                        "Content-Type" : "application/json",
-                        authorization:"Bearer " + localStorage.getItem("token"),
+                        "Content-Type": "application/json",
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
                         request_id: element._id,
                     },
                     body: JSON.stringify({
@@ -78,7 +81,6 @@ export default function Confirmation({ element, onClose }) {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
-            console.log(await response.json());
         } catch (error) {
             console.error("Error in fetching:", error);
         }
