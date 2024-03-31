@@ -5,6 +5,7 @@ import "../styles/list.css";
 
 export default function DonationsList() {
     const [recipients, setRecipients] = useState([]);
+    const [currentElement, setCurrentElement] = useState([]);
     const [isPopupOpen, setPopupOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -38,12 +39,17 @@ export default function DonationsList() {
         }
     }, [isPopupOpen]);
 
+    function handleClick(element) {
+        setCurrentElement(element);
+        setPopupOpen(true);
+    }
+
     return (
         <div>
             <div className="heading">Nearby Requests</div>
             <div className="mainContainer">
                 {recipients.map((element) => (
-                    <Donation element={element} isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen} />
+                    <Donation element={element} onDonateClick={handleClick} />
                 ))}
             </div>
             <div className="bottom-btns">
@@ -56,23 +62,17 @@ export default function DonationsList() {
                     Custom Donation
                 </button>
             </div>
+            {isPopupOpen && (
+                <Confirmation
+                    element={currentElement}
+                    onClose={() => setPopupOpen(false)}
+                />
+            )}
         </div>
     );
 }
 
-function Donation({ element, isPopupOpen, setPopupOpen }) {
-    function handleClick() {
-        setPopupOpen(true);
-    }
-
-    if (isPopupOpen) {
-        return (
-            <Confirmation
-                element={element}
-                onClose={() => setPopupOpen(false)}
-            />
-    )}
-
+function Donation({ element, onDonateClick }) {
     return (
         <div className="product-container">
             <div className="product-image-container">
@@ -83,21 +83,22 @@ function Donation({ element, isPopupOpen, setPopupOpen }) {
                     alt=""
                 />
             </div>
-                <div className="description">
-                    Description: {element.description}
-                </div>
-                <div className="serves">To Serve: {element.toServe}</div>
-                <div className="date">
-                    Date: {new Date(element.date).toLocaleDateString("en-GB")}
-                </div>
-                <div className="addresspro">
-                    Address: {element.addressTo.city}, {element.addressTo.postalcode}
-                </div>
-                <div className="container-button">
-                    <button onClick={handleClick} className="btn">
-                        Donate
-                    </button>
-                </div>
+            <div className="description">
+                Description: {element.description}
+            </div>
+            <div className="serves">To Serve: {element.toServe}</div>
+            <div className="date">
+                Date: {new Date(element.date).toLocaleDateString("en-GB")}
+            </div>
+            <div className="addresspro">
+                Address: {element.addressTo.city},{" "}
+                {element.addressTo.postalcode}
+            </div>
+            <div className="container-button">
+                <button onClick={() => onDonateClick(element)} className="btn">
+                    Donate
+                </button>
+            </div>
         </div>
     );
 }

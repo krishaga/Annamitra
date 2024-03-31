@@ -3,7 +3,7 @@ import "../styles/confirmation.css";
 
 export default function Confirmation({ element, onClose }) {
     const [recipient, setRecipient] = useState({});
-    const [user,setUser] = useState({});
+    const [user, setUser] = useState({});
     const [showContactInfo, setShowContactInfo] = useState(false);
 
     useEffect(() => {
@@ -32,8 +32,6 @@ export default function Confirmation({ element, onClose }) {
 
         fetchRecipient();
 
-
-
         const fetchUser = async () => {
             try {
                 const response = await fetch(
@@ -56,8 +54,7 @@ export default function Confirmation({ element, onClose }) {
             }
         };
 
-        fetchUser()
-        
+        fetchUser();
     }, []);
 
     async function handleDonate() {
@@ -68,7 +65,7 @@ export default function Confirmation({ element, onClose }) {
                 {
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json", 
+                        "Content-Type": "application/json",
                         authorization:
                             "Bearer " + localStorage.getItem("token"),
                         request_id: element._id,
@@ -80,14 +77,13 @@ export default function Confirmation({ element, onClose }) {
                         completed: true,
                     }),
                 }
-                );
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                console.log(await response.json());
-            } catch (error) {
-                console.error("Error in fetching:", error);
+            );
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
             }
+        } catch (error) {
+            console.error("Error in fetching:", error);
+        }
     }
 
     return (
