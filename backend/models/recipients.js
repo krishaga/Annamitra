@@ -10,6 +10,7 @@ const AddressSchema = new mongoose.Schema({
 
 const recipientSchema = new mongoose.Schema({
   toServe: Number,
+  category: String,
   description: String,
   addressFrom: AddressSchema,
   addressTo: AddressSchema,

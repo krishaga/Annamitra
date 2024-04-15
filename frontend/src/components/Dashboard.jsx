@@ -111,7 +111,6 @@ function Dashboard() {
                     </button>
                 </div>
             </div>
-            <hr />
         </div>
     );
 }

@@ -1,0 +1,47 @@
+.footer {
+    /* position: fixed; */
+    bottom: 0;
+    left: 0;
+    background-color: #9bb171;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.part1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; /* Adjust as needed */
+    flex-grow: 1; /* Allow part1 to grow and push part2 to the bottom */
+    margin-bottom: 2rem;
+}
+
+.part1 p {
+    margin-right: 3rem;
+    color: rgb(29, 57, 1);
+    font-size: 1.5rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 2px;
+    display: flex;
+}
+
+.contact-list li {
+    margin-right: 10px;
+}
+
+
+.part2 {
+    font-size: 14px;
+    color: white;
+    background-color: rgb(27, 61, 3);
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

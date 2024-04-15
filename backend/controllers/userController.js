@@ -99,7 +99,9 @@ const getuserdata = async (req, res) => {
     try {
         let user = await User.findOne({ username: req.user.username });
 
-        const donations = await Donations.find({ donor_id: user._id });
+        const donationsInDonorDb = await Donations.find({ donor_id: user._id });
+        const donationsInRecipientDb = await Recipients.find({ donor_id: user._id });
+        const donations = [...donationsInDonorDb, ...donationsInRecipientDb];
         const donationsCount = await Donations.countDocuments({ donor_id: user._id }) + await Recipients.countDocuments({ donor_id: user._id });
         const requestsCount = await Recipients.countDocuments({ recipient_id: user._id }) + await Donations.countDocuments({ recipient_id: user._id });
         const details = {

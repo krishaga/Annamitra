@@ -150,3 +150,9 @@
     border-radius: 28px;
     font-size: 20px;
 }
+
+.selected {
+    border: 8px solid white;
+    border-radius: 10%;
+    box-shadow: 0 0 0 2px #7b9c2a; /* Adjust the offset (last value) as needed */ 
+}

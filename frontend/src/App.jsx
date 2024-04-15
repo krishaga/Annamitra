@@ -5,6 +5,7 @@ import Signup from "./components/Signup.jsx";
 import Login from "./components/Login";
 import Annamitra from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer.jsx";
 import DonationsList from "./components/DonationsList.jsx";
 import RecipientsList from "./components/RecipientsList.jsx";
 import RecipientRequest from "./components/RecipientRequest.jsx";
@@ -42,6 +43,7 @@ function App() {
                     <Route path="/edit-profile" element={<Profile />} />
                 </Routes>
             </div>
+            <Footer />
         </BrowserRouter>
     );
 }
