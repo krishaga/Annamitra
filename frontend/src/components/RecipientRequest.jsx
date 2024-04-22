@@ -62,32 +62,29 @@ function RequestList() {
                             <br />
                             <br />
                             <div className="formsrow">
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "Cooked Food" ? "selected" : ""}`}>
+                                <span className={`formsgroup col-md-4 ${selectedCategory === "Cooked Food" ? "selected" : ""}`} onClick={() => handleCategoryClick("Cooked Food")}>
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/cookedfood.png"
                                         alt="Cooked Food"
-                                        onClick={() => handleCategoryClick("Cooked Food")}
                                     />
                                     <br />
                                     <span>Cooked Food</span>
                                 </span>
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "UnCooked Food" ? "selected" : ""}`}>
+                                <span className={`formsgroup col-md-4 ${selectedCategory === "UnCooked Food" ? "selected" : ""}`} onClick={() => handleCategoryClick("UnCooked Food")}>
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/rawfood.jpg"
                                         alt="Un-Cooked Food"
-                                        onClick={() => handleCategoryClick("UnCooked Food")}
                                     />
                                     <br />
                                     <span>Uncooked Food</span>
                                 </span>
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "Packed Food" ? "selected" : ""}`}>
+                                <span className={`formsgroup col-md-4 ${selectedCategory === "Packed Food" ? "selected" : ""}`} onClick={() => handleCategoryClick("Packed Food")}>
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/packedfood.png"
                                         alt="Packed Food"
-                                        onClick={() => handleCategoryClick("Packed Food")}
                                     />
                                     <br />
                                     <span>Packed Food</span>

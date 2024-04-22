@@ -94,6 +94,9 @@ function Recipient({ element, onRequestClick }) {
                 Address: {element.addressFrom.city} ,{" "}
                 {element.addressFrom.postalcode}
             </div>
+            <div className="category">
+                Category: {element.category}
+            </div>
             <div className="container-button">
                 <button onClick={() => onRequestClick(element)} className="btn">
                     Accept

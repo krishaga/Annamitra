@@ -108,6 +108,9 @@ export default function Confirmation({ element, onClose }) {
                     Address: {element.addressFrom.city},
                     {element.addressFrom.postalcode}
                 </div>
+                <div className="category">
+                    Category: {element.category}
+                </div>
             </div>
             <div className="confirmation">
                 <div className="user-info">

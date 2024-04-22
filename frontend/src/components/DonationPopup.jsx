@@ -26,7 +26,9 @@ export default function Confirmation({ element, onClose }) {
                 const data = await response.json();
                 setRecipient(data.user);
             } catch (error) {
-                console.error("Error in fetching:", error);
+                window.alert('Please Login or SignUp');
+                navigate('/Annamitra')
+                window.location.reload();
             }
         };
 
@@ -50,7 +52,9 @@ export default function Confirmation({ element, onClose }) {
                 const data = await response.json();
                 setUser(data.user);
             } catch (error) {
-                console.error("Error in fetching:", error);
+                window.alert('Please Login or SignUp');
+                navigate('/Annamitra')
+                window.location.reload();
             }
         };
 
@@ -107,6 +111,9 @@ export default function Confirmation({ element, onClose }) {
                 <div className="addresspro">
                     Address: {element.addressTo.city},
                     {element.addressTo.postalcode}
+                </div>
+                <div className="category">
+                    Category: {element.category}
                 </div>
             </div>
             <div className="confirmation">

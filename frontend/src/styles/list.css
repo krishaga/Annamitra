@@ -76,6 +76,20 @@
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
 
+  .category{
+    background-color: #EEF6C9;
+    /* border: 1px solid black; */
+    border-radius: 6px;
+    height: auto;
+    /* overflow-wrap: break-word ; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    padding-left:4px ;
+    padding-bottom: 0.1rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
   .serves{
     background-color: #EEF6C9;

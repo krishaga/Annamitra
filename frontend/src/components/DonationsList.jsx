@@ -94,6 +94,9 @@ function Donation({ element, onDonateClick }) {
                 Address: {element.addressTo.city},{" "}
                 {element.addressTo.postalcode}
             </div>
+            <div className="category">
+                Category: {element.category}
+            </div>
             <div className="container-button">
                 <button onClick={() => onDonateClick(element)} className="btn">
                     Donate
