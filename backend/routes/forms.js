@@ -25,9 +25,8 @@ router.post('/new-donation', authenticateJwt, async (req, res) => {
 router.post('/new-request', authenticateJwt, async (req, res) => {
     // logic to create a request
     let newRecipient = req.body;
-    const currentUser = await User.findOne({ username: req.user.username })
-    newRecipient = {
-        addressTo: currentUser.address,
+    const currentUser = await User.findOne({ username: req.user.username });
+    newRecipient={
         recipient_id: currentUser._id,
         completed: false,
         date: new Date(),

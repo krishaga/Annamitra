@@ -118,7 +118,7 @@ export default function Confirmation({ element, onClose }) {
             </div>
             <div className="confirmation">
                 <div className="user-info">
-                    <h2>To: {recipient.username}</h2>
+                    <h2>By: {recipient.username}</h2>
                     <p>
                         {element.addressTo.street}, {element.addressTo.city},{" "}
                         {element.addressTo.state},{" "}

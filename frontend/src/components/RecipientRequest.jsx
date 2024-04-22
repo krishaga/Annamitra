@@ -6,6 +6,11 @@ function RequestList() {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [toServe, setToServe] = useState("");
+    const [street, setStreet] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [postalcode, setPostalcode] = useState("");
+    const [country, setCountry] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     
     const navigate = useNavigate();
@@ -22,6 +27,13 @@ function RequestList() {
                 category,
                 description,
                 toServe,
+                addressTo: {
+                    street,
+                    city,
+                    state,
+                    postalcode,
+                    country,
+                },
             }),
             headers: {
                 "Content-type": "application/json",
@@ -117,6 +129,69 @@ function RequestList() {
                                 id="inputToServe"
                             />
                         </div>
+                        <div className="formsgroup">
+                            <label htmlFor="inputAddress">Address</label>
+                            <input
+                                onChange={(e) => {
+                                    setStreet(e.target.value);
+                                }}
+                                placeholder="Address"
+                                className="formscontrol"
+                                id="inputAddress"
+                            />
+                        </div>
+                        <div className="formsrow">
+                            <div className="formsgroup">
+                                <label htmlFor="inputCity">City</label>
+                                <input
+                                    onChange={(e) => {
+                                        setCity(e.target.value);
+                                    }}
+                                    label="City"
+                                    placeholder="City"
+                                    className="formscontrol"
+                                    id="inputCity"
+                                />
+                            </div>
+                            <div className="formsgroup">
+                                <label htmlFor="inputState">State</label>
+                                <input
+                                    onChange={(e) => {
+                                        setState(e.target.value);
+                                    }}
+                                    label="State"
+                                    placeholder="State"
+                                    className="formscontrol"
+                                    id="inputState"
+                                />
+                            </div>
+                            <div className="formsgroup">
+                                <label htmlFor="inputZip">Zip Code</label>
+                                <input
+                                    onChange={(e) => {
+                                        setPostalcode(e.target.value);
+                                    }}
+                                    label="Postal Code"
+                                    placeholder="Zip Code"
+                                    className="formscontrol"
+                                    id="inputZip"
+                                />
+                            </div>
+                        </div>
+                        {/* <br /> */}
+                        <div className="formsgroup">
+                            <label htmlFor="inputCountry">Country</label>
+                            <input
+                                onChange={(e) => {
+                                    setCountry(e.target.value);
+                                }}
+                                label="Country"
+                                placeholder="Country"
+                                className="formscontrol"
+                                id="inputCountry"
+                            />
+                        </div>
+                        </div>
                         <div className="bottom-buttons">
                             <button
                                 className="button-main"
@@ -125,7 +200,6 @@ function RequestList() {
                                 Request
                             </button>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
