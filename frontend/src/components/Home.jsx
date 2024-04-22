@@ -4,6 +4,7 @@ import "../styles/forms.css";
 
 function Annamitra() {
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         const typeWriter = (text, i, fnCallback) => {

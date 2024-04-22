@@ -29,11 +29,9 @@ function Dashboard() {
                     throw new Error("Network Response was not ok");
                 }
                 const data = await response.json();
-                donations = data.details.donations; // Update donations directly
+                donations = data.details.donations; 
                 setDonationCount(data.details.donationsCount);
                 setRequestCount(data.details.requestsCount);
-
-                // Calculate counts based on donation categories
                 let cooked = 0;
                 let uncooked = 0;
                 let packed = 0;
@@ -54,6 +52,13 @@ function Dashboard() {
             }
         };
         fetchDetails();
+        if(localStorage.getItem("token")==null){
+            
+            window.alert('Please Login or SignUp');
+            navigate('/Annamitra')
+            window.location.reload();
+            // alert('Login or Signup')
+        }
     }, []);
 
     return (
