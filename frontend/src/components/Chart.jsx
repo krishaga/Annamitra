@@ -24,7 +24,7 @@ const DoughnutChart = ({ data }) => {
                             backgroundColor: [
                                 "rgba(46, 71, 61)",
                                 "rgba(121, 143, 37)",
-                                "rgba(255, 255, 255)",
+                                "rgba(238, 246, 201)",
                             ],
                         },
                     ],
