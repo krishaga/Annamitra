@@ -54,6 +54,8 @@ function Signup() {
                     localStorage.setItem("token", data.token);
                     // Redirect or update UI as needed
                     navigate("/Dashboard");
+                    window.location.reload();
+
                 }
             });
     };

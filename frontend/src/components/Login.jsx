@@ -25,6 +25,7 @@ function Login() {
                 } else {
                     localStorage.setItem("token", data.token);
                     navigate("/dashboard");
+                    window.location.reload();
                 }
             });
     };
