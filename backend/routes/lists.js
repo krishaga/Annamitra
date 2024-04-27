@@ -4,8 +4,7 @@ const { Recipients } = require('../models/recipients');
 const authenticateJwt = require('../middlewares/authentication')
 const router = express.Router();
 
-router.get('/donations-list', authenticateJwt, async (req, res) => {
-    // logic to list all donations
+router.get('/donations-list', authenticateJwt, async (req, res) => {                                            // logic to list all donations
     try {
         const recipientRequests = await Recipients.find({ completed: false });
         res.json({ recipientRequests });
@@ -15,8 +14,7 @@ router.get('/donations-list', authenticateJwt, async (req, res) => {
     }
 });
 
-router.get('/recipients-list', authenticateJwt, async (req, res) => {
-    // logic to list all donations
+router.get('/recipients-list', authenticateJwt, async (req, res) => {                                            // logic to list all donations
     try {
         const donationRequests = await Donations.find({ completed: false });
         res.json({ donationRequests });
