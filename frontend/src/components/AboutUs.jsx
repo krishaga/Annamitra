@@ -28,11 +28,11 @@ export default function Component() {
                 Our team is made up of passionate individuals who are dedicated to our mission.
               </p>
             </div>
-            <div className="grid w-full min-w-[900px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid w-full min-w-[800px] grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-6">
             <div className="flex flex-col gap-4 items-center justify-center">
                 <img 
                   alt="User"
-                  className="mx-auto rounded-full overflow-hidden object-cover object-center border-10 border-gray-100 w-34 h-44 dark:border-gray-850"
+                  className="mx-auto rounded-full overflow-hidden object-cover object-center border-10 border-gray-100 w-28 h-38 dark:border-gray-850"
                   src="/assets/images/Aashita.jpeg"
                 />
                 <div className="flex flex-col gap-2">
@@ -43,7 +43,7 @@ export default function Component() {
               <div className="flex flex-col gap-4 items-center justify-center">
                 <img 
                   alt="User"
-                  className="mx-auto rounded-full overflow-hidden object-cover object-center border-2 border-gray-100 w-34 h-44 dark:border-gray-850"
+                  className="mx-auto rounded-full overflow-hidden object-cover object-center border-2 border-gray-100 w-28 h-38 dark:border-gray-850"
                   src="/assets/images/Krish.jpeg"
                 />
                 <div className="flex flex-col gap-2">
@@ -54,7 +54,18 @@ export default function Component() {
               <div className="flex flex-col gap-4 items-center justify-center">
                 <img 
                   alt="User"
-                  className="mx-auto rounded-full overflow-hidden object-cover object-center border-2 border-gray-100 w-34 h-44 dark:border-gray-850"
+                  className="mx-auto rounded-full overflow-hidden object-cover object-center border-2 border-gray-100 w-28 h-38 dark:border-gray-850"
+                  src="/assets/images/Aafaque.jpg"
+                />
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl font-semibold">Md. Aafaque Tabish</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Web Developer</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 items-center justify-center">
+                <img 
+                  alt="User"
+                  className="mx-auto rounded-full overflow-hidden object-cover object-center border-2 border-gray-100 w-28 h-38  dark:border-gray-850"
                   src="/assets/images/Aniket.jpeg"
                 />
                 <div className="flex flex-col gap-2">
