@@ -16,10 +16,10 @@ export default function Footer() {
                                 window.location='/AboutUs'
                             }}>AboutUs</li>
                     <li onClick={()=>{
-                        window.location='/donationlist'
+                        window.location='/donations-list'
                     }}>Donate</li>
                     <li onClick={()=>{
-                        window.location='/recipientlist'
+                        window.location='/recipients-list'
                     }}>Recieve</li>
                 </ul>
             </div>
