@@ -1,3 +1,54 @@
+
+.profile-settings{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 100%;
+    padding: 1.2rem;
+    margin: 2rem;
+    overflow: hidden;
+}
+
+
+
+.left-section{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color:  #e5eccb;
+    height: 100%;
+    width: 100%;
+}
+
+.profile-image{
+    display: flex;
+    flex:3;
+}
+
+.image img{
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+}
+
+.categories{
+    flex: 5;
+}
+
+.Logout{
+    flex: 2;
+}
+.right-section{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    flex-direction: column;
+}
+
 .btns-main {
     transition: color 0.4s, background-color 0.4s;
     padding: 10px 15px; /* Adjusted padding */
@@ -21,3 +72,4 @@
     position: relative;
     z-index: 1;
 }
+
