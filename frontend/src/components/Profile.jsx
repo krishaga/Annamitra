@@ -2,53 +2,54 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import "../styles/Profile.css";
 import "../styles/forms.css";
-export default function Component(){
-
-    const handleLogout = () =>{
-        fetch("http://localhost:3000/api/auth/logout",{
-            method:"POST",
+export default function Component() {
+    const handleLogout = () => {
+        fetch("http://localhost:3000/api/auth/logout", {
+            method: "POST",
             headers: {
-                authorization:
-                    "Bearer " + localStorage.getItem("token"),
+                authorization: "Bearer " + localStorage.getItem("token"),
             },
-            body: JSON.stringify({})
+            body: JSON.stringify({}),
         })
-        .then((response)=>response.json())
-        .then((data)=>{
-            if (data.errorMessage) {
-                alert(data.errorMessage);
-            } else {
-                Navigate("/Annamitra");
-                window.location.reload();
-            }
-        });
-    }
-    
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.errorMessage) {
+                    alert(data.errorMessage);
+                } else {
+                    Navigate("/Annamitra");
+                    window.location.reload();
+                }
+            });
+    };
 
     return (
         <div className="profile-settings">
             <div className="left-section">
                 <div className="profile-image">
                     <div className="image">
-                        <img src="../assets/images/navbarprofilepic.jpeg" alt=""/>
+                        <img
+                            src="../assets/images/navbarprofilepic.jpeg"
+                            alt=""
+                        />
                     </div>
                     <div className="edit-btn">
-                        <button className="btns-main">
-                            Upload
-                        </button>
+                        <button className="btns-main">Upload</button>
                     </div>
                 </div>
                 <div className="categories">
+                    <hr />
                     <div className="pers-det">Personal Details</div>
+                    <hr />
                     <div className="add">Address</div>
+                    <hr />
                     <div className="pass-upd">Password Update</div>
+                    <hr />
                     <div className="del-acc">Delete Account</div>
+                    <hr />
                 </div>
                 <div className="Logout">
-                    <button
-                        className="btns-main"
-                        onClick= {handleLogout}>
-                                    Logout
+                    <button className="btns-main" onClick={handleLogout}>
+                        Logout
                     </button>
                 </div>
             </div>
@@ -72,9 +73,7 @@ export default function Component(){
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">
-                            Update
-                        </button>           
+                        <button className="btns-main">Update</button>
                     </div>
                 </div>
                 <div className="Address">
@@ -104,9 +103,7 @@ export default function Component(){
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">
-                            Update
-                        </button>           
+                        <button className="btns-main">Update</button>
                     </div>
                 </div>
                 <div className="change-password">
@@ -124,9 +121,7 @@ export default function Component(){
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">
-                            Update
-                        </button>           
+                        <button className="btns-main">Update</button>
                     </div>
                 </div>
                 <div className="delete-account">
@@ -140,12 +135,10 @@ export default function Component(){
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">
-                            Delete
-                        </button>           
+                        <button className="btns-main">Delete</button>
                     </div>
-                </div>       
-            </div>  
+                </div>
+            </div>
         </div>
-    )
+    );
 }
