@@ -40,6 +40,8 @@
 
 .Logout{
     flex: 2;
+    height: 10px;
+    width : 100%;
 }
 .right-section{
     flex: 3;
