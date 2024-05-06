@@ -37,7 +37,7 @@ export default function Component() {
                     </div>
                 </div>
                 <div className="categories">
-                    <hr />
+                    {/* <hr /> */}
                     <div className="pers-det">Personal Details</div>
                     <hr />
                     <div className="add">Address</div>
@@ -47,7 +47,7 @@ export default function Component() {
                     <div className="del-acc">Delete Account</div>
                     <hr />
                 </div>
-                <div className="Logout">
+                <div className="logout">
                     <button className="btns-main" onClick={handleLogout}>
                         Logout
                     </button>
@@ -76,7 +76,7 @@ export default function Component() {
                         <button className="btns-main">Update</button>
                     </div>
                 </div>
-                <div className="Address">
+                {/* <div className="Address">
                     <div className="cat-head">
                         <h1>Address</h1>
                     </div>
@@ -137,7 +137,7 @@ export default function Component() {
                     <div className="update-button">
                         <button className="btns-main">Delete</button>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

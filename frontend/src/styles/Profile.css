@@ -1,12 +1,12 @@
 .profile-settings {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
     min-height: 100vh;
     max-width: 100%;
-    padding: 1.2rem;
-    margin: 2rem;
+    margin: 5rem;
     overflow: hidden;
+    box-shadow: 0px 0 0px rgb(255, 255, 255);
+    border-radius: 0.8rem;
 }
 
 .left-section {
@@ -16,9 +16,10 @@
     justify-content: center;
     flex-direction: column;
     background-color: #e5eccb;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    padding: 2rem 0;
+    box-shadow: 1px 0 20px rgba(0,0,0,0.3);
+    z-index: 1;
 }
 
 .profile-image {
@@ -26,6 +27,7 @@
     flex-direction: column;
     align-items: center;
     flex: 3;
+    padding-top: 4rem;
 }
 
 .image img {
@@ -36,24 +38,43 @@
 
 .categories {
     flex: 5;
-    padding: 1rem 0;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: 100%;
 }
 
 .categories hr {
-    border-color: #000000;
-    width: 100%;
+    border-color: #d0cbcb;
+    width: 15rem;
+    margin: 0rem 3rem;
 }
-.Logout {
+
+.categories div{
+    font-size: 1.1rem;
+    padding: 0.5rem 3rem;
+}
+
+
+.categories div:hover{
+    background-color: grey;
+}
+
+
+.logout{
     flex: 2;
-    height: 10px;
-    width : 100%;
 }
+
+
 .right-section {
     flex: 3;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    background-color: #e8eddc;
 }
 
 .btns-main {
