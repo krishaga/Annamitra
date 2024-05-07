@@ -37,15 +37,30 @@ export default function Component() {
                     </div>
                 </div>
                 <div className="categories">
-                    {/* <hr /> */}
-                    <div className="pers-det">Personal Details</div>
+                    <div className="compo">
+                        <div className="rect"></div>
+                        <div className="pers-det">
+                            Personal Details
+                        </div>
+                    </div>
                     <hr />
-                    <div className="add">Address</div>
+                    <div className="compo">
+                        <div className="rect"></div>
+                        <div className="add">
+                            Address
+                        </div>
+                    </div>
                     <hr />
-                    <div className="pass-upd">Password Update</div>
+                    <div className="compo">
+                        <div className="rect"></div>
+                        <div className="pass-upd">Password Update</div>
+                    </div>
                     <hr />
-                    <div className="del-acc">Delete Account</div>
-                    <hr />
+                    <div className="compo">
+                        <div className="rect"></div>
+                        <div className="del-acc">Delete Account</div>
+                    </div>
+                    <hr />  
                 </div>
                 <div className="logout">
                     <button className="btns-main" onClick={handleLogout}>
