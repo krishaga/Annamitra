@@ -39,26 +39,26 @@ export default function Component() {
                 <div className="categories">
                     <div className="compo">
                         <div className="rect"></div>
-                        <div className="pers-det">
+                        <div className="items">
                             Personal Details
                         </div>
                     </div>
                     <hr />
                     <div className="compo">
                         <div className="rect"></div>
-                        <div className="add">
+                        <div className="items">
                             Address
                         </div>
                     </div>
                     <hr />
                     <div className="compo">
                         <div className="rect"></div>
-                        <div className="pass-upd">Password Update</div>
+                        <div className="items">Password Update</div>
                     </div>
                     <hr />
                     <div className="compo">
                         <div className="rect"></div>
-                        <div className="del-acc">Delete Account</div>
+                        <div className="items">Delete Account</div>
                     </div>
                     <hr />  
                 </div>
