@@ -69,22 +69,22 @@ export default function Component() {
                 </div>
             </div>
             <div className="right-section">
-                <div className="peronal-details">
+                <div className="category-detail">
                     <div className="cat-head">
-                        <h1>Personal Details</h1>
+                        Personal Details
                     </div>
                     <div className="main-section">
-                        <div className="name">
-                            <h4>Full Name</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                        <div className="maincato">
+                            <div className="heading">Full Name</div>
+                            <input type="text" placeholder="Name" />
                         </div>
-                        <div className="email">
-                            <h4>Email</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                        <div className="maincato">
+                            <div className="heading">Email</div>
+                            <input type="text" placeholder="Email" />
                         </div>
-                        <div className="phone">
-                            <h4>Phone Number</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                        <div className="maincato">
+                            <div className="heading">Phone Number</div>
+                            <input type="text" placeholder="Phone Number"/>
                         </div>
                     </div>
                     <div className="update-button">

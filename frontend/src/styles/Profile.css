@@ -95,6 +95,34 @@
     justify-content: space-around;
     flex-direction: column;
     background-color: #e8eddc;
+    width:100%;
+}
+
+.category-detail{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start; */
+    align-items: center;
+    height: 100vh;
+}
+
+.cat-head{
+    flex: 3;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.main-section{
+    flex: 5;
+}
+
+.update-button{
+    flex: 2;
+}
+
+
+.heading{
+    font-size: 1rem;
 }
 
 .btns-main {
