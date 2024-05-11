@@ -39,16 +39,12 @@ export default function Component() {
                 <div className="categories">
                     <div className="compo">
                         <div className="rect"></div>
-                        <div className="items">
-                            Personal Details
-                        </div>
+                        <div className="items">Personal Details</div>
                     </div>
                     <hr />
                     <div className="compo">
                         <div className="rect"></div>
-                        <div className="items">
-                            Address
-                        </div>
+                        <div className="items">Address</div>
                     </div>
                     <hr />
                     <div className="compo">
@@ -60,7 +56,7 @@ export default function Component() {
                         <div className="rect"></div>
                         <div className="items">Delete Account</div>
                     </div>
-                    <hr />  
+                    <hr />
                 </div>
                 <div className="logout">
                     <button className="btns-main" onClick={handleLogout}>
@@ -70,21 +66,19 @@ export default function Component() {
             </div>
             <div className="right-section">
                 <div className="category-detail">
-                    <div className="cat-head">
-                        Personal Details
-                    </div>
+                    <div className="cat-head">Personal Details</div>
                     <div className="main-section">
                         <div className="maincato">
-                            <div className="heading">Full Name</div>
+                            <div className="setting-head">Full Name</div>
                             <input type="text" placeholder="Name" />
                         </div>
                         <div className="maincato">
-                            <div className="heading">Email</div>
+                            <div className="setting-head">Email</div>
                             <input type="text" placeholder="Email" />
                         </div>
                         <div className="maincato">
-                            <div className="heading">Phone Number</div>
-                            <input type="text" placeholder="Phone Number"/>
+                            <div className="setting-head">Phone Number</div>
+                            <input type="text" placeholder="Phone Number" />
                         </div>
                     </div>
                     <div className="update-button">

@@ -46,7 +46,7 @@ export default function RecipientsList() {
 
     return (
         <div>
-            <div className="heading">Nearby Donations</div>
+            <div className="list-heading">Nearby Donations</div>
             <div className="mainContainer">
                 {donations.map((element) => (
                     <Recipient element={element} onRequestClick={handleClick} />
@@ -94,9 +94,7 @@ function Recipient({ element, onRequestClick }) {
                 Address: {element.addressFrom.city} ,{" "}
                 {element.addressFrom.postalcode}
             </div>
-            <div className="category">
-                Category: {element.category}
-            </div>
+            <div className="category">Category: {element.category}</div>
             <div className="container-button">
                 <button onClick={() => onRequestClick(element)} className="btn">
                     Accept

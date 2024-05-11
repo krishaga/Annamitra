@@ -12,13 +12,13 @@ function RequestList() {
     const [postalcode, setPostalcode] = useState("");
     const [country, setCountry] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
-    
+
     const navigate = useNavigate();
 
     const handleCategoryClick = (category) => {
         setCategory(category);
         setSelectedCategory(category);
-    }
+    };
 
     const handleRequest = () => {
         fetch("http://localhost:3000/api/forms/new-request", {
@@ -74,7 +74,16 @@ function RequestList() {
                             <br />
                             <br />
                             <div className="formsrow">
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "Cooked Food" ? "selected" : ""}`} onClick={() => handleCategoryClick("Cooked Food")}>
+                                <span
+                                    className={`formsgroup col-md-4 ${
+                                        selectedCategory === "Cooked Food"
+                                            ? "selected"
+                                            : ""
+                                    }`}
+                                    onClick={() =>
+                                        handleCategoryClick("Cooked Food")
+                                    }
+                                >
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/cookedfood.png"
@@ -83,7 +92,16 @@ function RequestList() {
                                     <br />
                                     <span>Cooked Food</span>
                                 </span>
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "UnCooked Food" ? "selected" : ""}`} onClick={() => handleCategoryClick("UnCooked Food")}>
+                                <span
+                                    className={`formsgroup col-md-4 ${
+                                        selectedCategory === "UnCooked Food"
+                                            ? "selected"
+                                            : ""
+                                    }`}
+                                    onClick={() =>
+                                        handleCategoryClick("UnCooked Food")
+                                    }
+                                >
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/rawfood.jpg"
@@ -92,7 +110,16 @@ function RequestList() {
                                     <br />
                                     <span>Uncooked Food</span>
                                 </span>
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "Packed Food" ? "selected" : ""}`} onClick={() => handleCategoryClick("Packed Food")}>
+                                <span
+                                    className={`formsgroup col-md-4 ${
+                                        selectedCategory === "Packed Food"
+                                            ? "selected"
+                                            : ""
+                                    }`}
+                                    onClick={() =>
+                                        handleCategoryClick("Packed Food")
+                                    }
+                                >
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/packedfood.png"
@@ -191,15 +218,12 @@ function RequestList() {
                                 id="inputCountry"
                             />
                         </div>
-                        </div>
-                        <div className="bottom-buttons">
-                            <button
-                                className="button-main"
-                                onClick={handleRequest}
-                            >
-                                Request
-                            </button>
-                        </div>
+                    </div>
+                    <div className="bottom-buttons">
+                        <button className="button-main" onClick={handleRequest}>
+                            Request
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

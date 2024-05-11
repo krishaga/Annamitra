@@ -46,7 +46,7 @@ export default function DonationsList() {
 
     return (
         <div>
-            <div className="heading">Nearby Requests</div>
+            <div className="list-heading">Nearby Requests</div>
             <div className="mainContainer">
                 {recipients.map((element) => (
                     <Donation element={element} onDonateClick={handleClick} />
@@ -94,9 +94,7 @@ function Donation({ element, onDonateClick }) {
                 Address: {element.addressTo.city},{" "}
                 {element.addressTo.postalcode}
             </div>
-            <div className="category">
-                Category: {element.category}
-            </div>
+            <div className="category">Category: {element.category}</div>
             <div className="container-button">
                 <button onClick={() => onDonateClick(element)} className="btn">
                     Donate
