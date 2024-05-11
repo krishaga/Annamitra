@@ -1,7 +1,7 @@
 .profile-settings {
     display: flex;
     justify-content: space-evenly;
-    min-height: 100vh;
+    height: 90vh;
     max-width: 100%;
     margin: 5rem;
     overflow: hidden;
@@ -16,8 +16,6 @@
     justify-content: center;
     flex-direction: column;
     background-color: #e5eccb;
-    height: 100vh;
-    width: 100%;
     box-shadow: 1px 0 20px rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
@@ -78,7 +76,7 @@
 
 .compo:hover .rect {
     background-color: #354e41;
-    width: 1rem;
+    width: 10px;
     height: 100%;
 }
 
@@ -93,7 +91,8 @@
     justify-content: space-around;
     flex-direction: column;
     background-color: #e8eddc;
-    width: 100%;
+    padding: 4rem;
+    height: 100%;
 }
 
 .category-detail {
@@ -105,15 +104,29 @@
 }
 
 .cat-head {
-    flex: 3;
-    font-size: 2.2rem;
+    flex: 2;
+    font-size: 2.4rem;
+    color: #354e41;
+    font-weight: 600;
 }
 
 .main-section {
-    flex: 5;
+    flex: 6;
     margin: 0;
     padding: 0;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-unit {
+    height: 5rem;
+}
+
+.form-unit div {
+    font-size: larger;
+    color: #000;
 }
 
 .update-button {

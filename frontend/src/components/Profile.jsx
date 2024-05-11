@@ -68,17 +68,29 @@ export default function Component() {
                 <div className="category-detail">
                     <div className="cat-head">Personal Details</div>
                     <div className="main-section">
-                        <div className="maincato">
+                        <div className="form-unit">
                             <div className="setting-head">Full Name</div>
-                            <input type="text" placeholder="Name" />
+                            <input
+                                type="text"
+                                className="formscontrol"
+                                placeholder="Name"
+                            />
                         </div>
-                        <div className="maincato">
+                        <div className="form-unit">
                             <div className="setting-head">Email</div>
-                            <input type="text" placeholder="Email" />
+                            <input
+                                type="text"
+                                className="formscontrol"
+                                placeholder="Email"
+                            />
                         </div>
-                        <div className="maincato">
+                        <div className="form-unit">
                             <div className="setting-head">Phone Number</div>
-                            <input type="text" placeholder="Phone Number" />
+                            <input
+                                type="text"
+                                className="formscontrol"
+                                placeholder="Phone Number"
+                            />
                         </div>
                     </div>
                     <div className="update-button">
@@ -90,25 +102,25 @@ export default function Component() {
                         <h1>Address</h1>
                     </div>
                     <div className="main-section">
-                        <div className="street">
+                        <div className="form-unit">
                             <h4>Street Address</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
-                        <div className="city">
+                        <div className="form-unit">
                             <h4>City</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
-                        <div className="pincode">
+                        <div className="form-unit">
                             <h4>Postal Code</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
-                        <div className="state">
+                        <div className="form-unit">
                             <h4>State</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
-                        <div className="country">
+                        <div className="form-unit">
                             <h4>Country</h4>
-                            <input type="text" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
                     </div>
                     <div className="update-button">
@@ -120,13 +132,13 @@ export default function Component() {
                         <h1>Change Password</h1>
                     </div>
                     <div className="main-sections">
-                        <div className="current-password">
+                        <div className="form-unit">
                             <h4>Current Password</h4>
-                            <input type="password" placeholder="" />
+                            <input type="password" className="formscontrol" placeholder="" />
                         </div>
-                        <div className="new-password">
+                        <div className="form-unit">
                             <h4>New Password</h4>
-                            <input type="password" placeholder="" />
+                            <input type="password" className="formscontrol" placeholder="" />
                         </div>
                     </div>
                     <div className="update-button">
@@ -138,9 +150,9 @@ export default function Component() {
                         <h1>Delete Account</h1>
                     </div>
                     <div className="main-section">
-                        <div className="paaword">
+                        <div className="form-unit">
                             <h4>Enter Password</h4>
-                            <input type="password" placeholder="" />
+                            <input type="password" className="formscontrol" placeholder="" />
                         </div>
                     </div>
                     <div className="update-button">
