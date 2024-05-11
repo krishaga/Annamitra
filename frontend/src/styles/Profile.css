@@ -101,19 +101,21 @@
 .category-detail{
     display: flex;
     flex-direction: column;
-    /* justify-content: start; */
-    align-items: center;
+    /* align-items: center; */
     height: 100vh;
+    width: 100%;
 }
 
 .cat-head{
     flex: 3;
-    font-size: 2rem;
-    margin: 1rem 0;
+    font-size: 2.2rem;
 }
 
 .main-section{
     flex: 5;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .update-button{
