@@ -97,37 +97,35 @@ export default function Component() {
                         <button className="btns-main">Update</button>
                     </div>
                 </div>
-                {/* <div className="Address">
-                    <div className="cat-head">
-                        <h1>Address</h1>
-                    </div>
+                {/* <div className="category-detail">
+                    <div className="cat-head">Address</div>
                     <div className="main-section">
                         <div className="form-unit">
-                            <h4>Street Address</h4>
+                            <div className="setting-head">Street Address</div>
                             <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
                         <div className="form-unit">
-                            <h4>City</h4>
+                        <div className="setting-head">City</div>
                             <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
                         <div className="form-unit">
-                            <h4>Postal Code</h4>
+                        <div className="setting-head">Postal Code</div>
                             <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
                         <div className="form-unit">
-                            <h4>State</h4>
+                        <div className="setting-head">State</div>
                             <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
                         <div className="form-unit">
-                            <h4>Country</h4>
+                            <div className="setting-head">Country</div>
                             <input type="text" className="formscontrol" placeholder="Fetch hoga" />
                         </div>
                     </div>
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
-                </div>
-                <div className="change-password">
+                </div> */}
+                {/* <div className="change-password">
                     <div className="cat-head">
                         <h1>Change Password</h1>
                     </div>

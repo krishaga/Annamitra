@@ -129,6 +129,10 @@
     color: #000;
 }
 
+.form-unit input{
+    border-radius: 16px;
+}
+
 .update-button {
     flex: 2;
 }
