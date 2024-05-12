@@ -10,6 +10,7 @@ export default function Component() {
     const [address, setAddress] = useState([]);
     const [username, setUsername] = useState([]);
     const [password, setPassword] = useState([]);
+    const [currentCategory, setCurrentCategory] = useState([]);
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -99,6 +100,9 @@ export default function Component() {
                         <div className="form-unit">
                             <div className="setting-head">Full Name</div>
                             <input
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                }}
                                 type="text"
                                 className="formscontrol"
                                 placeholder="Name" defaultValue={name}
@@ -107,6 +111,9 @@ export default function Component() {
                         <div className="form-unit">
                             <div className="setting-head">Username</div>
                             <input
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                }}
                                 type="text"
                                 className="formscontrol"
                                 placeholder="Username" defaultValue={username}
@@ -115,6 +122,9 @@ export default function Component() {
                         <div className="form-unit">
                             <div className="setting-head">Email</div>
                             <input
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                }}
                                 type="text"
                                 className="formscontrol"
                                 placeholder="Email" defaultValue={email}
@@ -123,6 +133,9 @@ export default function Component() {
                         <div className="form-unit">
                             <div className="setting-head">Phone Number</div>
                             <input
+                                onChange={(e) => {
+                                    setPhone(e.target.value);
+                                }}
                                 type="text"
                                 className="formscontrol"
                                 placeholder="Phone" defaultValue={phone}
@@ -138,23 +151,38 @@ export default function Component() {
                     <div className="main-section">
                         <div className="form-unit">
                             <div className="setting-head">Street Address</div>
-                            <input type="text" className="formscontrol" placeholder="Street" defaultValue={address.street} />
+                            <input
+                                onChange={(e) => {
+                                    setAddress({...address, street: e.target.value});
+                                }} type="text" className="formscontrol" placeholder="Street" defaultValue={address.street} />
                         </div>
                         <div className="form-unit">
                         <div className="setting-head">City</div>
-                            <input type="text" className="formscontrol" placeholder="City" defaultValue={address.city} />
+                            <input
+                                onChange={(e) => {
+                                    setAddress({...address, city: e.target.value});
+                                }} type="text" className="formscontrol" placeholder="City" defaultValue={address.city} />
                         </div>
                         <div className="form-unit">
                         <div className="setting-head">Postal Code</div>
-                            <input type="text" className="formscontrol" placeholder="State" defaultValue={address.state} />
+                            <input
+                                onChange={(e) => {
+                                    setAddress({...address, state: e.target.value});
+                                }} type="text" className="formscontrol" placeholder="State" defaultValue={address.state} />
                         </div>
                         <div className="form-unit">
                         <div className="setting-head">State</div>
-                            <input type="text" className="formscontrol" placeholder="Postal Code" defaultValue={address.postalcode} />
+                            <input
+                                onChange={(e) => {
+                                    setAddress({...address, postalcode: e.target.value});
+                                }} type="text" className="formscontrol" placeholder="Postal Code" defaultValue={address.postalcode} />
                         </div>
                         <div className="form-unit">
                             <div className="setting-head">Country</div>
-                            <input type="text" className="formscontrol" placeholder="Country" defaultValue={address.country} />
+                            <input
+                                onChange={(e) => {
+                                    setAddress({...address, country: e.target.value});
+                                }} type="text" className="formscontrol" placeholder="Country" defaultValue={address.country} />
                         </div>
                     </div>
                     <div className="update-button">
@@ -168,11 +196,17 @@ export default function Component() {
                     <div className="main-sections">
                         <div className="form-unit">
                             <h4>Current Password</h4>
-                            <input type="password" className="formscontrol" placeholder="" />
+                            <input
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                }} type="password" className="formscontrol" placeholder="" />
                         </div>
                         <div className="form-unit">
                             <h4>New Password</h4>
-                            <input type="password" className="formscontrol" placeholder="" />
+                            <input
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                }} type="password" className="formscontrol" placeholder="" />
                         </div>
                     </div>
                     <div className="update-button">
@@ -186,7 +220,10 @@ export default function Component() {
                     <div className="main-section">
                         <div className="form-unit">
                             <h4>Enter Password</h4>
-                            <input type="password" className="formscontrol" placeholder="" />
+                            <input
+                                onChange={(e) => {
+                                    setDescription(e.target.value);
+                                }} type="password" className="formscontrol" placeholder="" />
                         </div>
                     </div>
                     <div className="update-button">
