@@ -44,12 +44,10 @@ export default function Component() {
         }
         fetchUser();
     },[])
-
-    const handleLogout = () => {
-        localStorage.setItem("token", "");
-        navigate("/Annamitra");
-        window.location.reload();
-    };
+    
+    function handleClick(element) {
+        setCurrentElement(element);
+    }
 
     return (
         <div className="profile-settings">
