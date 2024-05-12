@@ -133,6 +133,13 @@
     border-radius: 16px;
 }
 
+/* .glowy {
+    color: #354e41;
+    outline: #7b9c2a;
+    outline-color: #7b9c2a;
+    text-shadow: 0 0 2.4px #7b9c2a;
+} */
+
 .update-button {
     flex: 2;
 }

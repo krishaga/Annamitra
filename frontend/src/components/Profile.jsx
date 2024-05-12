@@ -4,7 +4,45 @@ import "../styles/Profile.css";
 import "../styles/forms.css";
 
 export default function Component() {
+    const [name, setName] = useState([]);
+    const [email, setEmail] = useState([]);
+    const [phone, setPhone] = useState([]);
+    const [address, setAddress] = useState([]);
+    const [username, setUsername] = useState([]);
+    const [password, setPassword] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        const fetchUser = async() =>{
+            try{
+                const response = await fetch(
+                    "http://localhost:3000/api/auth/user-details",
+                    {
+                        method: "GET",
+                        headers: {
+                            authorization:
+                                "Bearer " + localStorage.getItem("token"),
+                        },
+                    }
+                );
+                if(!response.ok){
+                    throw new Error("Network response was not ok");
+                }
+                const data = await response.json();
+                setName(data.user.name);
+                setEmail(data.user.email);
+                setPhone(data.user.mobileno);
+                setAddress(data.user.address);
+                setUsername(data.user.username);
+                setPassword(data.user.password);
+            } catch (error) {
+                window.alert('Please Login or SignUp');
+                navigate('/Annamitra')
+                window.location.reload();
+            }
+        }
+        fetchUser();
+    },[])
 
     const handleLogout = () => {
         localStorage.setItem("token", "");
@@ -63,7 +101,15 @@ export default function Component() {
                             <input
                                 type="text"
                                 className="formscontrol"
-                                placeholder="Name"
+                                placeholder="Name" defaultValue={name}
+                            />
+                        </div>
+                        <div className="form-unit">
+                            <div className="setting-head">Username</div>
+                            <input
+                                type="text"
+                                className="formscontrol"
+                                placeholder="Username" defaultValue={username}
                             />
                         </div>
                         <div className="form-unit">
@@ -71,7 +117,7 @@ export default function Component() {
                             <input
                                 type="text"
                                 className="formscontrol"
-                                placeholder="Email"
+                                placeholder="Email" defaultValue={email}
                             />
                         </div>
                         <div className="form-unit">
@@ -79,7 +125,7 @@ export default function Component() {
                             <input
                                 type="text"
                                 className="formscontrol"
-                                placeholder="Phone Number"
+                                placeholder="Phone" defaultValue={phone}
                             />
                         </div>
                     </div>
@@ -92,23 +138,23 @@ export default function Component() {
                     <div className="main-section">
                         <div className="form-unit">
                             <div className="setting-head">Street Address</div>
-                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Street" defaultValue={address.street} />
                         </div>
                         <div className="form-unit">
                         <div className="setting-head">City</div>
-                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="City" defaultValue={address.city} />
                         </div>
                         <div className="form-unit">
                         <div className="setting-head">Postal Code</div>
-                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="State" defaultValue={address.state} />
                         </div>
                         <div className="form-unit">
                         <div className="setting-head">State</div>
-                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Postal Code" defaultValue={address.postalcode} />
                         </div>
                         <div className="form-unit">
                             <div className="setting-head">Country</div>
-                            <input type="text" className="formscontrol" placeholder="Fetch hoga" />
+                            <input type="text" className="formscontrol" placeholder="Country" defaultValue={address.country} />
                         </div>
                     </div>
                     <div className="update-button">
@@ -132,8 +178,8 @@ export default function Component() {
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
-                </div>
-                <div className="delete-account">
+                </div> */}
+                {/* <div className="delete-account">
                     <div className="cat-head">
                         <h1>Delete Account</h1>
                     </div>
