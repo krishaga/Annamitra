@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const { loginUser, updateUser, getUserByName, createUser, logoutUser, getuserdata, getUserById } = require('../controllers/userController.js');
+const { loginUser, updateUser, getUserByName, createUser, getuserdata, getUserById } = require('../controllers/userController.js');
 const authenticateJwt = require('../middlewares/authentication.js');
 
 router.post('/signup',                                                                                       // SignUp Route
@@ -54,10 +54,6 @@ router.post('/update-profile',                                                  
 
 router.get('/user-details', authenticateJwt, async (req, res) => {                                    //Gets user data by name Route
     getUserByName(req, res);
-});
-
-router.post('/logout', authenticateJwt, async (req, res) => {                                        //Logout Route
-    logoutUser(req, res);
 });
 
 router.get('/dashboard', authenticateJwt, async (req, res) => {                                       //Dashboard Route

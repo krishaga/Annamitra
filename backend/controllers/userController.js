@@ -117,9 +117,4 @@ const getuserdata = async (req, res) => {
     }
 }
 
-const logoutUser = async (req, res) => {
-    localStorage.removeItem('token');
-    return res.status(200).json({ message: "Logout successful" });
-};
-
-module.exports = { createUser, loginUser, logoutUser, updateUser, getUserByName, getuserdata, getUserById };
+module.exports = { createUser, loginUser, updateUser, getUserByName, getuserdata, getUserById };
