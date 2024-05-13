@@ -4,12 +4,14 @@ import "../styles/Profile.css";
 import "../styles/forms.css";
 
 export default function Component() {
+    const [id, setId] = useState([]);
     const [name, setName] = useState([]);
     const [email, setEmail] = useState([]);
     const [phone, setPhone] = useState([]);
     const [address, setAddress] = useState([]);
     const [username, setUsername] = useState([]);
     const [password, setPassword] = useState([]);
+    const [userPassword, setUserPassword] = useState([]);
     const [currentCategory, setCurrentCategory] = useState([]);
     const navigate = useNavigate();
 
@@ -30,12 +32,14 @@ export default function Component() {
                     throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
+                setId(data.user._id);
                 setName(data.user.name);
                 setEmail(data.user.email);
                 setPhone(data.user.mobileno);
                 setAddress(data.user.address);
                 setUsername(data.user.username);
                 setPassword(data.user.password);
+                setUserPassword(data.user.password);
             } catch (error) {
                 window.alert('Please Login or SignUp');
                 navigate('/Annamitra')
@@ -48,6 +52,41 @@ export default function Component() {
     function handleClick(element) {
         setCurrentElement(element);
     }
+
+    const handleLogout = () => {
+        localStorage.setItem("token", "");
+        navigate("/Annamitra");
+        window.location.reload();
+    };
+
+    const handleDelete = async () => {
+        try{
+            const response = await fetch(
+                "http://localhost:3000/api/auth/delete-account",
+                {
+                    method: "DELETE",
+                    headers: {
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                            user_id: id
+                    },
+                    body: JSON.stringify({ enteredpassword: password, originalpassword: userPassword })    
+                }
+            );
+            if(!response.ok){
+                throw new Error("Network response was not Ok")
+            }
+            const data = await response.json();
+            navigate('/Annamitra')
+            window.location.reload();
+            alert(data.message);
+            // navigate('/Annamitra')
+        } catch (error) {
+            // window.alert('Please Login or SignUp');
+            navigate('/Annamitra')
+            window.location.reload();
+        }
+    };
 
     return (
         <div className="profile-settings">
@@ -92,7 +131,7 @@ export default function Component() {
                 </div>
             </div>
             <div className="right-section">
-                <div className="category-detail">
+                {/* <div className="category-detail">
                     <div className="cat-head">Personal Details</div>
                     <div className="main-section">
                         <div className="form-unit">
@@ -143,7 +182,7 @@ export default function Component() {
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
-                </div>
+                </div> */}
                 {/* <div className="category-detail">
                     <div className="cat-head">Address</div>
                     <div className="main-section">
@@ -211,23 +250,21 @@ export default function Component() {
                         <button className="btns-main">Update</button>
                     </div>
                 </div> */}
-                {/* <div className="delete-account">
-                    <div className="cat-head">
-                        <h1>Delete Account</h1>
-                    </div>
+                <div className="category-detail">
+                    <div className="cat-head">Delete Account</div>
                     <div className="main-section">
                         <div className="form-unit">
-                            <h4>Enter Password</h4>
+                            <div className="setting-head">Enter Password</div>
                             <input
                                 onChange={(e) => {
-                                    setDescription(e.target.value);
-                                }} type="password" className="formscontrol" placeholder="" />
+                                    setPassword(e.target.value);
+                                }} type="password" className="formscontrol" placeholder="Enter Password" />
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">Delete</button>
+                        <button className="btns-main" onClick={handleDelete} >Delete</button>
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
     );

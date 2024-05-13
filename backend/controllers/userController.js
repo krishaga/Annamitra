@@ -117,4 +117,23 @@ const getuserdata = async (req, res) => {
     }
 }
 
-module.exports = { createUser, loginUser, updateUser, getUserByName, getuserdata, getUserById };
+const deleteUserById = async(req,res) =>{
+    try{
+        const { enteredpassword, originalpassword } = req.body;
+        const isPasswordValid = (enteredpassword === originalpassword);
+        if (!isPasswordValid) {
+            return res.status(400).json({ message: 'Invalid password' });
+        }
+        const deletedDetail = await User.findByIdAndDelete({_id: req.headers.user_id});
+        if(!deletedDetail){
+            return res.status(400).json({message : 'User Not Found' });
+        }
+        res.json({ message: 'User removed successfully' });
+    } 
+    catch (error) {
+          console.error(error);
+          res.status(500).json({ message: 'Internal server error' });
+        }
+}
+
+module.exports = { createUser, loginUser, updateUser, getUserByName, getuserdata, getUserById, deleteUserById};
