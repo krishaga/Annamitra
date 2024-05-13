@@ -78,6 +78,9 @@
     background-color: #354e41;
     width: 10px;
     height: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
 }
 
 .logout {
@@ -96,6 +99,10 @@
 }
 
 .category-detail {
+    display: none;
+}
+
+.category-detail.current {
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -118,6 +125,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.active {
+    display: block;
 }
 
 .form-unit {

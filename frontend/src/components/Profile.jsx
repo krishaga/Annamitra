@@ -50,7 +50,8 @@ export default function Component() {
     },[])
     
     function handleClick(element) {
-        setCurrentElement(element);
+        setCurrentCategory(element);
+        console.log(currentCategory)
     }
 
     const handleLogout = () => {
@@ -103,22 +104,22 @@ export default function Component() {
                     </div>
                 </div>
                 <div className="categories">
-                    <div className="compo">
+                    <div className={`compo ${currentCategory === 'Personal Info' ? 'active' : ''}`} onClick={() => {handleClick("Personal Info")}}>
                         <div className="rect"></div>
                         <div className="items">Personal Details</div>
                     </div>
                     <hr />
-                    <div className="compo">
+                    <div className={`compo ${currentCategory === 'Address' ? 'active' : ''}`} onClick={() => {handleClick("Address")}}>
                         <div className="rect"></div>
                         <div className="items">Address</div>
                     </div>
                     <hr />
-                    <div className="compo">
+                    <div className={`compo ${currentCategory === 'Change Password' ? 'active' : ''}`} onClick={() => {handleClick("Change Password")}}>
                         <div className="rect"></div>
                         <div className="items">Password Update</div>
                     </div>
                     <hr />
-                    <div className="compo">
+                    <div className={`compo ${currentCategory === 'Delete Account' ? 'active' : ''}`} onClick={() => {handleClick("Delete Account")}}>
                         <div className="rect"></div>
                         <div className="items">Delete Account</div>
                     </div>
@@ -131,7 +132,7 @@ export default function Component() {
                 </div>
             </div>
             <div className="right-section">
-                {/* <div className="category-detail">
+                <div className={`category-detail ${currentCategory === 'Personal Info' ? 'current' : ''}`}>
                     <div className="cat-head">Personal Details</div>
                     <div className="main-section">
                         <div className="form-unit">
@@ -182,8 +183,8 @@ export default function Component() {
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
-                </div> */}
-                {/* <div className="category-detail">
+                </div>
+                <div className={`category-detail ${currentCategory === 'Address' ? 'current' : ''}`}>
                     <div className="cat-head">Address</div>
                     <div className="main-section">
                         <div className="form-unit">
@@ -225,8 +226,8 @@ export default function Component() {
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
-                </div> */}
-                {/* <div className="change-password">
+                </div>
+                <div className={`category-detail ${currentCategory === 'Change Password' ? 'current' : ''}`}>
                     <div className="cat-head">
                         <h1>Change Password</h1>
                     </div>
@@ -249,8 +250,8 @@ export default function Component() {
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
-                </div> */}
-                <div className="category-detail">
+                </div>
+                <div className={`category-detail ${currentCategory === 'Delete Account' ? 'current' : ''}`}>
                     <div className="cat-head">Delete Account</div>
                     <div className="main-section">
                         <div className="form-unit">
