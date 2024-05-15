@@ -60,6 +60,41 @@ export default function Component() {
         window.location.reload();
     };
 
+    const handleUpdate = async () => {
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/auth/update-profile",
+                {
+                    method: "PUT",
+                    headers: {
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                        user_id: id,
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        phone,
+                        username,
+                        address,
+                        password,
+                    }),
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                }
+            );
+            if (!response.ok) {
+                throw new Error("Network response was not Ok");
+            }
+            const data = await response.json();
+            window.location.reload();
+            alert(data.message);
+        } catch (error) {
+            alert(error.message);
+        }
+    };
+
     const handleDelete = async () => {
         try {
             const response = await fetch(
@@ -84,9 +119,7 @@ export default function Component() {
             navigate("/Annamitra");
             window.location.reload();
             alert(data.message);
-            // navigate('/Annamitra')
         } catch (error) {
-            // window.alert('Please Login or SignUp');
             navigate("/Annamitra");
             window.location.reload();
         }
@@ -222,7 +255,9 @@ export default function Component() {
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">Update</button>
+                        <button className="btns-main" onClick={handleUpdate}>
+                            Update
+                        </button>
                     </div>
                 </div>
                 <div
@@ -309,7 +344,9 @@ export default function Component() {
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">Update</button>
+                        <button className="btns-main" onClick={handleUpdate}>
+                            Update
+                        </button>
                     </div>
                 </div>
                 <div
@@ -345,7 +382,9 @@ export default function Component() {
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main">Update</button>
+                        <button className="btns-main" onClick={handleUpdate}>
+                            Update
+                        </button>
                     </div>
                 </div>
                 <div

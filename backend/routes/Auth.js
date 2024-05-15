@@ -30,10 +30,10 @@ router.post('/login', async (req, res) => {                                     
     loginUser(req, res);
 });
 
-router.post('/update-profile',                                                                         //Profile Update Route
+router.put('/update-profile',                                                                         //Profile Update Route
     [
         check('name', 'Name is required').not().isEmpty(),
-        check('mobileno', 'Mobile number is required').not().isEmpty(),
+        check('phone', 'Mobile number is required').not().isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
         check('username', 'Username is required').not().isEmpty(),
         check('password', 'Password must be at least 6 characters long').isLength({ min: 6 }),
@@ -64,8 +64,8 @@ router.get('/get-user', authenticateJwt, async (req, res) => {                  
     getUserById(req, res);
 });
 
-router.delete('/delete-account', authenticateJwt, async(req,res) => {
-    deleteUserById(req,res);
+router.delete('/delete-account', authenticateJwt, async (req, res) => {
+    deleteUserById(req, res);
 });
 
 module.exports = router;

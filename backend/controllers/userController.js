@@ -51,14 +51,14 @@ const loginUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    const { name, mobileno, email, username, password } = req.body;
+    const { name, phone, email, username, password } = req.body;
     const { street, city, state, postalcode, country } = req.body.address;
 
     try {
         const user = await User.findOne({ username });
 
         user.name = name;
-        user.mobileno = mobileno;
+        user.mobileno = phone;
         user.email = email;
         user.password = password;
         user.address.street = street;
@@ -66,13 +66,15 @@ const updateUser = async (req, res) => {
         user.address.state = state;
         user.address.postalcode = postalcode;
         user.address.country = country;
+        console.log(user)
 
         await user.save();
-        
+
         res.status(200).json({ message: 'User updated successfully', user: user });
     } catch (error) {
+        console.log(error)
         console.error('User Update Error:', error);
-        res.status(500).json({ message: 'Server Error', error });
+        res.status(5000).json({ message: 'Server Error', error });
     }
 };
 
@@ -90,7 +92,7 @@ const getUserByName = async (req, res) => {
         const user = await User.findOne({ username: req.user.username });
         res.json({ user });
     }
-    catch (error)  {
+    catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
@@ -117,23 +119,23 @@ const getuserdata = async (req, res) => {
     }
 }
 
-const deleteUserById = async(req,res) =>{
-    try{
+const deleteUserById = async (req, res) => {
+    try {
         const { enteredpassword, originalpassword } = req.body;
         const isPasswordValid = (enteredpassword === originalpassword);
         if (!isPasswordValid) {
             return res.status(400).json({ message: 'Invalid password' });
         }
-        const deletedDetail = await User.findByIdAndDelete({_id: req.headers.user_id});
-        if(!deletedDetail){
-            return res.status(400).json({message : 'User Not Found' });
+        const deletedDetail = await User.findByIdAndDelete({ _id: req.headers.user_id });
+        if (!deletedDetail) {
+            return res.status(400).json({ message: 'User Not Found' });
         }
         res.json({ message: 'User removed successfully' });
-    } 
+    }
     catch (error) {
-          console.error(error);
-          res.status(500).json({ message: 'Internal server error' });
-        }
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
 }
 
-module.exports = { createUser, loginUser, updateUser, getUserByName, getuserdata, getUserById, deleteUserById};
+module.exports = { createUser, loginUser, updateUser, getUserByName, getuserdata, getUserById, deleteUserById };
