@@ -17,6 +17,7 @@
     flex-direction: column;
     background-color: #e5eccb;
     box-shadow: 1px 0 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
     z-index: 1;
 }
 
@@ -39,48 +40,55 @@
     margin: 0.5rem 0;
     display: flex;
     justify-content: center;
-    align-content: center;
+    /* align-content: center; */
     flex-direction: column;
+    gap: 1px;
     width: 100%;
 }
 
 .compo {
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
     width: 100%;
 }
 
 .categories hr {
     border-color: #c3d095;
-    width: 15rem;
+    max-width: 100%;
     margin-right: 1rem;
     margin-left: 2rem;
 }
 
 .compo .items {
-    font-size: 1.1rem;
-    margin-right: 1.4rem;
+    display: inline-block;
+    font-size: large;
+    margin-right: 0.4rem;
     padding: 0.5rem 0;
     padding-left: 3rem;
     width: 100%;
+    height: 100%;
 }
 
-.compo:hover .items {
+.compo:hover .items,
+.active .items {
     background-color: #c3d095;
     cursor: pointer;
 }
 
-.compo:hover {
+/* .compo:hover,
+.active {
     padding: 1px 0;
-}
+} */
 
-.compo:hover .rect {
+.compo:hover .rect,
+.active .rect {
+    display: inline-block;
     background-color: #354e41;
     width: 10px;
     height: 100%;
-    position: relative;
+    /* position: relative;
     left: 0;
-    top: 0;
+    top: 0; */
 }
 
 .logout {
@@ -96,6 +104,7 @@
     background-color: #e8eddc;
     padding: 4rem;
     height: 100%;
+    overflow-y: auto;
 }
 
 .category-detail {
@@ -127,10 +136,6 @@
     gap: 1rem;
 }
 
-.active {
-    display: block;
-}
-
 .form-unit {
     height: 5rem;
 }
@@ -140,7 +145,7 @@
     color: #000;
 }
 
-.form-unit input{
+.form-unit input {
     border-radius: 16px;
 }
 

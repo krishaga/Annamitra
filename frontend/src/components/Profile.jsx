@@ -12,12 +12,12 @@ export default function Component() {
     const [username, setUsername] = useState([]);
     const [password, setPassword] = useState([]);
     const [userPassword, setUserPassword] = useState([]);
-    const [currentCategory, setCurrentCategory] = useState([]);
+    const [currentCategory, setCurrentCategory] = useState("Personal Info");
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        const fetchUser = async() =>{
-            try{
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
                 const response = await fetch(
                     "http://localhost:3000/api/auth/user-details",
                     {
@@ -28,7 +28,7 @@ export default function Component() {
                         },
                     }
                 );
-                if(!response.ok){
+                if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
@@ -41,17 +41,17 @@ export default function Component() {
                 setPassword(data.user.password);
                 setUserPassword(data.user.password);
             } catch (error) {
-                window.alert('Please Login or SignUp');
-                navigate('/Annamitra')
+                window.alert("Please Login or SignUp");
+                navigate("/Annamitra");
                 window.location.reload();
             }
-        }
+        };
         fetchUser();
-    },[])
-    
+    }, []);
+
     function handleClick(element) {
         setCurrentCategory(element);
-        console.log(currentCategory)
+        console.log(currentCategory);
     }
 
     const handleLogout = () => {
@@ -61,7 +61,7 @@ export default function Component() {
     };
 
     const handleDelete = async () => {
-        try{
+        try {
             const response = await fetch(
                 "http://localhost:3000/api/auth/delete-account",
                 {
@@ -69,22 +69,25 @@ export default function Component() {
                     headers: {
                         authorization:
                             "Bearer " + localStorage.getItem("token"),
-                            user_id: id
+                        user_id: id,
                     },
-                    body: JSON.stringify({ enteredpassword: password, originalpassword: userPassword })    
+                    body: JSON.stringify({
+                        enteredpassword: password,
+                        originalpassword: userPassword,
+                    }),
                 }
             );
-            if(!response.ok){
-                throw new Error("Network response was not Ok")
+            if (!response.ok) {
+                throw new Error("Network response was not Ok");
             }
             const data = await response.json();
-            navigate('/Annamitra')
+            navigate("/Annamitra");
             window.location.reload();
             alert(data.message);
             // navigate('/Annamitra')
         } catch (error) {
             // window.alert('Please Login or SignUp');
-            navigate('/Annamitra')
+            navigate("/Annamitra");
             window.location.reload();
         }
     };
@@ -104,22 +107,52 @@ export default function Component() {
                     </div>
                 </div>
                 <div className="categories">
-                    <div className={`compo ${currentCategory === 'Personal Info' ? 'active' : ''}`} onClick={() => {handleClick("Personal Info")}}>
+                    <div
+                        className={`compo ${
+                            currentCategory === "Personal Info" ? "active" : ""
+                        }`}
+                        onClick={() => {
+                            handleClick("Personal Info");
+                        }}
+                    >
                         <div className="rect"></div>
                         <div className="items">Personal Details</div>
                     </div>
                     <hr />
-                    <div className={`compo ${currentCategory === 'Address' ? 'active' : ''}`} onClick={() => {handleClick("Address")}}>
+                    <div
+                        className={`compo ${
+                            currentCategory === "Address" ? "active" : ""
+                        }`}
+                        onClick={() => {
+                            handleClick("Address");
+                        }}
+                    >
                         <div className="rect"></div>
                         <div className="items">Address</div>
                     </div>
                     <hr />
-                    <div className={`compo ${currentCategory === 'Change Password' ? 'active' : ''}`} onClick={() => {handleClick("Change Password")}}>
+                    <div
+                        className={`compo ${
+                            currentCategory === "Change Password"
+                                ? "active"
+                                : ""
+                        }`}
+                        onClick={() => {
+                            handleClick("Change Password");
+                        }}
+                    >
                         <div className="rect"></div>
                         <div className="items">Password Update</div>
                     </div>
                     <hr />
-                    <div className={`compo ${currentCategory === 'Delete Account' ? 'active' : ''}`} onClick={() => {handleClick("Delete Account")}}>
+                    <div
+                        className={`compo ${
+                            currentCategory === "Delete Account" ? "active" : ""
+                        }`}
+                        onClick={() => {
+                            handleClick("Delete Account");
+                        }}
+                    >
                         <div className="rect"></div>
                         <div className="items">Delete Account</div>
                     </div>
@@ -132,7 +165,11 @@ export default function Component() {
                 </div>
             </div>
             <div className="right-section">
-                <div className={`category-detail ${currentCategory === 'Personal Info' ? 'current' : ''}`}>
+                <div
+                    className={`category-detail ${
+                        currentCategory === "Personal Info" ? "current" : ""
+                    }`}
+                >
                     <div className="cat-head">Personal Details</div>
                     <div className="main-section">
                         <div className="form-unit">
@@ -143,7 +180,8 @@ export default function Component() {
                                 }}
                                 type="text"
                                 className="formscontrol"
-                                placeholder="Name" defaultValue={name}
+                                placeholder="Name"
+                                defaultValue={name}
                             />
                         </div>
                         <div className="form-unit">
@@ -154,7 +192,8 @@ export default function Component() {
                                 }}
                                 type="text"
                                 className="formscontrol"
-                                placeholder="Username" defaultValue={username}
+                                placeholder="Username"
+                                defaultValue={username}
                             />
                         </div>
                         <div className="form-unit">
@@ -165,7 +204,8 @@ export default function Component() {
                                 }}
                                 type="text"
                                 className="formscontrol"
-                                placeholder="Email" defaultValue={email}
+                                placeholder="Email"
+                                defaultValue={email}
                             />
                         </div>
                         <div className="form-unit">
@@ -176,7 +216,8 @@ export default function Component() {
                                 }}
                                 type="text"
                                 className="formscontrol"
-                                placeholder="Phone" defaultValue={phone}
+                                placeholder="Phone"
+                                defaultValue={phone}
                             />
                         </div>
                     </div>
@@ -184,50 +225,98 @@ export default function Component() {
                         <button className="btns-main">Update</button>
                     </div>
                 </div>
-                <div className={`category-detail ${currentCategory === 'Address' ? 'current' : ''}`}>
+                <div
+                    className={`category-detail ${
+                        currentCategory === "Address" ? "current" : ""
+                    }`}
+                >
                     <div className="cat-head">Address</div>
                     <div className="main-section">
                         <div className="form-unit">
                             <div className="setting-head">Street Address</div>
                             <input
                                 onChange={(e) => {
-                                    setAddress({...address, street: e.target.value});
-                                }} type="text" className="formscontrol" placeholder="Street" defaultValue={address.street} />
+                                    setAddress({
+                                        ...address,
+                                        street: e.target.value,
+                                    });
+                                }}
+                                type="text"
+                                className="formscontrol"
+                                placeholder="Street"
+                                defaultValue={address.street}
+                            />
                         </div>
                         <div className="form-unit">
-                        <div className="setting-head">City</div>
+                            <div className="setting-head">City</div>
                             <input
                                 onChange={(e) => {
-                                    setAddress({...address, city: e.target.value});
-                                }} type="text" className="formscontrol" placeholder="City" defaultValue={address.city} />
+                                    setAddress({
+                                        ...address,
+                                        city: e.target.value,
+                                    });
+                                }}
+                                type="text"
+                                className="formscontrol"
+                                placeholder="City"
+                                defaultValue={address.city}
+                            />
                         </div>
                         <div className="form-unit">
-                        <div className="setting-head">Postal Code</div>
+                            <div className="setting-head">Postal Code</div>
                             <input
                                 onChange={(e) => {
-                                    setAddress({...address, state: e.target.value});
-                                }} type="text" className="formscontrol" placeholder="State" defaultValue={address.state} />
+                                    setAddress({
+                                        ...address,
+                                        state: e.target.value,
+                                    });
+                                }}
+                                type="text"
+                                className="formscontrol"
+                                placeholder="State"
+                                defaultValue={address.state}
+                            />
                         </div>
                         <div className="form-unit">
-                        <div className="setting-head">State</div>
+                            <div className="setting-head">State</div>
                             <input
                                 onChange={(e) => {
-                                    setAddress({...address, postalcode: e.target.value});
-                                }} type="text" className="formscontrol" placeholder="Postal Code" defaultValue={address.postalcode} />
+                                    setAddress({
+                                        ...address,
+                                        postalcode: e.target.value,
+                                    });
+                                }}
+                                type="text"
+                                className="formscontrol"
+                                placeholder="Postal Code"
+                                defaultValue={address.postalcode}
+                            />
                         </div>
                         <div className="form-unit">
                             <div className="setting-head">Country</div>
                             <input
                                 onChange={(e) => {
-                                    setAddress({...address, country: e.target.value});
-                                }} type="text" className="formscontrol" placeholder="Country" defaultValue={address.country} />
+                                    setAddress({
+                                        ...address,
+                                        country: e.target.value,
+                                    });
+                                }}
+                                type="text"
+                                className="formscontrol"
+                                placeholder="Country"
+                                defaultValue={address.country}
+                            />
                         </div>
                     </div>
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
                 </div>
-                <div className={`category-detail ${currentCategory === 'Change Password' ? 'current' : ''}`}>
+                <div
+                    className={`category-detail ${
+                        currentCategory === "Change Password" ? "current" : ""
+                    }`}
+                >
                     <div className="cat-head">
                         <h1>Change Password</h1>
                     </div>
@@ -237,21 +326,33 @@ export default function Component() {
                             <input
                                 onChange={(e) => {
                                     setDescription(e.target.value);
-                                }} type="password" className="formscontrol" placeholder="" />
+                                }}
+                                type="password"
+                                className="formscontrol"
+                                placeholder=""
+                            />
                         </div>
                         <div className="form-unit">
                             <h4>New Password</h4>
                             <input
                                 onChange={(e) => {
                                     setDescription(e.target.value);
-                                }} type="password" className="formscontrol" placeholder="" />
+                                }}
+                                type="password"
+                                className="formscontrol"
+                                placeholder=""
+                            />
                         </div>
                     </div>
                     <div className="update-button">
                         <button className="btns-main">Update</button>
                     </div>
                 </div>
-                <div className={`category-detail ${currentCategory === 'Delete Account' ? 'current' : ''}`}>
+                <div
+                    className={`category-detail ${
+                        currentCategory === "Delete Account" ? "current" : ""
+                    }`}
+                >
                     <div className="cat-head">Delete Account</div>
                     <div className="main-section">
                         <div className="form-unit">
@@ -259,11 +360,17 @@ export default function Component() {
                             <input
                                 onChange={(e) => {
                                     setPassword(e.target.value);
-                                }} type="password" className="formscontrol" placeholder="Enter Password" />
+                                }}
+                                type="password"
+                                className="formscontrol"
+                                placeholder="Enter Password"
+                            />
                         </div>
                     </div>
                     <div className="update-button">
-                        <button className="btns-main" onClick={handleDelete} >Delete</button>
+                        <button className="btns-main" onClick={handleDelete}>
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>
