@@ -26,8 +26,8 @@ export default function Confirmation({ element, onClose }) {
                 const data = await response.json();
                 setRecipient(data.user);
             } catch (error) {
-                window.alert('Please Login or SignUp');
-                navigate('/Annamitra')
+                window.alert("Please Login or SignUp");
+                navigate("/Annamitra");
                 window.location.reload();
             }
         };
@@ -52,8 +52,8 @@ export default function Confirmation({ element, onClose }) {
                 const data = await response.json();
                 setUser(data.user);
             } catch (error) {
-                window.alert('Please Login or SignUp');
-                navigate('/Annamitra')
+                window.alert("Please Login or SignUp");
+                navigate("/Annamitra");
                 window.location.reload();
             }
         };
@@ -112,9 +112,7 @@ export default function Confirmation({ element, onClose }) {
                     Address: {element.addressTo.city},
                     {element.addressTo.postalcode}
                 </div>
-                <div className="category">
-                    Category: {element.category}
-                </div>
+                <div className="category">Category: {element.category}</div>
             </div>
             <div className="confirmation">
                 <div className="user-info">

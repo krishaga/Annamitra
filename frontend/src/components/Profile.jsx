@@ -41,9 +41,8 @@ export default function Component() {
                 setPassword(data.user.password);
                 setUserPassword(data.user.password);
             } catch (error) {
-                window.alert("Please Login or SignUp");
                 navigate("/Annamitra");
-                window.location.reload();
+                window.alert("Please Login or SignUp");
             }
         };
         fetchUser();
@@ -51,7 +50,6 @@ export default function Component() {
 
     function handleClick(element) {
         setCurrentCategory(element);
-        console.log(currentCategory);
     }
 
     const handleLogout = () => {

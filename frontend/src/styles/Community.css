@@ -1,17 +1,17 @@
-.para1details{
+.para1details {
     color: aquamarine;
     margin: 2rem;
     font-size: 1.2rem;
 }
 
-.para1 h1{
+.para1 h1 {
     font-size: 2rem;
     font-style: italic;
     color: darkgreen;
     margin: 2rem;
 }
 
-.para1 ul{
+.para1 ul {
     list-style-type: none;
     margin: 2rem;
 }

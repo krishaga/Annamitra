@@ -66,14 +66,11 @@ const updateUser = async (req, res) => {
         user.address.state = state;
         user.address.postalcode = postalcode;
         user.address.country = country;
-        console.log(user)
 
         await user.save();
 
         res.status(200).json({ message: 'User updated successfully', user: user });
     } catch (error) {
-        console.log(error)
-        console.error('User Update Error:', error);
         res.status(5000).json({ message: 'Server Error', error });
     }
 };

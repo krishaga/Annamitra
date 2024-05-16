@@ -9,7 +9,7 @@ function Dashboard() {
     const [packedCount, setPackedCount] = useState(0);
     const [donationCount, setDonationCount] = useState(0);
     const [requestCount, setRequestCount] = useState(0);
-    let donations = []
+    let donations = [];
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,13 +29,13 @@ function Dashboard() {
                     throw new Error("Network Response was not ok");
                 }
                 const data = await response.json();
-                donations = data.details.donations; 
+                donations = data.details.donations;
                 setDonationCount(data.details.donationsCount);
                 setRequestCount(data.details.requestsCount);
                 let cooked = 0;
                 let uncooked = 0;
                 let packed = 0;
-                donations.forEach(donation => {
+                donations.forEach((donation) => {
                     if (donation.category === "Cooked Food") {
                         cooked++;
                     } else if (donation.category === "UnCooked Food") {
@@ -52,12 +52,10 @@ function Dashboard() {
             }
         };
         fetchDetails();
-        if(localStorage.getItem("token")==null){
-            
-            window.alert('Please Login or SignUp');
-            navigate('/Annamitra')
+        if (localStorage.getItem("token") == null) {
+            alert("Please Login or SignUp");
+            navigate("/Annamitra");
             window.location.reload();
-            // alert('Login or Signup')
         }
     }, []);
 
@@ -91,7 +89,13 @@ function Dashboard() {
                         </div>
                         <div className="lower-section">
                             <div className="second-section">
-                                <DoughnutChart data={[cookedCount, uncookedCount, packedCount]} />
+                                <DoughnutChart
+                                    data={[
+                                        cookedCount,
+                                        uncookedCount,
+                                        packedCount,
+                                    ]}
+                                />
                             </div>
                         </div>
                     </div>

@@ -55,7 +55,6 @@ function Signup() {
                     // Redirect or update UI as needed
                     navigate("/Dashboard");
                     window.location.reload();
-
                 }
             });
     };

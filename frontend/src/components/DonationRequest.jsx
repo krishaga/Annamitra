@@ -7,13 +7,13 @@ function DonateList() {
     const [description, setDescription] = useState("");
     const [serves, setServes] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
-    
+
     const navigate = useNavigate();
 
     const handleCategoryClick = (category) => {
         setCategory(category);
         setSelectedCategory(category);
-    }
+    };
 
     const handleDonate = () => {
         fetch("http://localhost:3000/api/forms/new-donation", {
@@ -61,32 +61,56 @@ function DonateList() {
                             <br />
                             <br />
                             <div className="formsrow">
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "Cooked Food" ? "selected" : ""}`}>
+                                <span
+                                    className={`formsgroup col-md-4 ${
+                                        selectedCategory === "Cooked Food"
+                                            ? "selected"
+                                            : ""
+                                    }`}
+                                >
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/cookedfood.png"
                                         alt="Cooked Food"
-                                        onClick={() => handleCategoryClick("Cooked Food")}
+                                        onClick={() =>
+                                            handleCategoryClick("Cooked Food")
+                                        }
                                     />
                                     <br />
                                     <span>Cooked Food</span>
                                 </span>
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "UnCooked Food" ? "selected" : ""}`}>
+                                <span
+                                    className={`formsgroup col-md-4 ${
+                                        selectedCategory === "UnCooked Food"
+                                            ? "selected"
+                                            : ""
+                                    }`}
+                                >
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/rawfood.jpg"
                                         alt="Un-Cooked Food"
-                                        onClick={() => handleCategoryClick("UnCooked Food")}
+                                        onClick={() =>
+                                            handleCategoryClick("UnCooked Food")
+                                        }
                                     />
                                     <br />
                                     <span>Uncooked Food</span>
                                 </span>
-                                <span className={`formsgroup col-md-4 ${selectedCategory === "Packed Food" ? "selected" : ""}`}>
+                                <span
+                                    className={`formsgroup col-md-4 ${
+                                        selectedCategory === "Packed Food"
+                                            ? "selected"
+                                            : ""
+                                    }`}
+                                >
                                     <img
                                         style={{ width: 100 }}
                                         src="/assets/images/packedfood.png"
                                         alt="Packed Food"
-                                        onClick={() => handleCategoryClick("Packed Food")}
+                                        onClick={() =>
+                                            handleCategoryClick("Packed Food")
+                                        }
                                     />
                                     <br />
                                     <span>Packed Food</span>

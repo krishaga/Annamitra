@@ -81,10 +81,7 @@ function Login() {
                         <label htmlFor="showPassword">Show Password</label>
                     </div>
                     <div className="bottom-buttons">
-                        <button
-                            className="button-main"
-                            onClick={handleLogin}
-                        >
+                        <button className="button-main" onClick={handleLogin}>
                             Log In
                         </button>
                     </div>

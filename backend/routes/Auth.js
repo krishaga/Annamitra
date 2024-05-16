@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 const { loginUser, updateUser, getUserByName, createUser, getuserdata, getUserById, deleteUserById } = require('../controllers/userController.js');
 const authenticateJwt = require('../middlewares/authentication.js');
 
-router.post('/signup',                                                                                       // SignUp Route
+router.post('/signup',
     [
         check('name', 'Name is required').not().isEmpty(),
         check('mobileno', 'Mobile number is required').not().isEmpty(),
@@ -26,11 +26,11 @@ router.post('/signup',                                                          
     }
 );
 
-router.post('/login', async (req, res) => {                                                            //Login Route
+router.post('/login', async (req, res) => {
     loginUser(req, res);
 });
 
-router.put('/update-profile',                                                                         //Profile Update Route
+router.put('/update-profile',
     [
         check('name', 'Name is required').not().isEmpty(),
         check('phone', 'Mobile number is required').not().isEmpty(),
@@ -52,15 +52,15 @@ router.put('/update-profile',                                                   
     }
 );
 
-router.get('/user-details', authenticateJwt, async (req, res) => {                                    //Gets user data by name Route
+router.get('/user-details', authenticateJwt, async (req, res) => {
     getUserByName(req, res);
 });
 
-router.get('/dashboard', authenticateJwt, async (req, res) => {                                       //Dashboard Route
+router.get('/dashboard', authenticateJwt, async (req, res) => {
     getuserdata(req, res);
 });
 
-router.get('/get-user', authenticateJwt, async (req, res) => {                                       //Get user data by Id route
+router.get('/get-user', authenticateJwt, async (req, res) => {
     getUserById(req, res);
 });
 
