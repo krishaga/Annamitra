@@ -8,21 +8,16 @@ const AddressSchema = {
   country: String,
 };
 
-const profileSchema = new mongoose.Schema({
-  username: String,
-  profilePicture: String, // Store file path for profile picture
-});
-
 const userSchema = new mongoose.Schema({
   name: String,
   mobileno: String,
   email: String,
   username: String,
   password: String,
+  profilePicture: String,
   address: AddressSchema,
 });
 
-const Profile = mongoose.model('Profile', profileSchema);
 const User = mongoose.model('User', userSchema);
 
-module.exports = { User, Profile };
+module.exports = { User };

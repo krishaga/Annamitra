@@ -6,10 +6,9 @@ function Navbar() {
     const [address, setAddress] = useState([]);
     const [elementVisible, setelementVisible] = useState(false);
 
-    const toggledisplay = () =>{
-        setelementVisible(!elementVisible)
-    }
-
+    const toggledisplay = () => {
+        setelementVisible(!elementVisible);
+    };
 
     useEffect(() => {
         const fetchdata = async () => {
@@ -79,65 +78,57 @@ function Navbar() {
                     </div>
                     <div className="profile">
                         <img
-                            src="../assets/images/navbarprofilepic.jpeg"
+                            src="../assets/images/profilepic.jpeg"
                             alt="hi"
                             onClick={toggledisplay}
                         />
                     </div>
-                    <div className="sidebar" style={{display: elementVisible? 'block' : 'none' }}>
+                    <div
+                        className="sidebar"
+                        style={{ display: elementVisible ? "block" : "none" }}
+                    >
                         <div className="top-sidebar-link">
-                            <img className="profile-img"
-                                src="../assets/images/navbarprofilepic.jpeg"
+                            <img
+                                className="profile-img"
+                                src="../assets/images/profilepic.jpeg"
                                 alt="hi"
                                 onClick={toggledisplay}
                             />
                         </div>
-                        <div 
+                        <div
                             className="sidebar-link"
-                            onClick={()=>{
-                                window.location="/Dashboard"
+                            onClick={() => {
+                                window.location = "/Dashboard";
                             }}
                         >
-                            <img 
-                                src="../assets/images/home.png" 
-                                alt=""
-                            />
+                            <img src="../assets/images/home.png" alt="" />
                             <div>Home</div>
                         </div>
-                        <div 
-                            className="sidebar-link" 
-                            onClick={()=>{
-                                window.location='/AboutUs'
+                        <div
+                            className="sidebar-link"
+                            onClick={() => {
+                                window.location = "/AboutUs";
                             }}
                         >
-                            <img 
-                                src="../assets/images/aboutus.png"
-                                alt=""
-                            />
+                            <img src="../assets/images/aboutus.png" alt="" />
                             <div>About Us</div>
                         </div>
-                        <div 
+                        <div
                             className="sidebar-link"
-                            onClick={()=>{
-                                window.location='/community'
+                            onClick={() => {
+                                window.location = "/community";
                             }}
                         >
-                            <img 
-                                src="../assets/images/community.png" 
-                                alt=""
-                            />
+                            <img src="../assets/images/community.png" alt="" />
                             <div>Community</div>
                         </div>
-                        <div 
+                        <div
                             className="sidebar-link"
-                            onClick={()=>{
-                                window.location='/edit-profile'
+                            onClick={() => {
+                                window.location = "/edit-profile";
                             }}
                         >
-                            <img 
-                                src="../assets/images/profile.png" 
-                                alt=""
-                            />
+                            <img src="../assets/images/profile.png" alt="" />
                             <div>Profile</div>
                         </div>
                     </div>
