@@ -4,6 +4,7 @@ const authRoutes = require('./routes/Auth');
 const listRoutes = require('./routes/lists');
 const formRoutes = require('./routes/forms');
 const matchRoutes = require('./routes/match');
+const profileRoutes = require('./routes/profile')
 const { dbConnect } = require('./database');
 const cors = require('cors');
 require('dotenv').config();
@@ -21,6 +22,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/lists', listRoutes);
 app.use('/api/forms', formRoutes);
 app.use('/api/match', matchRoutes);
+app.use('/api/profile', profileRoutes);
 
 const PORT = process.env.PORT || 3000;
 

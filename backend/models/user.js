@@ -8,12 +8,12 @@ const AddressSchema = {
   country: String,
 };
 
+const profileSchema = new mongoose.Schema({
+  username: String,
+  profilePicture: String, // Store file path for profile picture
+});
+
 const userSchema = new mongoose.Schema({
-  // Use Buffer type for storing binary data (e.g., images)
-  // image: {
-  //   data: Buffer,
-  //   contentType: String,
-  // },
   name: String,
   mobileno: String,
   email: String,
@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
   address: AddressSchema,
 });
 
+const Profile = mongoose.model('Profile', profileSchema);
 const User = mongoose.model('User', userSchema);
 
-module.exports = { User };
+module.exports = { User, Profile };
