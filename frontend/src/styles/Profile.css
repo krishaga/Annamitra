@@ -21,11 +21,12 @@
     z-index: 1;
 }
 
-.profile-image {
+.image {
     display: flex;
+    flex: 3;
     flex-direction: column;
     align-items: center;
-    flex: 3;
+    justify-content: center;
     padding-top: 4rem;
 }
 
