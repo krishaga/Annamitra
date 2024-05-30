@@ -52,12 +52,11 @@ export default function Component() {
         fetchUser();
     }, []);
 
-    // Function to handle file change event
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
+        handleFileUpload();
     };
 
-    // Function to handle file upload
     const handleFileUpload = async () => {
         const formData = new FormData();
         formData.append("file", selectedFile);
@@ -68,16 +67,21 @@ export default function Component() {
                 {
                     method: "POST",
                     body: formData,
+                    headers: {
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                    },
                 }
             );
             if (!response.ok) {
                 throw new Error("Failed to upload profile picture");
             }
             console.log("Profile picture uploaded");
-            // Update UI or state to display the new profile picture
+            // Update the profile picture state
+            const result = await response.json();
+            setProfilePicture(result.profilePicture);
         } catch (error) {
             console.error("Error uploading profile picture:", error);
-            // Handle error
         }
     };
 
@@ -157,24 +161,24 @@ export default function Component() {
     return (
         <div className="profile-settings">
             <div className="left-section">
-                <div className="profile-image">
-                    <div className="image">
-                        <img
-                            src={`http://localhost:3000/${profilePicture}`}
-                            alt="Image"
-                        />
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleFileChange}
-                        />
-                        <button onClick={handleFileUpload}>
-                            Upload Profile Picture
-                        </button>
-                    </div>
-                    <div className="edit-btn">
-                        <button className="btns-main">Upload</button>
-                    </div>
+                <div className="image">
+                    <img
+                        onClick={() =>
+                            document.getElementById("inputImage").click()
+                        }
+                        src={`http://localhost:3000${profilePicture}`}
+                        alt="Profile"
+                    />
+                    <input
+                        id="inputImage"
+                        style={{ display: "none" }}
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                    />
+                    {/* <button className="btns-main" onClick={handleFileUpload}>
+                        Upload
+                    </button> */}
                 </div>
                 <div className="categories">
                     <div
