@@ -54,6 +54,7 @@ export default function Component() {
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
+        handleFileUpload();
     };
 
     const handleFileUpload = async () => {
