@@ -173,7 +173,8 @@ export default function Component() {
                             document.getElementById("inputImage").click()
                         }
                         src={`http://localhost:3000${profilePicture}`}
-                        alt="Profile"
+                        alt='profile'
+                        onError={(e) => { e.target.src = "../public/assets/images/profilepic.jpeg"; }}
                     />
                     <input
                         id="inputImage"
