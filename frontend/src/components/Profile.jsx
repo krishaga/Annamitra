@@ -52,9 +52,15 @@ export default function Component() {
         fetchUser();
     }, []);
 
+
+    useEffect(() => {
+        if(selectedFile){
+            handleFileUpload();
+        }
+    },[selectedFile])
+
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
-        handleFileUpload();
     };
 
     const handleFileUpload = async () => {
@@ -176,9 +182,6 @@ export default function Component() {
                         accept="image/*"
                         onChange={handleFileChange}
                     />
-                    {/* <button className="btns-main" onClick={handleFileUpload}>
-                        Upload
-                    </button> */}
                 </div>
                 <div className="categories">
                     <div
