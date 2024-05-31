@@ -86,6 +86,7 @@ export default function Component() {
             // Update the profile picture state
             const result = await response.json();
             setProfilePicture(result.profilePicture);
+            window.location.reload();
         } catch (error) {
             console.error("Error uploading profile picture:", error);
         }

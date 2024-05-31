@@ -5,6 +5,7 @@ function Navbar() {
     const [name, setName] = useState([]);
     const [address, setAddress] = useState([]);
     const [elementVisible, setelementVisible] = useState(false);
+    const [profilePicture,setProfilePicture] = useState();
 
     const toggledisplay = () => {
         setelementVisible(!elementVisible);
@@ -29,12 +30,14 @@ function Navbar() {
                 const data = await response.json();
                 setName(data.user.name);
                 setAddress(data.user.address);
+                setProfilePicture(data.user.profilePicture)
             } catch (error) {
                 console.error("Error in fetching: ", error);
             }
         };
         fetchdata();
-    }, []);
+    }, [profilePicture]);
+
 
     if (
         location.pathname === "/Annamitra" ||
@@ -78,8 +81,9 @@ function Navbar() {
                     </div>
                     <div className="profile">
                         <img
-                            src="../assets/images/profilepic.jpeg"
-                            alt="hi"
+                            src={`http://localhost:3000${profilePicture}`}
+                            alt='profile'
+                            onError={(e) => { e.target.src = "../public/assets/images/profilepic.jpeg"; }}
                             onClick={toggledisplay}
                         />
                     </div>
