@@ -92,6 +92,29 @@ export default function Component() {
         }
     };
 
+    function handleRemovePfp() {
+        try {
+            const response = fetch(
+                "http://localhost:3000/api/profile/delete-profile-picture",
+                {
+                    method: "DELETE",
+                    body: JSON.stringify({ profilePicture, id }),
+                    headers: {
+                        "Content-type": "application/json",
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                    },
+                }
+            );
+            window.location.reload();
+            if (!response.ok) {
+                throw new Error("Failed to delete profile picture");
+            }
+        } catch (error) {
+            console.error("Error removing profile picture:", error);
+        }
+    };
+
     function handleClick(element) {
         setCurrentCategory(element);
     }
@@ -184,6 +207,9 @@ export default function Component() {
                         accept="image/*"
                         onChange={handleFileChange}
                     />
+                    <button className="btns-main" onClick={handleRemovePfp}>
+                        Remove
+                    </button>
                 </div>
                 <div className="categories">
                     <div
