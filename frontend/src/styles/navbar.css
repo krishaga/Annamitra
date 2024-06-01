@@ -62,8 +62,8 @@
 .profile img {
     flex: 1;
     border-radius: 50px;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 .linebreak {
@@ -74,22 +74,23 @@
 }
 
 .sidebar {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    top: 0;
+    position: absolute;
+    right: 20px;
+    top: 128px;
     background-color: #ebf0d4;
-    width: 7rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px rgb(0, 0, 0, 0.2);
     z-index: 2;
-    padding-top: 5px;
-    padding-right: 3px;
+    padding: 0.4em;
 }
 .sidebar-link {
-    height: 7rem;
+    height: 6rem;
+    width: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* margin-right: 2rem; */
 }
 
 .sidebar .profile-img {

@@ -89,16 +89,8 @@ function Navbar() {
                     </div>
                     <div
                         className="sidebar"
-                        style={{ display: elementVisible ? "block" : "none" }}
+                        style={{ display: elementVisible ? "flex" : "none" }}
                     >
-                        <div className="top-sidebar-link">
-                            <img
-                                className="profile-img"
-                                src="../assets/images/profilepic.jpeg"
-                                alt="hi"
-                                onClick={toggledisplay}
-                            />
-                        </div>
                         <div
                             className="sidebar-link"
                             onClick={() => {
