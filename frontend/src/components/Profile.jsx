@@ -34,7 +34,6 @@ export default function Component() {
                     throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
-                console.log(data);
                 setId(data.user._id);
                 setName(data.user.name);
                 setEmail(data.user.email);
@@ -66,6 +65,7 @@ export default function Component() {
     const handleFileUpload = async () => {
         const formData = new FormData();
         formData.append("file", selectedFile);
+        formData.append("oldPfp", profilePicture);
 
         try {
             const response = await fetch(
@@ -82,8 +82,6 @@ export default function Component() {
             if (!response.ok) {
                 throw new Error("Failed to upload profile picture");
             }
-            console.log("Profile picture uploaded");
-            // Update the profile picture state
             const result = await response.json();
             setProfilePicture(result.profilePicture);
             window.location.reload();

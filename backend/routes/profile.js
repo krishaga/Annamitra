@@ -13,12 +13,19 @@ router.post(
   upload.single("file"),
   async (req, res) => {
     try {
+      const filePath = req.body.oldPfp;
+      console.log(filePath)
       const profile = await User.findOneAndUpdate(
         { username: req.user.username },
         { profilePicture: `/uploads/profile-pictures/${req.file.filename}` }, // Save relative file path
         { new: true, upsert: true }
       );
-      console.log("Profile picture uploaded:", profile.profilePicture);
+      try {
+        if (filePath) {
+          const fullPath = path.join(path.dirname(__dirname), filePath);
+          await fs.unlink(fullPath);
+        }
+      } catch {}
       res.json({ success: true, profilePicture: profile.profilePicture });
     } catch (error) {
       console.error("Error uploading profile picture:", error);
