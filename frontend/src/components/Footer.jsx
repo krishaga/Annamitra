@@ -9,7 +9,7 @@ export default function Footer() {
                 <div
                     className="part1"
                     onClick={() => {
-                        window.location = "/Annamitra";
+                        window.location = "/dashboard";
                     }}
                 >
                     <img src="/assets/images/logo.png" alt="logo" />
