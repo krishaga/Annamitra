@@ -49,14 +49,15 @@ function Dashboard() {
                 setPackedCount(packed);
             } catch (error) {
                 console.error("Error in fetching: ", error);
+                if (localStorage.getItem("token") == null) {
+                    alert("Please Login or SignUp");
+                    navigate("/Annamitra");
+                    window.location.reload();
+                }
             }
         };
         fetchDetails();
-        if (localStorage.getItem("token") == null) {
-            alert("Please Login or SignUp");
-            navigate("/Annamitra");
-            window.location.reload();
-        }
+        
     }, []);
 
     return (
