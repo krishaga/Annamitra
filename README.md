@@ -3,9 +3,8 @@
 Annamitra is a MERN stack-based application designed to reduce food waste and alleviate hunger by enabling individuals to donate leftover food directly to those in need. The application features a dual interface for donors and recipients, allowing seamless food listing and requesting. This project supports the UN's Sustainable Development Goals, promoting responsible consumption and production, and partnerships to achieve these goals.
 
 ## Features
-- **Unified Interface: Single interface for both donating and receiving food.
+- **Unified Interface**: Single interface for both donating and receiving food.
 - **Real-time Updates**: Live updates on available food donations.
-- **Location Services**: Integrated location services for easy pickups.
 - **User Authentication**: Secure login using JWT.
 - **File Handling**: Utilizes Multer for handling file uploads.
 - **Data Visualization**: Uses Chart.js for visualizing donation data.
@@ -89,5 +88,5 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 ## Contact
 For any queries or suggestions, please contact us at:
 
-- **Email**: krishagarwal0716@gmail.com
+- **Email**: [Email Here](krishagarwal0716@gmail.com)
 - **GitHub Issues**: [https://github.com/krishaga/annamitra/issues](https://github.com/krishaga/annamitra/issues)
