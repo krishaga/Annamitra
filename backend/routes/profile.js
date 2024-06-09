@@ -14,7 +14,6 @@ router.post(
   async (req, res) => {
     try {
       const filePath = req.body.oldPfp;
-      console.log(filePath)
       const profile = await User.findOneAndUpdate(
         { username: req.user.username },
         { profilePicture: `/uploads/profile-pictures/${req.file.filename}` }, // Save relative file path

@@ -3,8 +3,6 @@ const { Donations } = require('../models/donations');
 const { Recipients } = require('../models/recipients');
 const jwt = require('jsonwebtoken');
 
-const SECRET = "Foodsew";  // add to env
-
 const createUser = async (req, res) => {
     const { name, mobileno, email, username, password } = req.body;
     const { street, city, state, postalcode, country } = req.body.address;
@@ -31,7 +29,7 @@ const createUser = async (req, res) => {
             },
         });
         await newUser.save();
-        const token = jwt.sign({ username, role: 'user' }, SECRET, { expiresIn: '30d' });
+        const token = jwt.sign({ username, role: 'user' }, process.env.JWT_SECRET, { expiresIn: '30d' });
         res.status(200).json({ message: 'User created successfully', token });
     } catch (error) {
         console.error('User Creation Error:', error);
@@ -43,7 +41,7 @@ const loginUser = async (req, res) => {
     const { username, password } = req.headers;
     const user = await User.findOne({ username, password });
     if (user) {
-        const token = jwt.sign({ username }, SECRET, { expiresIn: '30d' });
+        const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: '30d' });
         res.json({ message: 'Logged in successfully', token });
     } else {
         res.status(403).json({ errorMessage: 'Invalid username or password' });
