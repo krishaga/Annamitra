@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/confirmation.css";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export default function Confirmation({ element, onClose }) {
     const [donor, setDonor] = useState({});
@@ -11,17 +11,14 @@ export default function Confirmation({ element, onClose }) {
     useEffect(() => {
         const fetchDonor = async () => {
             try {
-                const response = await fetch(
-                    `${BASE_URL}/api/auth/get-user`,
-                    {
-                        method: "GET",
-                        headers: {
-                            authorization:
-                                "Bearer " + localStorage.getItem("token"),
-                            user_id: element.donor_id,
-                        },
-                    }
-                );
+                const response = await fetch(`${BASE_URL}/api/auth/get-user`, {
+                    method: "GET",
+                    headers: {
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                        user_id: element.donor_id,
+                    },
+                });
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }

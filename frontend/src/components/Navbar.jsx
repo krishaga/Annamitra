@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../styles/navbar.css";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function Navbar() {
     const [name, setName] = useState([]);
     const [address, setAddress] = useState([]);
     const [elementVisible, setelementVisible] = useState(false);
-    const [profilePicture,setProfilePicture] = useState();
+    const [profilePicture, setProfilePicture] = useState();
 
     const toggledisplay = () => {
         setelementVisible(!elementVisible);
@@ -32,14 +32,13 @@ function Navbar() {
                 const data = await response.json();
                 setName(data.user.name);
                 setAddress(data.user.address);
-                setProfilePicture(data.user.profilePicture)
+                setProfilePicture(data.user.profilePicture);
             } catch (error) {
                 console.error("Error in fetching: ", error);
             }
         };
         fetchdata();
     }, [profilePicture]);
-
 
     if (
         location.pathname === "/Annamitra" ||
@@ -84,8 +83,11 @@ function Navbar() {
                     <div className="profile">
                         <img
                             src={`BASE_URL${profilePicture}`}
-                            alt='profile'
-                            onError={(e) => { e.target.src = "../public/assets/images/profilepic.jpeg"; }}
+                            alt="profile"
+                            onError={(e) => {
+                                e.target.src =
+                                    "../public/assets/images/profilepic.jpeg";
+                            }}
                             onClick={toggledisplay}
                         />
                     </div>

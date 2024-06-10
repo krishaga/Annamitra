@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Confirmation from "./RecipientPopup";
 import "../styles/list.css";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export default function RecipientsList() {
     const [donations, setDonations] = useState([]);

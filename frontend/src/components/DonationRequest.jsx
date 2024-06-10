@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/forms.css";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function DonateList() {
     const [category, setCategory] = useState("");

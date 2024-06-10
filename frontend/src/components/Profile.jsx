@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Profile.css";
 import "../styles/forms.css";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export default function Component() {
     const [id, setId] = useState();
@@ -53,12 +53,11 @@ export default function Component() {
         fetchUser();
     }, []);
 
-
     useEffect(() => {
-        if(selectedFile){
+        if (selectedFile) {
             handleFileUpload();
         }
-    },[selectedFile])
+    }, [selectedFile]);
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -113,7 +112,7 @@ export default function Component() {
         } catch (error) {
             console.error("Error removing profile picture:", error);
         }
-    };
+    }
 
     function handleClick(element) {
         setCurrentCategory(element);
@@ -197,8 +196,11 @@ export default function Component() {
                             document.getElementById("inputImage").click()
                         }
                         src={`BASE_URL${profilePicture}`}
-                        alt='profile'
-                        onError={(e) => { e.target.src = "../public/assets/images/profilepic.jpeg"; }}
+                        alt="profile"
+                        onError={(e) => {
+                            e.target.src =
+                                "../public/assets/images/profilepic.jpeg";
+                        }}
                     />
                     <input
                         id="inputImage"

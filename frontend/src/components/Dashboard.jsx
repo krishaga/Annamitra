@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DoughnutChart from "./Chart";
 import "../styles/dashboard.css";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function Dashboard() {
     const [cookedCount, setCookedCount] = useState(0);
@@ -17,16 +17,13 @@ function Dashboard() {
     useEffect(() => {
         const fetchDetails = async () => {
             try {
-                const response = await fetch(
-                    `${BASE_URL}/api/auth/dashboard`,
-                    {
-                        method: "GET",
-                        headers: {
-                            authorization:
-                                "Bearer " + localStorage.getItem("token"),
-                        },
-                    }
-                );
+                const response = await fetch(`${BASE_URL}/api/auth/dashboard`, {
+                    method: "GET",
+                    headers: {
+                        authorization:
+                            "Bearer " + localStorage.getItem("token"),
+                    },
+                });
                 if (!response.ok) {
                     throw new Error("Network Response was not ok");
                 }
@@ -59,7 +56,6 @@ function Dashboard() {
             }
         };
         fetchDetails();
-        
     }, []);
 
     return (
