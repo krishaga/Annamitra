@@ -24,7 +24,7 @@ router.post(
           const fullPath = path.join(path.dirname(__dirname), filePath);
           await fs.unlink(fullPath);
         }
-      } catch {}
+      } catch { }
       res.json({ success: true, profilePicture: profile.profilePicture });
     } catch (error) {
       console.error("Error uploading profile picture:", error);
