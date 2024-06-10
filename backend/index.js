@@ -26,7 +26,7 @@ app.options('*', cors());
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
-app.use("/uploads/profile-pictures", express.static(path.join(__dirname, "uploads",'profile-pictures')));
+app.use("/uploads/profile-pictures", express.static(path.join(__dirname, "uploads")));
 
 // Connect to MongoDB
 dbConnect();
