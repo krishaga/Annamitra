@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Profile.css";
 import "../styles/forms.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 export default function Component() {
     const [id, setId] = useState();
     const [name, setName] = useState();
@@ -21,7 +23,7 @@ export default function Component() {
         const fetchUser = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/auth/user-details",
+                    `${BASE_URL}/api/auth/user-details`,
                     {
                         method: "GET",
                         headers: {
@@ -69,7 +71,7 @@ export default function Component() {
 
         try {
             const response = await fetch(
-                "http://localhost:3000/api/profile/upload-profile-picture",
+                `${BASE_URL}/api/profile/upload-profile-picture`,
                 {
                     method: "POST",
                     body: formData,
@@ -93,7 +95,7 @@ export default function Component() {
     function handleRemovePfp() {
         try {
             const response = fetch(
-                "http://localhost:3000/api/profile/delete-profile-picture",
+                `${BASE_URL}/api/profile/delete-profile-picture`,
                 {
                     method: "DELETE",
                     body: JSON.stringify({ profilePicture, id }),
@@ -126,7 +128,7 @@ export default function Component() {
     const handleUpdate = async () => {
         try {
             const response = await fetch(
-                "http://localhost:3000/api/auth/update-profile",
+                `${BASE_URL}/api/auth/update-profile`,
                 {
                     method: "PUT",
                     headers: {
@@ -159,7 +161,7 @@ export default function Component() {
     const handleDelete = async () => {
         try {
             const response = await fetch(
-                "http://localhost:3000/api/auth/delete-account",
+                `${BASE_URL}/api/auth/delete-account`,
                 {
                     method: "DELETE",
                     headers: {
@@ -194,7 +196,7 @@ export default function Component() {
                         onClick={() =>
                             document.getElementById("inputImage").click()
                         }
-                        src={`http://localhost:3000${profilePicture}`}
+                        src={`BASE_URL${profilePicture}`}
                         alt='profile'
                         onError={(e) => { e.target.src = "../public/assets/images/profilepic.jpeg"; }}
                     />

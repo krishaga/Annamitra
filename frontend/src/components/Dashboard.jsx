@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import DoughnutChart from "./Chart";
 import "../styles/dashboard.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 function Dashboard() {
     const [cookedCount, setCookedCount] = useState(0);
     const [uncookedCount, setUncookedCount] = useState(0);
@@ -16,7 +18,7 @@ function Dashboard() {
         const fetchDetails = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/auth/dashboard",
+                    `${BASE_URL}/api/auth/dashboard`,
                     {
                         method: "GET",
                         headers: {

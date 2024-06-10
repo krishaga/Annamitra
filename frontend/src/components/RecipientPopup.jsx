@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/confirmation.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 export default function Confirmation({ element, onClose }) {
     const [donor, setDonor] = useState({});
     const [user, setUser] = useState({});
@@ -10,7 +12,7 @@ export default function Confirmation({ element, onClose }) {
         const fetchDonor = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/auth/get-user",
+                    `${BASE_URL}/api/auth/get-user`,
                     {
                         method: "GET",
                         headers: {
@@ -35,7 +37,7 @@ export default function Confirmation({ element, onClose }) {
         const fetchUser = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/auth/user-details",
+                    `${BASE_URL}/api/auth/user-details`,
                     {
                         method: "GET",
                         headers: {
@@ -61,7 +63,7 @@ export default function Confirmation({ element, onClose }) {
         setShowContactInfo(true);
         try {
             const response = await fetch(
-                "http://localhost:3000/api/match/match-recipient",
+                `${BASE_URL}/api/match/match-recipient`,
                 {
                     method: "PUT",
                     headers: {

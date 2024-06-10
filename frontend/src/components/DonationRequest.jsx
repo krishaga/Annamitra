@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/forms.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 function DonateList() {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
@@ -16,7 +18,7 @@ function DonateList() {
     };
 
     const handleDonate = () => {
-        fetch("http://localhost:3000/api/forms/new-donation", {
+        fetch(`${BASE_URL}/api/forms/new-donation`, {
             method: "POST",
             body: JSON.stringify({
                 category,

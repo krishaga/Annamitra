@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/forms.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -9,7 +11,7 @@ function Login() {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        fetch("http://localhost:3000/api/auth/login", {
+        fetch(`${BASE_URL}/api/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

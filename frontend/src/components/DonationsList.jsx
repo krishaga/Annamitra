@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Confirmation from "./DonationPopup";
 import "../styles/list.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 export default function DonationsList() {
     const [recipients, setRecipients] = useState([]);
     const [currentElement, setCurrentElement] = useState([]);
@@ -13,7 +15,7 @@ export default function DonationsList() {
         const fetchRecipients = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/lists/donations-list",
+                    `${BASE_URL}/api/lists/donations-list`,
                     {
                         method: "GET",
                         headers: {

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/forms.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 function RequestList() {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
@@ -21,7 +23,7 @@ function RequestList() {
     };
 
     const handleRequest = () => {
-        fetch("http://localhost:3000/api/forms/new-request", {
+        fetch(`${BASE_URL}/api/forms/new-request`, {
             method: "POST",
             body: JSON.stringify({
                 category,

@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../styles/Community.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 export default function component() {
   const [name, setName] = useState("");
 
@@ -10,7 +12,7 @@ export default function component() {
     const fetchdata = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/auth/user-details",
+          `${BASE_URL}/api/auth/user-details`,
           {
             method: "GET",
             headers: {

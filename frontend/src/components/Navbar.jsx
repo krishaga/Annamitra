@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/navbar.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL 
+
 function Navbar() {
     const [name, setName] = useState([]);
     const [address, setAddress] = useState([]);
@@ -15,7 +17,7 @@ function Navbar() {
         const fetchdata = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/auth/user-details",
+                    `${BASE_URL}/api/auth/user-details`,
                     {
                         method: "GET",
                         headers: {
@@ -81,7 +83,7 @@ function Navbar() {
                     </div>
                     <div className="profile">
                         <img
-                            src={`http://localhost:3000${profilePicture}`}
+                            src={`BASE_URL${profilePicture}`}
                             alt='profile'
                             onError={(e) => { e.target.src = "../public/assets/images/profilepic.jpeg"; }}
                             onClick={toggledisplay}
