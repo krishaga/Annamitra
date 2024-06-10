@@ -16,7 +16,7 @@ app.use(cors({
   origin: 'https://annamitra-frontend.onrender.com',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization', 'username', 'password'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'username', 'password', 'user_id', 'request_id'],
   preflightContinue: false,
   optionsSuccessStatus: 204
 }));
