@@ -10,15 +10,14 @@ const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
 
+const app = express();
 // app.use(cors());
 app.use(cors({
-  origin: 'https://annamitra-frontend.onrender.com', 
+  origin: 'https://annamitra-frontend.onrender.com', // Allow only your frontend
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, 
-  }));
-  
-  const app = express();
-  app.use(bodyParser.json());
+  credentials: true, // Allow cookies to be sent with requests
+}));
+app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
