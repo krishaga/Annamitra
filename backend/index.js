@@ -13,10 +13,16 @@ require("dotenv").config();
 const app = express();
 // app.use(cors());
 app.use(cors({
-  origin: 'https://annamitra-frontend.onrender.com', // Allow only your frontend
+  origin: 'https://annamitra-frontend.onrender.com',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Allow cookies to be sent with requests
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 }));
+
+app.options('*', cors());
+
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
