@@ -22,9 +22,9 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    width: 96vw;
+    max-width: 96vw;
     margin: 1.5rem;
-    min-height: 4rem;
+    max-height: 5rem;
 }
 
 .logo {
@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 
-.navbar2 img {
+.logo img {
     max-width: 16rem;
     height: 5rem;
 }
@@ -43,23 +43,26 @@
     flex: 2;
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.4rem;
 }
 
 .name {
     margin: 0.4rem 0;
-    font-size: 1rem;
+    font-size: 14px;
     font-style: italic;
     color: rgb(7, 86, 16);
     font-weight: bold;
 }
 
 .address {
-    font-size: 0.75rem;
+    font-size: 10px;
+}
+
+.profile {
+    margin: auto 0;
 }
 
 .profile img {
-    flex: 1;
+    /* flex: 1; */
     border-radius: 50px;
     width: 5rem;
     height: 5rem;
@@ -83,6 +86,7 @@
     z-index: 2;
     padding: 0.4em;
 }
+
 .sidebar-link {
     height: 6rem;
     width: 6rem;
@@ -126,4 +130,27 @@
     border-radius: 10px;
     border-width: 0px;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        flex: 2;
+    }
+    .logo img {
+        height: 4rem;
+    }
+    .profile img {
+        width: 3rem;
+        height: 3rem;
+    }
+    .sidebar {
+        top: 113px;
+    }
+    .sidebar-link {
+        width: 4rem;
+        height: 4rem;
+    }
+    .sidebar-link img {
+        height: 1.4rem;
+    }
 }
