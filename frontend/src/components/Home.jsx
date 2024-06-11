@@ -51,7 +51,7 @@ function Annamitra() {
                 </p>
                 <br />
                 <br />
-                <div className="bottom-buttons">
+                <div className="bottom-buttons home-bottom">
                     <button
                         className="button-main"
                         onClick={() => {
