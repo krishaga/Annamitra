@@ -41,6 +41,7 @@ function Navbar() {
     }, [profilePicture]);
 
     if (
+        location.pathname === "/" ||
         location.pathname === "/Annamitra" ||
         location.pathname === "/Signup" ||
         location.pathname === "/Login"

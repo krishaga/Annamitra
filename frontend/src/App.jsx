@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Signup from "./components/Signup.jsx";
 import Login from "./components/Login";
 import Annamitra from "./components/Home.jsx";
@@ -20,6 +20,7 @@ function App() {
             <Navbar />
             <div>
                 <Routes>
+                    <Route path="/" element={<Navigate to="/Annamitra" />} />
                     <Route path="/Annamitra" element={<Annamitra />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/LogIn" element={<Login />} />
