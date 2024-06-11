@@ -1,9 +1,8 @@
 .dashboard {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
-    background-color: #d1e58f; /* Olive Green */
+    background-color: #d1e58f;
     padding: 20px;
     border-radius: 25px;
     width: 60rem;
@@ -33,7 +32,7 @@
 }
 
 .card {
-    background-color: #fff; /* White */
+    background-color: #fff;
     padding: 10px;
     border-radius: 20px;
     text-align: center;
@@ -68,7 +67,7 @@
     align-items: center;
     width: 6rem;
     height: 6rem;
-    background-color: #eef6c9; /* Dark Olive Green */
+    background-color: #eef6c9;
     border-radius: 50%;
     margin: auto;
 }
@@ -82,7 +81,7 @@
 
 .btns-main {
     transition: color 0.4s, background-color 0.4s;
-    padding: 10px 15px; /* Adjusted padding */
+    padding: 10px 15px;
     margin-top: 1.6rem;
     border: none;
     border-radius: 18px;

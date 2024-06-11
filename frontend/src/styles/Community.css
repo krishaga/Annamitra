@@ -1,4 +1,4 @@
-.container-1{
+.container-1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,19 +7,19 @@
     padding: 1.5rem;
 }
 
-.line1{
+.line1 {
     font-size: 2rem;
     color: #354e41;
     font-weight: 600;
     padding-bottom: 0.3rem;
 }
 
-.line2{
+.line2 {
     color: #7b9c2a;
     font-size: 1.2rem;
 }
 
-.main-container{
+.main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +32,7 @@
     gap: 2rem;
 }
 
-.posts{
+.posts {
     border-radius: 1rem;
     background-color: rgba(255, 255, 255, 0.7);
     width: 100%;
@@ -42,10 +42,9 @@
 }
 
 .posts ul {
-    list-style-type: circle
+    list-style-type: circle;
 }
 
-
-.h1{
+.h1 {
     font-size: 20px;
 }

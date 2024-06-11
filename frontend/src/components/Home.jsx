@@ -31,7 +31,6 @@ function Annamitra() {
                 <img
                     src="/assets/images/side_image.png"
                     alt="Food Donation Image"
-                    //   style={{ maxWidth: "95%" }}
                 />
             </div>
             <div className="rightsection">

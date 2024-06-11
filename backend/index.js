@@ -11,7 +11,8 @@ const path = require("path");
 require("dotenv").config();
 
 const app = express();
-// app.use(cors());
+
+// CORS configuration to allow only your frontend
 app.use(cors({
   origin: 'https://annamitra-frontend.onrender.com',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -21,17 +22,19 @@ app.use(cors({
   optionsSuccessStatus: 204
 }));
 
+// Enable pre-flight for all routes
 app.options('*', cors());
 
+// Parse JSON bodies
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
-app.use("/uploads/profile-pictures", express.static(path.join(__dirname, "uploads",'profile-pictures')));
+// Serve static files for profile pictures
+app.use("/uploads/profile-pictures", express.static(path.join(__dirname, "uploads", "profile-pictures")));
 
 // Connect to MongoDB
 dbConnect();
 
-// Use the auth routes
+// Use the routes
 app.use("/api/auth", authRoutes);
 app.use("/api/lists", listRoutes);
 app.use("/api/forms", formRoutes);

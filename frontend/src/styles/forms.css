@@ -19,7 +19,6 @@
     margin: auto;
 }
 
-/* Right Section Styles */
 .rightsection {
     flex: 0.6;
     padding: 2rem;
@@ -63,12 +62,11 @@
 
 .formscontrol:focus {
     outline: none;
-    border: 3px solid #9dd3f6; /* Set the border color to blue */
-    box-shadow: 0 0 5px rgba(32, 138, 208, 0.6); /* Set the shadow color for the glowing effect */
+    border: 3px solid #9dd3f6;
+    box-shadow: 0 0 5px rgba(32, 138, 208, 0.6);
 }
 
 .formsrow {
-    /* width: 90%; */
     display: flex;
     gap: 2.4rem;
     justify-content: space-between;
@@ -77,7 +75,7 @@
 .input-form label {
     text-wrap: nowrap;
 }
-/* Bottom Buttons Styles */
+
 .bottom-buttons {
     width: 100%;
     text-align: center;
@@ -153,5 +151,5 @@
 .selected {
     border: 8px solid white;
     border-radius: 10%;
-    box-shadow: 0 0 0 2px #7b9c2a; /* Adjust the offset (last value) as needed */
+    box-shadow: 0 0 0 2px #7b9c2a;
 }

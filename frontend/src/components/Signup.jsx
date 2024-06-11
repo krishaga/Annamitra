@@ -186,7 +186,6 @@ function Signup() {
                             />
                         </div>
                     </div>
-                    {/* <br /> */}
                     <div className="formsgroup">
                         <label htmlFor="inputCountry">Country</label>
                         <input
