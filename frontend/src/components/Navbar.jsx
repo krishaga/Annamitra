@@ -82,7 +82,7 @@ function Navbar() {
                     </div>
                     <div className="profile">
                         <img
-                            src={`BASE_URL${profilePicture}`}
+                            src={`${BASE_URL}${profilePicture}`}
                             alt="profile"
                             onError={(e) => {
                                 e.target.src =
