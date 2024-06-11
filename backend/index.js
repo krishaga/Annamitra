@@ -14,7 +14,7 @@ const app = express();
 
 // CORS configuration to allow only your frontend
 app.use(cors({
-  origin: 'https://annamitra-frontend.onrender.com',
+  origin: 'https://annamitra.onrender.com',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization', 'username', 'password', 'user_id', 'request_id'],
