@@ -195,7 +195,7 @@ export default function Component() {
                         onClick={() =>
                             document.getElementById("inputImage").click()
                         }
-                        src={`BASE_URL${profilePicture}`}
+                        src={`${BASE_URL}${profilePicture}`}
                         alt="profile"
                         onError={(e) => {
                             e.target.src =
