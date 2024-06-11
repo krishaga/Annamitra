@@ -5,7 +5,7 @@
     background-color: #d1e58f;
     padding: 20px;
     border-radius: 25px;
-    width: 60rem;
+    width: 80%;
     height: 50rem;
 }
 
@@ -21,7 +21,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 5rem;
 }
 
 .intro {
@@ -106,4 +105,10 @@
 .second-section {
     width: 26rem;
     height: 26rem;
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        width: 92%;
+    }
 }

@@ -59,65 +59,59 @@ function Dashboard() {
     }, []);
 
     return (
-        <div>
-            <div className="first">
-                <div className="main">
-                    <div className="intro">Your DashBoard</div>
-                    <div className="dashboard">
-                        <div className="upper-section">
-                            <div className="card">
-                                <div className="circle">
-                                    <div className="count">{donationCount}</div>
-                                </div>
-                                <div className="text">
-                                    Donations
-                                    <br />
-                                    Till Now
-                                </div>
+        <div className="first">
+            <div className="main">
+                <div className="intro">Your DashBoard</div>
+                <div className="dashboard">
+                    <div className="upper-section">
+                        <div className="card">
+                            <div className="circle">
+                                <div className="count">{donationCount}</div>
                             </div>
-                            <div className="card">
-                                <div className="circle">
-                                    <div className="count">{requestCount}</div>
-                                </div>
-                                <div className="text">
-                                    Requests
-                                    <br />
-                                    Till Now
-                                </div>
+                            <div className="text">
+                                Donations
+                                <br />
+                                Till Now
                             </div>
                         </div>
-                        <div className="lower-section">
-                            <div className="second-section">
-                                <DoughnutChart
-                                    data={[
-                                        cookedCount,
-                                        uncookedCount,
-                                        packedCount,
-                                    ]}
-                                />
+                        <div className="card">
+                            <div className="circle">
+                                <div className="count">{requestCount}</div>
+                            </div>
+                            <div className="text">
+                                Requests
+                                <br />
+                                Till Now
                             </div>
                         </div>
                     </div>
+                    <div className="lower-section">
+                        <div className="second-section">
+                            <DoughnutChart
+                                data={[cookedCount, uncookedCount, packedCount]}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div className="bottom-btns">
-                    <button
-                        className="btns-main"
-                        onClick={(e) => {
-                            navigate("/donations-list");
-                        }}
-                    >
-                        Donate
-                    </button>
-                    &nbsp;&nbsp;
-                    <button
-                        className="btns-main"
-                        onClick={(e) => {
-                            navigate("/recipients-list");
-                        }}
-                    >
-                        Request
-                    </button>
-                </div>
+            </div>
+            <div className="bottom-btns">
+                <button
+                    className="btns-main"
+                    onClick={(e) => {
+                        navigate("/donations-list");
+                    }}
+                >
+                    Donate
+                </button>
+                &nbsp;&nbsp;
+                <button
+                    className="btns-main"
+                    onClick={(e) => {
+                        navigate("/recipients-list");
+                    }}
+                >
+                    Request
+                </button>
             </div>
         </div>
     );
