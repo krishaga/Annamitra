@@ -112,4 +112,9 @@
     .dashboard {
         width: 92%;
     }
+    .second-section {
+        height: 23rem;
+        width: 23rem;
+        margin: 0;
+    }
 }
