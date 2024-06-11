@@ -9,7 +9,7 @@ export default function Component() {
                 <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 md:gap-10">
                     <div className="space-y-3">
                         <h1
-                            className="text-8xl font-bold tracking-tighter sm:text-2xl md:text-5xl"
+                            className="text-5xl font-bold tracking-tighter sm:text-5xl md:text-5xl"
                             style={{ color: "#354e41" }}
                         >
                             About Us
@@ -203,7 +203,7 @@ export default function Component() {
                     </div>
                 </div>
             </section>
-            <section className="content-center ">
+            <section className="content-center">
                 <div className="container grid items-center justify-center gap-4 px-4 py-12 md:px-6 md:py-24">
                     <div className="space-y-3 text-center">
                         <h2

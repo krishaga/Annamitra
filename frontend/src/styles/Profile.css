@@ -47,6 +47,11 @@
     width: 100%;
 }
 
+.logout {
+    flex: 2;
+    padding-bottom: 2rem;
+}
+
 .compo {
     display: flex;
     align-items: center;
@@ -84,10 +89,6 @@
     height: 100%;
 }
 
-.logout {
-    flex: 2;
-}
-
 .right-section {
     flex: 3;
     display: flex;
@@ -102,12 +103,13 @@
 
 .category-detail {
     display: none;
+    gap: 1rem;
 }
 
 .category-detail.current {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -143,6 +145,7 @@
 
 .update-button {
     flex: 2;
+    padding-bottom: 3rem;
 }
 
 .setting-head {
@@ -171,4 +174,18 @@
 .btns-main span {
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .profile-settings {
+        display: block;
+        height: auto;
+        scroll-behavior: smooth;
+    }
+    .left-section {
+        padding-bottom: 2rem;
+    }
+    .category-detail.current {
+        height: auto;
+    }
 }
