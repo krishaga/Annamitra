@@ -61,7 +61,7 @@ export default function RecipientsList() {
                         navigate("/recipientRequest");
                     }}
                 >
-                    Custom Recipient
+                    Custom Request
                 </button>
             </div>
             {isPopupOpen && (

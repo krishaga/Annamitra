@@ -8,11 +8,11 @@
 .footer {
     background-color: #b9c99c;
     display: flex;
-    align-items: center;
-    flex-grow: 1;
+    gap: 1rem;
     justify-content: space-around;
-    height: 8.5rem;
-    margin-top: 7rem;
+    min-height: 8.5rem;
+    margin-top: 5rem;
+    padding: 1rem;
 }
 
 .part1 {
@@ -27,7 +27,6 @@
 }
 
 .part2 p {
-    margin-right: 3rem;
     color: rgb(29, 57, 1);
     font-size: 1.1rem;
     font-weight: 700;
@@ -41,7 +40,6 @@
 }
 
 .part3 p {
-    margin-right: 3rem;
     color: rgb(29, 57, 1);
     font-size: 1.1rem;
     font-weight: 700;
@@ -78,4 +76,18 @@ li img {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .part1 img {
+        height: 4rem;
+        width: 10rem;
+    }
+    .footer p {
+        font-size: 16px;
+    }
+    .footer li {
+        font-size: 14px;
+        text-decoration: underline;
+    }
 }

@@ -1,15 +1,16 @@
 import React from "react";
 import "../styles/Footer.css";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+    const navigate = useNavigate();
     return (
         <div className="maindiv">
             <div className="footer">
                 <div
                     className="part1"
                     onClick={() => {
-                        window.location = "/dashboard";
+                        navigate("/dashboard");
                     }}
                 >
                     <img src="/assets/images/logo.png" alt="logo" />
@@ -19,21 +20,21 @@ export default function Footer() {
                     <ul className="links">
                         <li
                             onClick={() => {
-                                window.location = "/AboutUs";
+                                navigate("/AboutUs");
                             }}
                         >
                             AboutUs
                         </li>
                         <li
                             onClick={() => {
-                                window.location = "/donations-list";
+                                navigate("/donations-list");
                             }}
                         >
                             Donate
                         </li>
                         <li
                             onClick={() => {
-                                window.location = "/recipients-list";
+                                navigate("/recipients-list");
                             }}
                         >
                             Recieve
