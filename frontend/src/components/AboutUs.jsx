@@ -49,38 +49,7 @@ export default function Component() {
                             are dedicated to our mission.
                         </p>
                     </div>
-                    <div className="grid w-full min-w-[800px] grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-6">
-                        <div className="flex flex-col gap-4 items-center justify-center">
-                            <img
-                                alt="User"
-                                className="mx-auto rounded-full overflow-hidden object-cover object-center border-10 border-gray-100 w-28 h-38 dark:border-gray-850"
-                                src="/assets/images/Aashita.jpeg"
-                            />
-                            <div className="flex flex-col gap-2">
-                                <h3 className="text-xl font-semibold">
-                                    Aashita Narayanpur
-                                </h3>
-                                <p className="text-sm text-[#354e41] font-semibold flex items-center ">
-                                    UI/UX Designer
-                                    <a
-                                        href="https://www.linkedin.com/in/aashitan/"
-                                        className="ml-2"
-                                    >
-                                        <img
-                                            className="linkedin-icon"
-                                            src="../public/assets/images/linkedin_svg.svg"
-                                            alt="LinkedIn Profile"
-                                            style={{
-                                                width: "22px",
-                                                height: "22px",
-                                                border: "2px solid #354e41",
-                                                borderRadius: "4px",
-                                            }}
-                                        />
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
+                    <div className="flex items-center justify-between w-full min-w-[800px] grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-6">
                         <div className="flex flex-col gap-4 items-center justify-center">
                             <img
                                 alt="User"
